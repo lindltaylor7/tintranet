@@ -1460,52 +1460,52 @@
 													<div class="gallery-wrap">
 														<div class="portfolio-wrap project-gallery">
 															<ul id="portfolio_1" class="portf auto-construct  project-gallery" data-col="4">
-																<li  class="item"   data-src="img/gallery/equal-size/mock1.jpg" data-sub-html="<h6>Bagwati</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" >
+																<li  class="item"   data-src="{{asset('img/gallery/equal-size/mock1.jpg')}}" data-sub-html="<h6>Bagwati</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" >
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock1.jpg"  alt="Image description" />
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock1.jpg')}}"  alt="Image description" />
 																	<span class="hover-cap">Bagwati</span>
 																	</a>
 																</li>
-																<li class="item" data-src="img/gallery/equal-size/mock2.jpg"   data-sub-html="<h6>Not a Keyboard</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock2.jpg')}}"   data-sub-html="<h6>Not a Keyboard</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock2.jpg"  alt="Image description" />
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock2.jpg')}}"  alt="Image description" />
 																	<span class="hover-cap">Not a Keyboard</span>
 																	</a>
 																</li>
-																<li class="item" data-src="img/gallery/equal-size/mock3.jpg" data-sub-html="<h6>Into the Woods</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock3.jpg')}}" data-sub-html="<h6>Into the Woods</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock3.jpg"  alt="Image description" />
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock3.jpg')}}"  alt="Image description" />
 																	<span class="hover-cap">Into the Woods</span>
 																	</a>
 																</li>
-																<li class="item" data-src="img/gallery/equal-size/mock4.jpg"  data-sub-html="<h6>Ultra Saffire</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock4.jpg')}}"  data-sub-html="<h6>Ultra Saffire</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock4.jpg"  alt="Image description" />
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock4.jpg')}}"  alt="Image description" />
 																	<span class="hover-cap"> Ultra Saffire</span>
 																	</a>
 																</li>
 																
-																<li class="item" data-src="img/gallery/equal-size/mock5.jpg" data-sub-html="<h6>Happy Puppy</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock5.jpg')}}" data-sub-html="<h6>Happy Puppy</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock5.jpg"  alt="Image description" />	
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock5.jpg')}}"  alt="Image description" />	
 																	<span class="hover-cap">Happy Puppy</span>
 																	</a>
 																</li>
-																<li class="item" data-src="img/gallery/equal-size/mock6.jpg"  data-sub-html="<h6>Wooden Closet</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock6.jpg')}}"  data-sub-html="<h6>Wooden Closet</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock6.jpg"  alt="Image description" />
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock6.jpg')}}"  alt="Image description" />
 																	<span class="hover-cap">Wooden Closet</span>
 																	</a>
 																</li>
-																<li class="item" data-src="img/gallery/equal-size/mock7.jpg" data-sub-html="<h6>Happy Puppy</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock7.jpg')}}" data-sub-html="<h6>Happy Puppy</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock7.jpg"  alt="Image description" />	
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock7.jpg')}}"  alt="Image description" />	
 																	<span class="hover-cap">Happy Puppy</span>
 																	</a>
 																</li>
-																<li class="item" data-src="img/gallery/equal-size/mock8.jpg"  data-sub-html="<h6>Wooden Closet</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																<li class="item" data-src="{{asset('img/gallery/equal-size/mock8.jpg')}}"  data-sub-html="<h6>Wooden Closet</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
 																	<a href="">
-																	<img class="img-responsive" src="img/gallery/equal-size/mock8.jpg"  alt="Image description" />
+																	<img class="img-responsive" src="{{asset('img/gallery/equal-size/mock8.jpg')}}"  alt="Image description" />
 																	<span class="hover-cap">Wooden Closet</span>
 																	</a>
 																</li>
@@ -1718,7 +1718,7 @@
 								</div>
 							</div>
 						</div>
-							<div class="panel panel-default card-view">
+						<div class="panel panel-default card-view">
 							<div class="panel-heading">
 								<div class="pull-left">
 									<h6 class="panel-title txt-dark">Madalyn Rascon</h6>
@@ -1761,7 +1761,7 @@
 															<div class="chat-body">
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Clay Masse</span>
 																			<span class="time block truncate txt-grey">No one saves us but ourselves.</span>
@@ -1772,7 +1772,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user1.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user1.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Evie Ono</span>
 																			<span class="time block truncate txt-grey">Unity is strength</span>
@@ -1783,7 +1783,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user2.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user2.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Madalyn Rascon</span>
 																			<span class="time block truncate txt-grey">Respect yourself if you would have others respect you.</span>
@@ -1794,7 +1794,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user3.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user3.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Mitsuko Heid</span>
 																			<span class="time block truncate txt-grey">I’m thankful.</span>
@@ -1805,7 +1805,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Ezequiel Merideth</span>
 																			<span class="time block truncate txt-grey">Patience is bitter.</span>
@@ -1816,7 +1816,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user1.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user1.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Jonnie Metoyer</span>
 																			<span class="time block truncate txt-grey">Genius is eternal patience.</span>
@@ -1827,7 +1827,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user2.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user2.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Angelic Lauver</span>
 																			<span class="time block truncate txt-grey">Every burden is a blessing.</span>
@@ -1838,7 +1838,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user3.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user3.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Priscila Shy</span>
 																			<span class="time block truncate txt-grey">Wise to resolve, and patient to perform.</span>
@@ -1849,7 +1849,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user4.png" alt="user"/>
+																		<img class="user-img img-circle"  src="dist/img/user4.png" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Linda Stack</span>
 																			<span class="time block truncate txt-grey">Our patience will achieve more than our force.</span>
@@ -1882,7 +1882,7 @@
 															<ul class="users-chat-nicescroll-bar pt-20">
 																<li class="friend">
 																	<div class="friend-msg-wrap">
-																		<img class="user-img img-circle block pull-left"  src="img/user.png" alt="user"/>
+																		<img class="user-img img-circle block pull-left"  src="dist/img/user.png" alt="user"/>
 																		<div class="msg pull-left">
 																			<p>Hello Jason, how are you, it's been a long time since we last met?</p>
 																			<div class="msg-per-detail text-right">
@@ -1914,7 +1914,7 @@
 																</li>
 																<li class="friend">
 																	<div class="friend-msg-wrap">
-																		<img class="user-img img-circle block pull-left"  src="img/user.png" alt="user"/>
+																		<img class="user-img img-circle block pull-left"  src="dist/img/user.png" alt="user"/>
 																		<div class="msg pull-left"> 
 																			<p>Not too bad.</p>
 																			<div class="msg-per-detail  text-right">
