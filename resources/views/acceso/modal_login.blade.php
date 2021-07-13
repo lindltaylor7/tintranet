@@ -7,7 +7,7 @@
 		<div class="wrapper  pa-0">
 			<header class="sp-header">
 				<div class="sp-logo-wrap pull-left">
-					<a href="{{route('index')}}">
+					<a href="{{route('home')}}">
 						<img class="brand-img mr-10" src="{{asset('img/logo.png')}}" alt="brand"/>
 						<span class="brand-text">TRIAD</span>
 					</a>
