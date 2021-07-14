@@ -47,6 +47,7 @@
         
         <!-- Data table JavaScript -->
         <script src="{{asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('js/productorders-data.js')}}"></script>
         
         <!-- Slimscroll JavaScript -->
         <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
@@ -95,8 +96,8 @@
         
         <!-- Init JavaScript -->
         <script src="{{asset('js/init.js')}}"></script>
-        <script src="{{asset('js/dashboard-data.js')}}"></script>
         <script src="{{asset('js/widgets-data.js')}}"></script>
+        <script src="{{asset('js/dashboard3-data.js')}}"></script>
 
         <!-- Vector Maps JavaScript -->
         <script src="{{asset('vendors/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
