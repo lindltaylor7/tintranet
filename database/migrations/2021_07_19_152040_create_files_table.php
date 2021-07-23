@@ -19,7 +19,7 @@ class CreateFilesTable extends Migration
             $table->string('clsf');
             $table->string('url',300);
             $table->integer('fileable_id');
-            $table->integer('fileable_type');
+            $table->string('fileable_type');
             $table->timestamps();
         });
     }

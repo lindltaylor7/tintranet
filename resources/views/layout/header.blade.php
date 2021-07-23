@@ -267,12 +267,15 @@
                         </div>
                     </li>
                 </ul>
-            </li>
+            </li>2
+           
             <li class="dropdown auth-drp">
-                <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('img/user1.png')}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+                @foreach($users->files as $img)
+                <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('storage/'.$img->url)}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+                @endforeach
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
-                        <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a href="{{route('perfil',1)}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
