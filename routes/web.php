@@ -24,8 +24,8 @@ Route::get('/login', function() {
     return view('login');
 })->name('login')->middleware('guest');
 
-Route::post('login', [LoginController::class, 'login']);
-Route::post('logout', [LoginController::class, 'logout']);
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/registro', [UserController::class, 'create'])->name('registro')->middleware('guest');
 Route::post('/registro/usuario', [UserController::class, 'store'])->name('user.store');

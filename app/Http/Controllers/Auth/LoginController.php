@@ -13,15 +13,15 @@ class LoginController extends Controller
     public function login(Request $request, Redirector $redirect)
     {
         $remember = $request->filled('checkbox_2');
-    
+
         if (Auth::attempt($request->only('email','password'), $remember)) {
             $request->session()->regenerate();
-    
+
             return $redirect
                 ->to('/')
                 ->with('status','Logeo Exitoso!');
         }
-    
+
         throw ValidationException::withMessages([
             'email' => __('auth.failed')
         ]);
@@ -35,7 +35,7 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
 
-        return $redirect->to('/login');
+        return $redirect->route('login');
 
     }
 }

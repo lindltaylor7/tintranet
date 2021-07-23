@@ -271,12 +271,18 @@
                         </div>
                     </li>
                 </ul>
-            </li>2
-           
+            </li>
+
             <li class="dropdown auth-drp">
-                @foreach($users->files as $img)
-                <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('storage/'.$img->url)}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
-                @endforeach
+
+
+                @if($users->files->isNotEmpty())
+                    @foreach($users->files as $img)
+                    <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('storage/'.$img->url)}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+                    @endforeach
+                    @else
+                    <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+                @endif
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
                         <a href="{{route('perfil',1)}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
@@ -307,7 +313,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <form style="display: inline" action="/logout" method="POST">
+                        <form style="display: inline" action="{{route('logout')}}" method="POST">
                             @csrf
                             <a href="#" onclick="this.closest('form').submit()" class=""><i class="ml-2 zmdi zmdi-power"></i><span>Log Out</span></a>
                         </form>

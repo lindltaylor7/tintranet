@@ -18,19 +18,19 @@
                         <div class="profile-img-wrap">
                             <img class="inline-block mb-10" src="{{asset('storage/'.$img->url)}}"alt="user"/>
                             <div class="fileupload btn btn-default">
-                                <span class="btn-text"  data-toggle="modal" data-target="#insert_foto">Foto</span>                      
+                                <span class="btn-text"  data-toggle="modal" data-target="#insert_foto">Foto</span>
                             </div>
                         </div>
-                      
+
                         @endforeach
                         @else
                         <img id="pictureUserUpdate"
                             src="https://revistabyte.es/wp-content/uploads/2016/01/Seguridad-TI-768x484.jpg.webp"
                             alt="" style="width: 150px; height: 150px; object-fit: cover;">
-  
+
                         @endif
-                        
-                     
+
+
                         <h5 class="block mt-10 mb-5 weight-500 capitalize-font txt-primary" >{{$users->name}}</h5>
                         <h6 class="block capitalize-font pb-20">Developer Geek</h6>
                     </div>
@@ -51,7 +51,7 @@
                         </div>
                         <button class="btn btn-primary btn-block  btn-anim mt-30" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i><span class="btn-text">editar perfil</span></button>
 
-             
+
                     </div>
 
                 </div>
