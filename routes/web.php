@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
@@ -17,10 +18,7 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home')->middleware('auth');
-
+Route::get('/', [HomeController::class,'index'])->name("home")->middleware('auth');
 
 Route::get('/login', function() {
     return view('login');
@@ -32,7 +30,6 @@ Route::post('logout', [LoginController::class, 'logout']);
 Route::get('/registro', [UserController::class, 'create'])->name('registro')->middleware('guest');
 Route::post('/registro/usuario', [UserController::class, 'store'])->name('user.store');
 
-Route::get('/mi_perfil', function () {
-    return view('usuario_perfil.usuario_perfil');
-})->name("perfil")->middleware('auth');
-
+Route::get('/user/{id}/perfil', [UserController::class,'show'])->name("perfil")->middleware('auth');
+Route::post('/user/foto/register', [UserController::class,'store'])->name("usuario.foto")->middleware('auth');
+Route::put('/user/{id}/update', [UserController::class,'update'])->name("usuario.update")->middleware('auth');

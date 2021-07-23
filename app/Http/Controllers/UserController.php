@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Console\StorageLinkCommand;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -37,7 +40,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
         if ($request->get('password') === $request->get('confirm_password')){
             $request->validate([
                 'name' => 'required',
@@ -61,7 +63,6 @@ class UserController extends Controller
         throw ValidationException::withMessages([
             'confirm_password' => __('auth.password')
         ]);
-
     }
 
     /**
@@ -72,7 +73,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::find($id);
+        return view('usuario_perfil.usuario_perfil', compact('users'));
+
     }
 
     /**
@@ -95,7 +98,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user= User::where('id',$id)->first();
+        $user->update($request->except(['_token','_method']));
+       
+        if ($request->file('fileUserUpdate')) {
+            $user->files()->delete();
+            $url = Storage::disk('public')->put('usuarios', $request->file('fileUserUpdate'));
+            $user->files()->create([
+                'name' => 'foto' ,
+                'clsf'=> 'imagen',
+                'url' => $url
+            ]);
+        }
+        
+        return redirect()->back();
     }
 
     /**
@@ -106,6 +122,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::where('id',$id)->first();
+        $usuario->images()->delete();
+        $usuario->delete();
+
+        return redirect()->back()->with('borrar_usuario','Borrado completo');
     }
 }
