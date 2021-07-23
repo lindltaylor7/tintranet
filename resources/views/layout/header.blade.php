@@ -5,6 +5,10 @@
                 <a href="{{route('home')}}">
                     <img class="brand-img" src="{{asset('img/logo.png')}}" alt="brand"/>
                     <span class="brand-text">Elmer</span>
+                    @if(session('status'))
+                        <br>
+                        {{ session('status') }}
+                    @endif
                 </a>
             </div>
         </div>
@@ -300,7 +304,10 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="{{route('login')}}"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                        <form style="display: inline" action="/logout" method="POST">
+                            @csrf
+                            <a href="#" onclick="this.closest('form').submit()" class=""><i class="ml-2 zmdi zmdi-power"></i><span>Log Out</span></a>
+                        </form>
                     </li>
                 </ul>
             </li>

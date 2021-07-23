@@ -48,21 +48,24 @@
 											<h6 class="text-center nonecase-font txt-grey">Ingrese los datos que se le soliciten</h6>
 										</div>	
 										<div class="form-wrap">
-											<form action="#">
+											<form action="#" method="POST">
+												@csrf
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Correo Electrónico</label>
-													<input type="email" class="form-control" required="" id="email" placeholder="Dirección de correo electrónico">
+													<input type="email" value="{{ old('email') }}" class="form-control" required="" autofocus id="email" name="email" placeholder="Dirección de correo electrónico">
+													@error('email') <p class="text-danger"> {{ $message }} </p> @enderror
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Contraseña</label>
 													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="forgot-password.html">¿Olvidó su contraseña?</a>
 													<div class="clearfix"></div>
-													<input type="password" class="form-control" required="" id="password" placeholder="Password">
+													<input type="password" class="form-control" required="" id="password" name="password" placeholder="Password">
+													@error('password') <p class="text-danger"> {{ $message }} </p> @enderror
 												</div>
 												
 												<div class="form-group">
 													<div class="checkbox checkbox-primary pr-10 pull-left">
-														<input id="checkbox_2" required="" type="checkbox">
+														<input id="checkbox_2" name="checkbox_2" type="checkbox">
 														<label for="checkbox_2"> Mantener Inicio de Sesión</label>
 													</div>
 													<div class="clearfix"></div>

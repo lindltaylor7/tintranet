@@ -45,29 +45,28 @@
 									<div class="col-sm-12 col-xs-12">
 										<div class="mb-30">
 											<h3 class="text-center txt-dark mb-10">REGISTRARSE A TRIAD</h3>
-											<h6 class="text-center nonecase-font txt-grey">Ingrese los datos solicitados</h6>
 										</div>	
 										<div class="form-wrap">
-											<form action="#">
+											<form action="{{ route('user.store') }}" method="POST">
+												@csrf
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputName_1">Nombre: (*)</label>
-													<input type="text" class="form-control" required="" id="name" placeholder="Nombre Completo">
+													<input type="text" class="form-control" value="{{ old('name') }}" required="" autofocus name="name" id="name" placeholder="Nombre Completo">
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Correo Electrónico: (*)</label>
-													<input type="email" class="form-control" required="" id="email" placeholder="Dirección de Correo Electrónico">
+													<input type="email" class="form-control" value="{{ old('email') }}" required="" name="email" id="email" placeholder="Dirección de Correo Electrónico">
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Contraseña: (*)</label>
-													<input type="password" class="form-control" required="" id="password" placeholder="Contraseña deseada">
-												</div>
-												<div class="form-group">
-													<div class="checkbox checkbox-primary pr-10 pull-left">
-														<input id="checkbox_2" required="" type="checkbox">
-														<label for="checkbox_2"> Acepto todos los <span class="txt-primary">Términos</span></label>
+													<input type="password" class="form-control" required="" name="password" id="password" placeholder="Contraseña deseada">
 													</div>
-													<div class="clearfix"></div>
+												<div class="form-group">
+													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Confirmar Contraseña: (*)</label>
+													<input type="password" class="form-control" required="" name="confirm_password" id="confirm_password" placeholder="Reescriba contraseña">
+													@error('confirm_password') <p class="text-danger"> {{ $message }} </p> @enderror
 												</div>
+												
 												<div class="form-group text-center">
 													<button type="submit" class="btn btn-primary btn-rounded">REGISTRAR</button>
 												</div>
