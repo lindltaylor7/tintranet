@@ -14,19 +14,20 @@
 
                         @if($users->files->isNotEmpty())
                         @foreach($users->files as $img)
-
                         <div class="profile-img-wrap">
-                            <img class="inline-block mb-10" src="{{asset('storage/'.$img->url)}}"alt="user"/>
+                            <img class="inline-block mb-10" id="Foto" src="{{asset('storage/'.$img->url)}}"  style="width: 135px; height: 135px; object-fit: cover;" alt="user"/>
                             <div class="fileupload btn btn-default">
                                 <span class="btn-text"  data-toggle="modal" data-target="#insert_foto">Foto</span>
                             </div>
                         </div>
-
                         @endforeach
                         @else
-                        <img id="pictureUserUpdate"
-                            src="https://revistabyte.es/wp-content/uploads/2016/01/Seguridad-TI-768x484.jpg.webp"
-                            alt="" style="width: 150px; height: 150px; object-fit: cover;">
+                        <div class="profile-img-wrap">
+                            <img class="inline-block mb-10"  id="pictureUserUpdate" src="https://revistabyte.es/wp-content/uploads/2016/01/Seguridad-TI-768x484.jpg.webp"  style="width: 135px; height: 135px; object-fit: cover;" alt="user"/>
+                            <div class="fileupload btn btn-default">
+                                <span class="btn-text"  data-toggle="modal" data-target="#insert_foto">Foto</span>
+                            </div>
+                        </div>                      
 
                         @endif
 

@@ -31,14 +31,7 @@
                                                 <div class="input-group-addon"><i class="icon-phone"></i></div>
                                                 <input type="phone" class="form-control" id="exampleInputContact_01" name="phone" placeholder="+102 987654321" value="{{$users->phone}}">
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label mb-10" for="exampleInputpwd_01">Contraseña</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                <input type="password" class="form-control" id="exampleInputpwd_01" name="password" placeholder="Enter pwd" value="password" value="{{$users->password}}">
-                                            </div>
-                                        </div>                                       
+                                        </div>                                                                             
                                     </div>
                                     <div class="form-actions mt-10">
                                         <button type="submit" class="btn btn-success mr-10 mb-30">Acualizar Perfil</button>

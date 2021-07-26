@@ -41,14 +41,7 @@
                                                             <div class="input-group-addon"><i class="icon-phone"></i></div>
                                                             <input type="phone" class="form-control" id="exampleInputContact_1" name="phone" placeholder="+102 987654321" value="{{$users->phone}}">
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label mb-10" for="exampleInputpwd_1">Contraseña</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                            <input type="password" class="form-control" id="exampleInputpwd_1" name="password" placeholder="Enter pwd" value="{{$users->password}}">
-                                                        </div>
-                                                    </div>                                                        
+                                                    </div>                                                                                                         
                                                     <div class="form-group">                        
                                                             <div class="user_pro_img_area">
                                                                 @if($users->files->isNotEmpty())
@@ -100,6 +93,17 @@
         
     </div>
     <!-- /.modal-dialog -->
-
-
 </div>
+<script>
+    //CAMBIAR IMAGEN CUADNO SE SELECCIONE UNA FOTO
+    document.getElementById("fileUserUpdate").addEventListener('change', cambiarImagen);
+    function cambiarImagen(event){
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById("pictureUserUpdate").setAttribute('src', event.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+    </script>
+    
