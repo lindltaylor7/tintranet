@@ -4,11 +4,8 @@
             <div class="logo-wrap">
                 <a href="{{route('home')}}">
                     <img class="brand-img" src="{{asset('img/logo.png')}}" alt="brand"/>
-                    <span class="brand-text">Elmer</span>
-                    @if(session('status'))
-                        <br>
-                        {{ session('status') }}
-                    @endif
+                    <span class="brand-text">TRIAD</span>
+
                 </a>
             </div>
         </div>

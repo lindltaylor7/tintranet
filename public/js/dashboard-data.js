@@ -1,6 +1,6 @@
 /*Dashboard Init*/
- 
-"use strict"; 
+
+"use strict";
 
 /*****Ready function start*****/
 $(document).ready(function(){
@@ -17,12 +17,12 @@ $(document).ready(function(){
 $(window).load(function(){
 	window.setTimeout(function(){
 		$.toast({
-			heading: 'Welcome to Elmer',
+			heading: 'Bienvenido a TRIAD',
 			text: 'Use the predefined ones, or specify a custom position object.',
 			position: 'bottom-left',
 			loaderBg:'#f8b32d',
 			icon: 'success',
-			hideAfter: 3500, 
+			hideAfter: 3500,
 			stack: 6
 		});
 	}, 3000);
@@ -30,7 +30,7 @@ $(window).load(function(){
 /*****Load function* end*****/
 
 /*****E-Charts function start*****/
-var echartsConfig = function() { 
+var echartsConfig = function() {
 	if( $('#e_chart_1').length > 0 ){
 		var eChart_1 = echarts.init(document.getElementById('e_chart_1'));
 		var option = {
@@ -51,7 +51,7 @@ var echartsConfig = function() {
 					fontWeight: 'normal',
 					fontFamily: "'Roboto', sans-serif",
 					fontSize: 12
-				}	
+				}
 			},
 			grid:{
 				show:false,
@@ -177,7 +177,7 @@ var echartsConfig = function() {
 					fontWeight: 'normal',
 					fontFamily: "'Roboto', sans-serif",
 					fontSize: 12
-				}	
+				}
 			},
 			legend: {
 				show:false
@@ -217,7 +217,7 @@ var echartsConfig = function() {
 			animationEasing: 'elasticOut',
 			animationDelay: function (idx) {
 				return Math.random() * 1000;
-			}	
+			}
 		};
 		eChart_3.setOption(option3);
 		eChart_3.resize();
@@ -226,7 +226,7 @@ var echartsConfig = function() {
 /*****E-Charts function end*****/
 
 /*****Sparkline function start*****/
-var sparklineLogin = function() { 
+var sparklineLogin = function() {
 	if( $('#sparkline_1').length > 0 ){
 		$("#sparkline_1").sparkline([2,4,4,6,8,5,6,4,8,6,6,2 ], {
 			type: 'bar',
@@ -237,7 +237,7 @@ var sparklineLogin = function() {
 			barColor: '#667add',
 			highlightSpotColor: '#667add'
 		});
-	}	
+	}
 	if( $('#sparkline_2').length > 0 ){
 		$("#sparkline_2").sparkline([0,2,8,6,8,5,3,5,7,2,4], {
 			type: 'bar',
@@ -248,7 +248,7 @@ var sparklineLogin = function() {
 			barColor: '#667add',
 			highlightSpotColor: '#667add'
 		});
-	}	
+	}
 	if( $('#sparkline_3').length > 0 ){
 		$("#sparkline_3").sparkline([0, 23, 43, 35, 44, 45, 56, 37, 40, 45, 56, 7, 10], {
 			type: 'bar',
@@ -273,7 +273,7 @@ var sparklineLogin = function() {
 			highlightLineColor: '#667add',
 			highlightSpotColor: '#667add'
 		});
-	}	
+	}
 }
 /*****Sparkline function end*****/
 
@@ -283,11 +283,11 @@ $(window).on("resize", function () {
 	/*Sparkline Resize*/
 	clearTimeout(sparkResize);
 	sparkResize = setTimeout(sparklineLogin, 200);
-	
+
 	/*E-Chart Resize*/
 	clearTimeout(echartResize);
 	echartResize = setTimeout(echartsConfig, 200);
-}).resize(); 
+}).resize();
 /*****Resize function end*****/
 
 /*****Function Call start*****/
