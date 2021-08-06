@@ -4,7 +4,8 @@
             <div class="logo-wrap">
                 <a href="{{route('home')}}">
                     <img class="brand-img" src="{{asset('img/logo.png')}}" alt="brand"/>
-                    <span class="brand-text">Elmer</span>
+                    <span class="brand-text">TRIAD</span>
+
                 </a>
             </div>
         </div>
@@ -268,11 +269,20 @@
                     </li>
                 </ul>
             </li>
+
             <li class="dropdown auth-drp">
-                <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('img/user1.png')}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+
+
+                @if($users->files->isNotEmpty())
+                    @foreach($users->files as $img)
+                    <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('storage/'.$img->url)}}"  style="width: 40px; height: 40px; object-fit: cover;" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+                    @endforeach
+                    @else
+                    <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" style="width: 40px; height: 40px; object-fit: cover;" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+                @endif
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
-                        <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a href="{{route('perfil',$users->id)}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
@@ -300,7 +310,10 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="{{route('login')}}"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                        <form style="display: inline" action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <a href="#" onclick="this.closest('form').submit()" class=""><i class="ml-2 zmdi zmdi-power"></i><span>Log Out</span></a>
+                        </form>
                     </li>
                 </ul>
             </li>

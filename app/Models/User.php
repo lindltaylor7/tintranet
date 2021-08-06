@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+
+
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -19,7 +22,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
+        'type',
+        'status',
+        'area_id',
     ];
 
     /**
@@ -29,6 +36,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'status',
         'remember_token',
     ];
 
@@ -40,4 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function files(){
+        return $this->morphMany('App\Models\File','fileable');
+       }
 }

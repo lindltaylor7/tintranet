@@ -8,7 +8,7 @@
             <a class="{{ request()->routeIs('home') ? 'active' : '' }}" href="{{route('home')}}"><div class="pull-left"><i class="fas fa-home mr-20"></i><span class="right-nav-text">Inicio</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
         </li>
         <li>
-            <a class="{{ request()->routeIs('perfil') ? 'active' : '' }}" href="{{route('perfil')}}"><div class="pull-left"><i class="fa fa-user mr-20"></i><span class="right-nav-text">Perfil</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+            <a class="{{ request()->routeIs('perfil') ? 'active' : '' }}" href="{{route('perfil',Auth::id())}}"><div class="pull-left"><i class="fa fa-user mr-20"></i><span class="right-nav-text">Perfil</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
         </li>
         <li>
             <a class="{{ request()->routeIs('departamentos') ? 'active' : '' }}" href="{{route('departamentos')}}"><div class="pull-left"><i class="fas fa-building mr-20"></i><span class="right-nav-text">Departamentos</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
