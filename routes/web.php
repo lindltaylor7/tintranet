@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\departmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//  CRUD de los departamentos
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
 
 Route::get('/login', function() {
     return view('login');
@@ -29,4 +31,19 @@ Route::get('/registro', function() {
 Route::get('/mi_perfil', function () {
     return view('usuario_perfil.usuario_perfil');
 })->name("perfil");
+
+Route::get('/departamentos',[departmentController::class, 'index'])->name("departamentos");
+
+Route::get('/departamentos/create',[departmentController::class, 'create'])->name("departamentos.crear");
+
+Route::post('/departamentos/store',[departmentController::class, 'store'])->name('departamentos.store');
+
+// apuntar a un enlace 
+Route::get('/departamentos/{id}/edit', [departmentController::class, 'edit'])->name("departamentos.editar");
+
+// actualizar 
+Route::put('/departamentos/{id}', [departmentController::class, 'update'])->name("departamentos.update");
+
+// eliminar
+Route::delete('/departamentos/{id}', [departmentController::class, 'destroy'])->name("departamentos.destroy");
 
