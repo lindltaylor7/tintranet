@@ -21,14 +21,12 @@
         <div class="container-fluid pt-25">
             <!-- Row -->
             <div class="row">
-                @include('layout.components.estado_tareas')
-				@include('layout.components.item_pendientes')
-                @include('layout.components.mis_estadisticas')
+                @include('layout.components.estado_proyectos')
             </div>
             <!-- /Row -->
 
             <!-- Row -->
-            @include('layout.components.estado_proyectos')
+            
         </div>
 
         <!-- Footer -->

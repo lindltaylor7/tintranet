@@ -34,6 +34,9 @@
 
         <!-- Custom CSS -->
         <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
+
+        <!-- Style table -->
+        {{-- <link href="{{asset('style.css')}}" rel="stylesheet" type="text/css"/> --}}
     </head>
 
     <body>
@@ -112,10 +115,18 @@
 	    <script src="{{asset('vendors/jquery-ui.min.js')}}"></script>
 	    <script src="{{asset('vendors/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
     	<script src="{{asset('js/fullcalendar-data.js')}}"></script>
+
         
       <!-- Sweet-Alert  -->
         <script src="{{asset('vendors/bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
 		<script src="{{asset('js/sweetalert-data.js')}}"></script>
+
+        <!-- Delete -->
+        <script src="{{asset('js/delete-table.js')}}"></script>
+
+        {{-- FONT ICONS --}}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
     </body>
 
 </html>
