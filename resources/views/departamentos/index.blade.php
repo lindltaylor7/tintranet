@@ -20,12 +20,8 @@
     <div class="page-wrapper">
         <div class="container-fluid pt-25">
             <!-- Row -->
-            <div class="row">
-                @include('layout.components.estado_tareas')
-				@include('layout.components.item_pendientes')
-                @include('layout.components.mis_estadisticas')
-            </div>
-            @include('layout.components.tablaindex')
+            
+            @include('layout.components.estado_proyectos')
             <!-- /Row -->
 
             <!-- Row -->

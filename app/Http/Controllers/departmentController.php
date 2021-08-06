@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class departmentController extends Controller
 {
     public function index() {
+        $users = User::find(Auth::id());
         $departments = Department::all(); 
         // return $departments;
-        return view ('departamentos.departamentos', compact('departments'));
+        return view ('departamentos.departamentos', compact('departments','users'));
     }
 
     public function create() {

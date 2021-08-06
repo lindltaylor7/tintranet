@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        $departments = Department::all();
         $users = User::find(Auth::id());
-        return view('welcome', compact('users'));
+        return view('welcome', compact('users','departments'));
     }
 
     /**

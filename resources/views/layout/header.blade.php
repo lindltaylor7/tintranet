@@ -273,8 +273,8 @@
             <li class="dropdown auth-drp">
 
 
-                @if($users->files->isNotEmpty())
-                    @foreach($users->files as $img)
+                @if(Auth::user()->files->isNotEmpty())
+                    @foreach(Auth::user()->files as $img)
                     <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{asset('storage/'.$img->url)}}"  style="width: 40px; height: 40px; object-fit: cover;" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
                     @endforeach
                     @else
@@ -282,13 +282,16 @@
                 @endif
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
-                        <a href="{{route('perfil',$users->id)}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a href="{{route('perfil',Auth::id())}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
                     </li>
                     <li>
-                        <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
+                        <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>{{Auth::user()->name}}</span></a>
+                    </li>
+                    <li>
+                        <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>{{Auth::user()->files}}</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>

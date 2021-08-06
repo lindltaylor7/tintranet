@@ -42,6 +42,7 @@
                 </thead>
 
                 <tbody>
+                  
                   @foreach ($departments as $department) 
                     <tr>
                       <td>{{$department->id}}</td>
@@ -68,6 +69,7 @@
                       </td>
                     </tr>
                   @endforeach
+                  
                 </tbody>
               </table>
             </div>

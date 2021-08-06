@@ -19,5 +19,5 @@
 
 	<!-- Right Sidebar Menu -->
 	@include('layout.rightbar')
-	{{-- @include('layout.index') --}}
+	@include('layout.index')
 @endsection
