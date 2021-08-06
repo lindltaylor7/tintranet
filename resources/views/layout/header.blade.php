@@ -291,11 +291,12 @@
                         <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>{{Auth::user()->name}}</span></a>
                     </li>
                     <li>
-                        <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>{{Auth::user()->files}}</span></a>
+                        <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Correo</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
                     </li>
+
                     <li class="divider"></li>
                     <li class="sub-menu show-on-hover">
                         <a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>
@@ -312,10 +313,13 @@
                         </ul>
                     </li>
                     <li class="divider"></li>
+
                     <li>
-                        <form style="display: inline" action="{{route('logout')}}" method="POST">
+                        <form style="display: inline !important; margin-left: 24px !important" action="{{route('logout')}}" method="POST">
                             @csrf
-                            <a href="#" onclick="this.closest('form').submit()" class=""><i class="ml-2 zmdi zmdi-power"></i><span>Log Out</span></a>
+
+                                    <a href="#" onclick="this.closest('form').submit()"><i class="zmdi zmdi-power text-danger"></i><span style="padding-left:14px !important;">Log Out</span></a>
+
                         </form>
                     </li>
                 </ul>
