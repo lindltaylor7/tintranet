@@ -33,3 +33,7 @@ Route::post('/registro/usuario', [UserController::class, 'store'])->name('user.s
 Route::get('/user/{id}/perfil', [UserController::class,'show'])->name("perfil")->middleware('auth');
 Route::post('/user/foto/register', [UserController::class,'store'])->name("usuario.foto")->middleware('auth');
 Route::put('/user/{id}/update', [UserController::class,'update'])->name("usuario.update")->middleware('auth');
+//ADMINISTRAR USUARIO
+Route::put('/usuario/inactive/{id}', [UserController::class,'inactive'])->name("usuario.inactive");
+Route::put('/usuario/active/{id}', [UserController::class,'active'])->name("usuario.active");
+Route::delete('/usuario/{id}/delete', [UserController::class,'destroy'])->name("usuario.delete");

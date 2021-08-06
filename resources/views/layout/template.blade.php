@@ -29,6 +29,9 @@
 		<link href="{{asset('vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
         <link href="{{asset('vendors/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet" type="text/css"/>
 
+        <!--alerts CSS -->
+		<link href="{{asset('vendors/bower_components/sweetalert/dist/sweetalert.css')}}" rel="stylesheet" type="text/css">
+
         <!-- Custom CSS -->
         <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
     </head>
@@ -109,6 +112,10 @@
 	    <script src="{{asset('vendors/jquery-ui.min.js')}}"></script>
 	    <script src="{{asset('vendors/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
     	<script src="{{asset('js/fullcalendar-data.js')}}"></script>
+        
+      <!-- Sweet-Alert  -->
+        <script src="{{asset('vendors/bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
+		<script src="{{asset('js/sweetalert-data.js')}}"></script>
     </body>
 
 </html>

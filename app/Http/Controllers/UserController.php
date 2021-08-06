@@ -73,8 +73,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $usuarios = User::all();
         $users = User::find($id);
-        return view('usuario_perfil.usuario_perfil', compact('users'));
+        return view('usuario_perfil.usuario_perfil', compact('users','usuarios'));
 
     }
 
@@ -113,6 +114,26 @@ class UserController extends Controller
         
         return redirect()->back();
     }
+    
+    
+    public function inactive($id)
+    {
+        $usuario = User::find($id);
+        $usuario->update(['status' => 0]);
+        $usuario->save();
+
+        return redirect()->back()->with('DesactivarUsuario','Actualización completa');
+    }
+
+    public function active($id)
+    {
+        $usuario = User::find($id);
+        $usuario->update(['status' => 1]);
+        $usuario->save();
+
+        return redirect()->back()->with('ActivarUsuario','Actualización completa');
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -123,7 +144,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $usuario = User::where('id',$id)->first();
-        $usuario->images()->delete();
+        $usuario->files()->delete();
         $usuario->delete();
 
         return redirect()->back()->with('borrar_usuario','Borrado completo');
