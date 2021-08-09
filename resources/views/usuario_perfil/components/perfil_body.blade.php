@@ -74,7 +74,7 @@
 						<div class="panel panel-default border-panel card-view">
 							<div class="panel-heading">
 								<div class="pull-left">
-									<h6 class="panel-title pull-left">users</h6>
+									<h6 class="panel-title pull-left">Usuarios</h6>
 								</div>
 								<div class="pull-right">
 									<a href="#" class="pull-left inline-block mr-15">
@@ -97,7 +97,7 @@
 															<div class="chat-body">
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Clay Masse</span>
 																			<span class="time block truncate txt-grey">No one saves us but ourselves.</span>
@@ -108,7 +108,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user1.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user1.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Evie Ono</span>
 																			<span class="time block truncate txt-grey">Unity is strength</span>
@@ -119,7 +119,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user2.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user2.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Madalyn Rascon</span>
 																			<span class="time block truncate txt-grey">Respect yourself if you would have others respect you.</span>
@@ -130,7 +130,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user3.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user3.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Mitsuko Heid</span>
 																			<span class="time block truncate txt-grey">I’m thankful.</span>
@@ -141,7 +141,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Ezequiel Merideth</span>
 																			<span class="time block truncate txt-grey">Patience is bitter.</span>
@@ -152,7 +152,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user1.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user1.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Jonnie Metoyer</span>
 																			<span class="time block truncate txt-grey">Genius is eternal patience.</span>
@@ -163,7 +163,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user2.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user2.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Angelic Lauver</span>
 																			<span class="time block truncate txt-grey">Every burden is a blessing.</span>
@@ -174,7 +174,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user3.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user3.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Priscila Shy</span>
 																			<span class="time block truncate txt-grey">Wise to resolve, and patient to perform.</span>
@@ -185,7 +185,7 @@
 																</a>
 																<a href="javascript:void(0)">
 																	<div class="chat-data">
-																		<img class="user-img img-circle"  src="img/user4.png" alt="user"/>
+																		<img class="user-img img-circle"  src="{{asset('img/user4.png')}}" alt="user"/>
 																		<div class="user-data">
 																			<span class="name block capitalize-font">Linda Stack</span>
 																			<span class="time block truncate txt-grey">Our patience will achieve more than our force.</span>
