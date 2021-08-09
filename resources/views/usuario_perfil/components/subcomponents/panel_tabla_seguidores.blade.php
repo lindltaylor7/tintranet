@@ -6,7 +6,7 @@
                     <li class="follow-list">
                         <div class="follo-body">
                             <div class="follo-data">
-                                <img class="user-img img-circle"  src="img/user.png" alt="user"/>
+                                <img class="user-img img-circle"  src="{{asset('img/user.png')}}" alt="user"/>
                                 <div class="user-data">
                                     <span class="name block capitalize-font">Clay Masse</span>
                                     <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
@@ -15,7 +15,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="follo-data">
-                                <img class="user-img img-circle"  src="img/user1.png" alt="user"/>
+                                <img class="user-img img-circle"  src="{{asset('img/user1.png')}}" alt="user"/>
                                 <div class="user-data">
                                     <span class="name block capitalize-font">Evie Ono</span>
                                     <span class="time block truncate txt-grey">Unity is strength</span>
@@ -24,7 +24,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="follo-data">
-                                <img class="user-img img-circle"  src="img/user2.png" alt="user"/>
+                                <img class="user-img img-circle"  src="{{asset('img/user2.png')}}" alt="user"/>
                                 <div class="user-data">
                                     <span class="name block capitalize-font">Madalyn Rascon</span>
                                     <span class="time block truncate txt-grey">Respect yourself if you would have others respect you.</span>
@@ -33,7 +33,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="follo-data">
-                                <img class="user-img img-circle"  src="img/user3.png" alt="user"/>
+                                <img class="user-img img-circle"  src="{{asset('img/user3.png')}}" alt="user"/>
                                 <div class="user-data">
                                     <span class="name block capitalize-font">Mitsuko Heid</span>
                                     <span class="time block truncate txt-grey">I’m thankful.</span>
@@ -42,7 +42,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="follo-data">
-                                <img class="user-img img-circle"  src="img/user.png" alt="user"/>
+                                <img class="user-img img-circle"  src="{{asset('img/user.png')}}" alt="user"/>
                                 <div class="user-data">
                                     <span class="name block capitalize-font">Ezequiel Merideth</span>
                                     <span class="time block truncate txt-grey">Patience is bitter.</span>
@@ -51,7 +51,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="follo-data">
-                                <img class="user-img img-circle"  src="img/user1.png" alt="user"/>
+                                <img class="user-img img-circle"  src="{{asset('img/user1.png')}}" alt="user"/>
                                 <div class="user-data">
                                     <span class="name block capitalize-font">Jonnie Metoyer</span>
                                     <span class="time block truncate txt-grey">Genius is eternal patience.</span>
