@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
+    public function areas () {
+        return $this->hasMany("App\Models\Area");
+    }
 }

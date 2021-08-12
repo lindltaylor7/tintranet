@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\areaController;
 use App\Http\Controllers\departmentController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
@@ -33,21 +33,21 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/registro', [UserController::class, 'create'])->name('registro')->middleware('guest');
 Route::post('/registro/usuario', [UserController::class, 'store'])->name('user.store');
 
-
+/*======== DEPARTMENT ==========*/
 Route::get('/departamentos',[departmentController::class, 'index'])->name("departamentos");
-
 Route::get('/departamentos/create',[departmentController::class, 'create'])->name("departamentos.crear");
-
 Route::post('/departamentos/store',[departmentController::class, 'store'])->name('departamentos.store');
+Route::get('/departamentos/{id}/edit', [departmentController::class, 'edit'])->name("departamentos.editar");// apuntar a un enlace 
+Route::put('/departamentos/{id}', [departmentController::class, 'update'])->name("departamentos.update");// actualizar 
+Route::delete('/departamentos/{id}', [departmentController::class, 'destroy'])->name("departamentos.destroy");// eliminar
 
-// apuntar a un enlace 
-Route::get('/departamentos/{id}/edit', [departmentController::class, 'edit'])->name("departamentos.editar");
-
-// actualizar 
-Route::put('/departamentos/{id}', [departmentController::class, 'update'])->name("departamentos.update");
-
-// eliminar
-Route::delete('/departamentos/{id}', [departmentController::class, 'destroy'])->name("departamentos.destroy");
+/*============ AREAS =================*/
+Route::get('/area', [areaController::class, 'index'])->name('area');
+Route::get('/area/create',[areaController::class, 'create'])->name('area.create');
+Route::post('/area/store',[areaController::class, 'store'])->name('area.store');
+Route::get('/area/{id}/{idDepartment}/edit',[areaController::class, 'edit'])->name('area.editar');
+Route::put('/area/{id}',[areaController::class, 'update'])->name('area.update');
+Route::delete('/area/{id}',[areaController::class, 'destroy'])->name('area.destroy');
 
 
 Route::get('/user/{id}/perfil', [UserController::class,'show'])->name("perfil")->middleware('auth');
