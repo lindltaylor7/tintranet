@@ -13,7 +13,7 @@ class LoginController extends Controller
     public function login(Request $request, Redirector $redirect)
     {
         $remember = $request->filled('checkbox_2');
-
+        
         if (Auth::attempt($request->only('email','password'), $remember)) {
             $request->session()->regenerate();
 

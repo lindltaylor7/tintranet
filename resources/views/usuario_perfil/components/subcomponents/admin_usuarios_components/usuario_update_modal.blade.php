@@ -11,7 +11,7 @@
                 <form action="{{route('usuario.update',$usuario->id)}}" id="signup-form" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                    <<label class="control-label mb-10" for="exampleInputuname_1">Nombres</label>
+                    <label class="control-label mb-10" for="exampleInputuname_1">Nombres</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="icon-user"></i></div>
                         <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="willard bryant" value="{{$usuario->name}}">
@@ -24,25 +24,22 @@
                     <label class="control-label mb-10" for="exampleInputuname_1">Telefono</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="icon-user"></i></div>
-                        <input type="text" class="form-control" id="exampleInputuname_1" name="phone" placeholder="]963852741" value="{{$usuario->phone}}">
-                    </div>                     
-                    <div class="form-group">                        
-                        <div class="user_pro_img_area">
-                            @if($usuario->files->isNotEmpty())
-                            @foreach($usuario->files as $img)                                        
-                                <img id="pictureUserActualizar{{$usuario->id}}" src="{{asset('storage/'.$img->url)}}" alt=""
-                                    style="width: 150px; height: 150px; object-fit: cover;">
-                            @endforeach
-                            @else
-                                <img id="pictureUserActualizar{{$usuario->id}}"
-                                    src="https://revistabyte.es/wp-content/uploads/2016/01/Seguridad-TI-768x484.jpg.webp" alt="">
-                            @endif                                        
-                            <div class="custom-file-upload">
-                                <input type="file" id="fileUserActualizar{{$usuario->id}}" name="fileUserUpdate">
-                                <label for="fileUseActualizar{{$usuario->id}}" class="btn btn-sm btn-secondary mt-3">Subir Imagen</label>
-                            </div>                                                            
+                        <input type="text" class="form-control" id="exampleInputuname_1" name="phone" placeholder="963852741" value="{{$usuario->phone}}">
                     </div>
-                </div>
+                    <div></div>
+                    <div class="input-group">
+                        <h6> Rol Asignado: </h6>
+                        @foreach ($roles as $role)
+                        <div>
+                            @if ($usuario->roles()->first()->id == $role->id)
+                                <input class="mr-2" type="radio" id="{{$role->id}}" name="roles[]" value="{{$role->id}}" checked>
+                            @else
+                                <input class="mr-2" type="radio" id="{{$role->id}}" name="roles[]" value="{{$role->id}}">
+                            @endif
+                            <label>{{$role->name}}</label>
+                        </div>
+                        @endforeach
+                    </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Actualizar Perfil</button>

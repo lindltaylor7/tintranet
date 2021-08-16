@@ -9,7 +9,9 @@
                         <li role="presentation" class=""><a  data-toggle="tab" id="photos_tab_8" role="tab" href="#photos_8" aria-expanded="false"><span>Fotos</span></a></li>
                         <li role="presentation" class=""><a  data-toggle="tab" id="earning_tab_8" role="tab" href="#earnings_8" aria-expanded="false"><span>Ganancias</span></a></li>
                         <li role="presentation" class=""><a  data-toggle="tab" id="settings_tab_8" role="tab" href="#settings_8" aria-expanded="false"><span>Cuenta</span></a></li>
-                        <li role="presentation" class=""><a  data-toggle="tab" id="usuarios_tab_8" role="tab" href="#usuarios_8" aria-expanded="false"><span>Usuarios</span></a></li>
+                        @can ('Usuarios')
+                            <li role="presentation" class=""><a  data-toggle="tab" id="usuarios_tab_8" role="tab" href="#usuarios_8" aria-expanded="false"><span>Usuarios</span></a></li>
+                        @endcan
                         <li class="dropdown" role="presentation">
                             <a  data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop_7" href="#" aria-expanded="false"><span>Mas</span> <span class="caret"></span></a>
                             <ul id="myTabDrop_7_contents"  class="dropdown-menu">
@@ -27,6 +29,7 @@
                         @include('usuario_perfil.components.subcomponents.panel_tabla_ganancias')                      
                         @include('usuario_perfil.components.subcomponents.panel_tabla_perfil')
                         @include('usuario_perfil.components.subcomponents.panel_tabla_usuarios')
+                        
                     </div>
                 </div>
             </div>
