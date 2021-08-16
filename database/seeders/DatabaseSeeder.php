@@ -17,6 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DepartmentSeeder::class);
         $this->call(AreaSeeder::class);
         $this->call(UserSeeder::class);
-        // \App\Models\User::factory(10)->create();
+        //\App\Models\User::factory(10)->create()->assignRole('Practicante');
     }
 }

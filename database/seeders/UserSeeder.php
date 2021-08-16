@@ -15,12 +15,22 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
+            'name' => 'Lind Taylor',
+            'email' => 'llt@gmail.com',
+            'phone' => '987654321',
+            'password' => bcrypt('123456'),
+            'status' => 1,
+            'area_id' => 1
+        ])->assignRole('Administrador');
+
+        User::create([
             'name' => 'Bryan Darien',
             'email' => 'barias@gmail.com',
             'phone' => '987654321',
             'password' => bcrypt('123456'),
             'status' => 1,
             'area_id' => 1
-        ])->assignRole('Administrador');
+        ])->assignRole('Practicante');
+
     }
 }
