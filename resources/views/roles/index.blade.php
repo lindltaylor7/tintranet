@@ -3,5 +3,5 @@
 @section('title', 'Inicio')
 
 @section('content')
-  
+    @include('roles.componentes.content')
 @endsection

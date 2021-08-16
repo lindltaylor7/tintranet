@@ -10,6 +10,8 @@ use Illuminate\Foundation\Console\StorageLinkCommand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use Spatie\Permission\Models\Role;
+
 class UserController extends Controller
 {
     /**
@@ -54,6 +56,7 @@ class UserController extends Controller
             ]);
     
             $users = User::create($request->all());
+            $users->assignRole('Practicante');
     
             $credenciales = $users->only('email','password');
             Auth::login($users);
@@ -75,7 +78,11 @@ class UserController extends Controller
     {
         $usuarios = User::all();
         $users = User::find($id);
-        return view('usuario_perfil.usuario_perfil', compact('users','usuarios'));
+
+        $this->authorize('profile', $users);
+
+        $roles = Role::all();
+        return view('usuario_perfil.usuario_perfil', compact('users','usuarios','roles'));
 
     }
 
@@ -87,7 +94,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -99,9 +106,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $user= User::where('id',$id)->first();
+
         $user->update($request->except(['_token','_method']));
-       
+        $user->roles()->sync($request->roles);
+
         if ($request->file('fileUserUpdate')) {
             $user->files()->delete();
             $url = Storage::disk('public')->put('usuarios', $request->file('fileUserUpdate'));
@@ -111,7 +121,7 @@ class UserController extends Controller
                 'url' => $url
             ]);
         }
-        
+
         return redirect()->back();
     }
     

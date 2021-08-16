@@ -66,7 +66,7 @@
                                   <span class="btn-text">Eliminar</span>
                                 </button> 
                                 @else 
-                                <button type="submit" class="btn btn-danger btn-anim btn-delete-user" data-name="departamento">
+                                <button type="submit" class="btn btn-danger btn-anim btn-delete-user" data-name="departamento" data-lastname="áreas">
                                   <i class="fas fa-trash"></i>
                                   <span class="btn-text">Eliminar</span>
                                 </button>

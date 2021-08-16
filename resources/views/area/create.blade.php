@@ -22,7 +22,7 @@
     <!-- /Right Sidebar Menu -->
 
     <!-- Main Content -->
-    @include('departamentos.components.create')
+   @include('area.components.create')
     <!-- /Main Content -->
 
   </div>

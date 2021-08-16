@@ -21,7 +21,7 @@
         <div class="container-fluid pt-25">
             <!-- Row -->
             
-            @include('layout.components.estado_proyectos')
+            @include('area.components.table')
             <!-- /Row -->
 
             <!-- Row -->

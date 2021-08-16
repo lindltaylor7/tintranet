@@ -3,7 +3,5 @@
 @section('title', 'Inicio')
 
 @section('content')
-  @include('departamentos.components.index') 
+  @include('area.components.index') 
 @endsection
-
-
