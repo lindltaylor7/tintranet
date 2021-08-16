@@ -11,7 +11,9 @@ $linkDelete.forEach(index => index.addEventListener("click",  e => {
 }));
 
 $linkDeleteUser.forEach(index => index.addEventListener("click", e => {
-  if (!alert("No se puede eliminar el área, el área tiene usuarios registados")) {
+  let name = index.getAttribute("data-name"),
+      lastname = index.getAttribute("data-lastname");
+  if (!alert(`No se puede eliminar el ${name}, el ${name} tiene ${lastname} registados`)) {
     e.preventDefault();   
   }
 }));

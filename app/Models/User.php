@@ -54,7 +54,7 @@ class User extends Authenticatable
         return $this->morphMany('App\Models\File','fileable');
     }
 
-    // public function User () {
-    //     return $this->belongsTo("App\Models\User"); 
-    // }
+    public function areas () {
+        return $this->hasMany("App\Models\Area"); 
+    }
 }

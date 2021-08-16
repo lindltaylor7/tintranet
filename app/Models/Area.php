@@ -13,7 +13,7 @@ class Area extends Model
         return $this->belongsTo("App\Models\Department");
     }
     
-    // public function user () {
-    //     return $this->belongsTo("App\Models\User"); 
-    // }
+    public function users() {
+        return $this->hasMany("App\Models\User"); 
+    }
 }

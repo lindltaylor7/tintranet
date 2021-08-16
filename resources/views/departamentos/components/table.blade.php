@@ -6,10 +6,10 @@
       </div>
       <div class="panel-heading">
         <div class="pull-left">
-          <h6 class="panel-title txt-dark">Áreas</h6>
+          <h6 class="panel-title txt-dark">Departamentos</h6>
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
-          <a href="{{route('area.create')}}" class="pull-left btn btn-primary btn-xs mr-15">Nuevo</a>
+          <a href="{{route('departamentos.crear')}}" class="pull-left btn btn-primary btn-xs mr-15">Nuevo</a>
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay"></i>
           </a>
@@ -37,36 +37,36 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Estado</th>
-                    <th>Departamento</th>
                     <th>Editar / Eliminar</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  @foreach ($areas as $area)
-                  <tr>
-                    <td>{{$area->id}}</td>
-                    <td>{{$area->name}}</td>
-                    <td>{{$area->status}}</td>
-                    <td>{{$area->department->name}}</td>
-                    <td>
+                  
+                  @foreach ($departments as $department) 
+                    <tr>
+                      <td>{{$department->id}}</td>
+                      <td>{{$department->name}}</td>
+                      <td>{{$department->status}}</td>
+                      <td>
                         <div class="datable_row">
                           <span class="input-group-btn">
-                            <a href="{{route('area.editar', [$area->id,$area->department_id])}}" class="btn btn-success btn-anim">
+                            <a href="{{route('departamentos.editar',$department->id)}}" class="btn btn-success btn-anim">
                               <i class="icon-rocket"></i><span class="btn-text">Editar</span>
                             </a>
                           </span> 
-
-                            <form action="{{route('area.destroy', $area->id)}}" method="POST">
-                              @csrf
-                              @method('delete')
-                              @if ($area->users->isEmpty())
+  
+                          <form action="{{route('departamentos.destroy', $department->id)}}" method="POST">
+                            @csrf
+                            @method('delete')
+  
+                            @if ($department->areas->isEmpty())
                                 <button type="submit" class="btn btn-danger btn-anim btn-delete">
                                   <i class="fas fa-trash"></i>
                                   <span class="btn-text">Eliminar</span>
                                 </button> 
                                 @else 
-                                <button type="submit" class="btn btn-danger btn-anim btn-delete-user" data-name="área" data-lastname="usuarios">
+                                <button type="submit" class="btn btn-danger btn-anim btn-delete-user" data-name="departamento" data-lastname="áreas">
                                   <i class="fas fa-trash"></i>
                                   <span class="btn-text">Eliminar</span>
                                 </button>

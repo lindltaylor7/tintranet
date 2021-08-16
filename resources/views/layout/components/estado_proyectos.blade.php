@@ -60,16 +60,22 @@
                             @csrf
                             @method('delete')
   
-                            <button type="submit" class="btn  btn-danger btn-anim btn-delete">
-                              <i class="fas fa-trash"></i>
-                              <span class="btn-text">Eliminar</span>
-                            </button>
+                            @if ($department->areas->isEmpty())
+                                <button type="submit" class="btn btn-danger btn-anim btn-delete">
+                                  <i class="fas fa-trash"></i>
+                                  <span class="btn-text">Eliminar</span>
+                                </button> 
+                                @else 
+                                <button type="submit" class="btn btn-danger btn-anim btn-delete-user" data-name="departamento">
+                                  <i class="fas fa-trash"></i>
+                                  <span class="btn-text">Eliminar</span>
+                                </button>
+                              @endif
                           </form>
                         </div>
                       </td>
                     </tr>
                   @endforeach
-                  
                 </tbody>
               </table>
             </div>

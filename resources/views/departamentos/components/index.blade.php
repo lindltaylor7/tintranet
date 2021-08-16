@@ -20,12 +20,10 @@
     <div class="page-wrapper">
         <div class="container-fluid pt-25">
             <!-- Row -->
-            
-            @include('layout.components.estado_proyectos')
+            @include('departamentos.components.table')
             <!-- /Row -->
 
             <!-- Row -->
-            
         </div>
 
         <!-- Footer -->
