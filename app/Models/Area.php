@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class Area extends Model
 {
     use HasFactory;
 
@@ -13,5 +13,4 @@ class Department extends Model
         'name',
         'status',        
     ];
-    
 }
