@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\areaController;
 use App\Http\Controllers\departmentController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +44,13 @@ Route::put('/departamentos/{id}', [departmentController::class, 'update'])->name
 // eliminar
 Route::delete('/departamentos/{id}', [departmentController::class, 'destroy'])->name("departamentos.destroy")->middleware('can:Departamentos');
 
+/*============ AREAS =================*/
+Route::get('/area', [areaController::class, 'index'])->name('area')->middleware('can:Areas');
+Route::get('/area/create',[areaController::class, 'create'])->name('area.create')->middleware('can:Areas');
+Route::post('/area/store',[areaController::class, 'store'])->name('area.store')->middleware('can:Areas');
+Route::get('/area/{id}/{idDepartment}/edit',[areaController::class, 'edit'])->name('area.editar')->middleware('can:Areas');
+Route::put('/area/{id}',[areaController::class, 'update'])->name('area.update')->middleware('can:Areas');
+Route::delete('/area/{id}',[areaController::class, 'destroy'])->name('area.destroy')->middleware('can:Areas');
 
 Route::get('/user/{id}/perfil', [UserController::class,'show'])->name("perfil")->middleware('auth')->middleware('can:Perfil');
 Route::post('/user/foto/register', [UserController::class,'store'])->name("usuario.foto")->middleware('auth')->middleware('can:Perfil');

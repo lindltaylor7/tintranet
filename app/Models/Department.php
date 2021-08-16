@@ -14,4 +14,8 @@ class Department extends Model
         'status',        
     ];
     
+    public function areas () {
+        return $this->hasMany("App\Models\Area");
+    }
+
 }
