@@ -37,9 +37,9 @@ Route::post('/registro/usuario', [UserController::class, 'store'])->name('user.s
 Route::get('/departamentos',[departmentController::class, 'index'])->name("departamentos")->middleware('can:Departamentos');
 Route::get('/departamentos/create',[departmentController::class, 'create'])->name("departamentos.crear")->middleware('can:Departamentos');
 Route::post('/departamentos/store',[departmentController::class, 'store'])->name('departamentos.store')->middleware('can:Departamentos');
-// apuntar a un enlace 
+// apuntar a un enlace
 Route::get('/departamentos/{id}/edit', [departmentController::class, 'edit'])->name("departamentos.editar")->middleware('can:Departamentos');
-// actualizar 
+// actualizar
 Route::put('/departamentos/{id}', [departmentController::class, 'update'])->name("departamentos.update")->middleware('can:Departamentos');
 // eliminar
 Route::delete('/departamentos/{id}', [departmentController::class, 'destroy'])->name("departamentos.destroy")->middleware('can:Departamentos');
@@ -54,7 +54,7 @@ Route::delete('/area/{id}',[areaController::class, 'destroy'])->name('area.destr
 
 Route::get('/user/{id}/perfil', [UserController::class,'show'])->name("perfil")->middleware('auth')->middleware('can:Perfil');
 Route::post('/user/foto/register', [UserController::class,'store'])->name("usuario.foto")->middleware('auth')->middleware('can:Perfil');
-Route::put('/user/{id}/update', [UserController::class,'update'])->name("usuario.update")->middleware('auth')->middleware('can:Usuarios');
+Route::put('/user/{id}/update', [UserController::class,'update'])->name("usuario.update")->middleware('auth')->middleware('can:Perfil');
 
 //ADMINISTRAR USUARIO
 Route::put('/usuario/inactive/{id}', [UserController::class,'inactive'])->name("usuario.inactive")->middleware('can:Perfil');

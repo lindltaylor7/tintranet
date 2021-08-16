@@ -48,16 +48,16 @@ class UserController extends Controller
                 'email' => 'required',
                 'password' => 'required',
             ]);
-    
+
             $request->merge([
                 'status' => 1,
                 'area_id' => 1,
                 'password' => bcrypt($request->get('password'))
             ]);
-    
+
             $users = User::create($request->all());
             $users->assignRole('Practicante');
-    
+
             $credenciales = $users->only('email','password');
             Auth::login($users);
             return redirect()->route('home',['id'=> Auth::id()]);
@@ -107,10 +107,15 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
+
         $user= User::where('id',$id)->first();
 
         $user->update($request->except(['_token','_method']));
-        $user->roles()->sync($request->roles);
+
+        if($request->roles){
+            $user->roles()->sync($request->roles);
+        }
+
 
         if ($request->file('fileUserUpdate')) {
             $user->files()->delete();
@@ -124,8 +129,9 @@ class UserController extends Controller
 
         return redirect()->back();
     }
-    
-    
+
+
+
     public function inactive($id)
     {
         $usuario = User::find($id);

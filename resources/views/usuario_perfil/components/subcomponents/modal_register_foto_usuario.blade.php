@@ -12,27 +12,26 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                                                       
-                        <div class="user_pro_img_area">                          
-                            
+
+                        <div class="user_pro_img_area">
+
                             @if($users->files->isNotEmpty())
-                            @foreach($users->files as $img)                                        
+                            @foreach($users->files as $img)
                                 <img id="pictureUser" src="{{asset('storage/'.$img->url)}}" alt=""
                                     style="width: 150px; height: 150px; object-fit: cover;">
                             @endforeach
                             @else
-                                <img id="pictureUserUpdate"
+                                <img id="pictureUser"
                                     src="https://revistabyte.es/wp-content/uploads/2016/01/Seguridad-TI-768x484.jpg.webp"
                                     alt="" style="width: 150px; height: 150px; object-fit: cover;">
-                            @endif 
-    
+                            @endif
+
                             <div class="custom-file-upload">
                                 <input type="file" id="fileUser" name="fileUserUpdate">
-                                <label for="fileUser" class="btn btn-sm btn-secondary mt-3">Subir Imagen</label>
                             </div>
-                        
+
                         </div>
-                    </div>                                              
+                    </div>
                     <button type="submit" class="btn btn-block btn-lg btn-success">Actualizar</button>
                 </form>
             </div>
