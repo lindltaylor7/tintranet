@@ -1,6 +1,6 @@
 @extends('layout.template')
 
-@section('title', 'Inicio')
+@section('title', 'Roles')
 
 @section('content')
     @include('roles.componentes.content')

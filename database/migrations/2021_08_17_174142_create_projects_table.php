@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->date('start_date');
             $table->date('final_date');
             $table->date('delivery_date')->nullable();
+            $table->string('url_product')->nullable();
             $table->string('status',25);
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');

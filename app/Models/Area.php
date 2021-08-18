@@ -19,4 +19,9 @@ class Area extends Model
     public function users() {
         return $this->hasMany("App\Models\User"); 
     }
+
+    public function projects()
+    {
+        return $this->belongsToMany('App\Models\Project');
+    }
 }

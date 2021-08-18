@@ -59,4 +59,9 @@ class User extends Authenticatable
     public function areas () {
         return $this->hasMany("App\Models\Area"); 
     }
+
+    public function projects()
+    {
+        return $this->belongsToMany('App\Models\Project');
+    }
 }
