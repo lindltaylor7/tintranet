@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use App\Models\Department;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $departments = Department::all();
         $users = User::find(Auth::id());
         $projects = Project::all();
-        $clients = Client::all();
-
-        return view('welcome', compact('users','departments','projects','clients'));
+        
+        return view ('proyectos.index', compact('projects','users'));
     }
 
     /**
@@ -44,7 +41,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -55,7 +52,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

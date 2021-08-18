@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\Department;
-use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +16,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $departments = Department::all();
         $users = User::find(Auth::id());
-        $projects = Project::all();
-        $clients = Client::all();
-
-        return view('welcome', compact('users','departments','projects','clients'));
+        $tasks = Task::all();
+        
+        return view ('tarea.index', compact('tasks','users'));
     }
 
     /**

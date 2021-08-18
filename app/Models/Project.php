@@ -8,19 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
     protected $fillable = ['name','amount','start_date','final_date','delivery_date','status','client_id'];
 
+    
+  //Relaciion de muchos a muchos Proyecto-Usuarios
+    //1 a muchos inversa
     public function client()
     {
-        return $this->hasOne('App\Models\Client');
+        return $this->belongsTo('App\Models\Client');
     }
-  //Relaciion de muchos a muchos Proyecto-Usuarios
+
+    //muchos a muchos
+
     public function users()
     {
         return $this->belongsToMany('App\Models\User');
     }
 
     //Relacion inversa muchos a muchos Area-Proyectos
+
     public function areas()
     {
         return $this->belongsToMany('App\Models\Area');
@@ -29,4 +36,5 @@ class Project extends Model
      public function files(){
         return $this->morphMany('App\Models\File','fileable');
     }
+
 }

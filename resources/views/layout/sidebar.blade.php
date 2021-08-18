@@ -26,6 +26,17 @@
         </li>
         @endcan
         <li><hr class="light-grey-hr mb-10"/></li>
+        @can('Proyectos')
+        <li>
+            <a class="{{ request()->routeIs('proyectos') ? 'active' : '' }}" href="{{route('proyectos')}}"><div class="pull-left"><i class="fas fa-clipboard-list mr-20"></i></i><span class="right-nav-text">Proyectos</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+        </li>
+        @endcan
+        @can('Tareas')
+        <li>
+            <a class="{{ request()->routeIs('tareas') ? 'active' : '' }}" href="{{route('tareas')}}"><div class="pull-left"><i class="fas fa-tasks mr-20"></i></i><span class="right-nav-text">Tareas</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+        </li>
+        @endcan
+        <li><hr class="light-grey-hr mb-10"/></li>
         @can('Roles')
             <li>
                 <a class="{{ request()->routeIs('roles') ? 'active' : '' }}" href="{{route('roles')}}"><div class="pull-left"><i class="fas fa-address-card mr-20"></i><span class="right-nav-text">Roles</span></div><div class="pull-right"></div><div class="clearfix"></div></a>

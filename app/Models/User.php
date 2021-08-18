@@ -64,12 +64,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Task');
     }
-
     //Relacion inversa muchos a muchos Proyecto-Usuarios
     public function projects()
     {
         return $this->belongsToMany('App\Models\Project');
     }
-
-
+    
 }

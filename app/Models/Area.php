@@ -27,11 +27,12 @@ class Area extends Model
     //Relacion muchos a muchos Area-Proyectos
     public function projects()
     {
-        return $this->belongsToMany('App\Models\Projects');
+        return $this->belongsToMany('App\Models\Project');
     }
     //Relacion de uno a muchos Area-Usuarios
     public function processes() 
     {
         return $this->belongsToMany("App\Models\Process"); 
+
     }
 }

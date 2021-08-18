@@ -5,7 +5,9 @@ use App\Http\Controllers\departmentController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
@@ -66,3 +68,15 @@ Route::get('/roles',[RoleController::class, 'index'])->name("roles")->middleware
 Route::post('/rol/register',[RoleController::class, 'store'])->name("role.register")->middleware('auth')->middleware('can:Roles');
 Route::put('/rol/{id}/update',[RoleController::class, 'update'])->name("role.update")->middleware('auth')->middleware('can:Roles');
 Route::delete('/rol/{id}/delete',[RoleController::class, 'destroy'])->name("role.delete")->middleware('auth')->middleware('can:Roles');
+
+//CRUD de Proyectos
+Route::get('/proyectos',[ProjectController::class, 'index'])->name("proyectos")->middleware('auth')->middleware('can:Proyectos');
+Route::post('/proyecto/register',[ProjectController::class, 'store'])->name("proyecto.register")->middleware('auth')->middleware('can:Proyectos');
+Route::put('/proyecto/{id}/update',[ProjectController::class, 'update'])->name("proyecto.update")->middleware('auth')->middleware('can:Proyectos');
+Route::delete('/proyecto/{id}/delete',[ProjectController::class, 'destroy'])->name("proyecto.delete")->middleware('auth')->middleware('can:Proyectos');
+
+//CRUD de Tareas
+Route::get('/tareas',[TaskController::class, 'index'])->name("tareas")->middleware('auth')->middleware('can:Tareas');
+Route::post('/tarea/register',[TaskController::class, 'store'])->name("tarea.register")->middleware('auth')->middleware('can:Tareas');
+Route::put('/tarea/{id}/update',[TaskController::class, 'update'])->name("tarea.update")->middleware('auth')->middleware('can:Tareas');
+Route::delete('/tarea/{id}/delete',[TaskController::class, 'destroy'])->name("tarea.delete")->middleware('auth')->middleware('can:Tareas');
