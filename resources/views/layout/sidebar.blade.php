@@ -38,9 +38,14 @@
         @endcan
         <li><hr class="light-grey-hr mb-10"/></li>
         @can('Roles')
-            <li>
-                <a class="{{ request()->routeIs('roles') ? 'active' : '' }}" href="{{route('roles')}}"><div class="pull-left"><i class="fas fa-address-card mr-20"></i><span class="right-nav-text">Roles</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
-            </li>
+        <li>
+            <a class="{{ request()->routeIs('roles') ? 'active' : '' }}" href="{{route('roles')}}"><div class="pull-left"><i class="fas fa-address-card mr-20"></i><span class="right-nav-text">Roles</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+        </li>
+        @endcan
+        @can('Clientes')
+        <li>
+            <a class="{{ request()->routeIs('clientes') ? 'active' : '' }}" href="{{route('clientes')}}"><div class="pull-left"><i class="fas fa-id-card-alt mr-20"></i><span class="right-nav-text">Clientes</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+        </li>
         @endcan
     </ul>
 </div>
