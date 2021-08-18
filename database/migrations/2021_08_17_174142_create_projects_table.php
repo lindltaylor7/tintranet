@@ -19,7 +19,8 @@ class CreateProjectsTable extends Migration
             $table->decimal('amount',11,2)->nullable();
             $table->date('start_date');
             $table->date('final_date');
-            $table->date('delivery_date')->nullable();
+            $table->date('delivery_date')->nullable(); //FECHA DE ENTREGA
+            $table->string('url_product')->nullable();
             $table->string('status',25);
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');

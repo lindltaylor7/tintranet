@@ -13,7 +13,7 @@ class Department extends Model
         'name',
         'status',        
     ];
-    
+    //Realcion de uno a muchos Department-Area
     public function areas () {
         return $this->hasMany("App\Models\Area");
     }
