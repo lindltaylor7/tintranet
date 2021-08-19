@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,9 @@ class ProjectController extends Controller
         $users = User::find(Auth::id());
         $projects = Project::all();
         $clients = Client::all();
+        $tasks = Task::all();
         
-        return view ('proyectos.index', compact('projects','users','clients'));
+        return view ('proyectos.index', compact('projects','users','clients','tasks'));
     }
 
     /**
