@@ -43,30 +43,41 @@
                     <th>Editar / Eliminar</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  @foreach ($projects as $project)
+                  
+                  @foreach ($projects as $project) 
                     <tr>
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
-                      <td>
-                        <div class="progress progress-xs mb-0 ">
-                          <div class="progress-bar progress-bar-success" style="width: {{100}}%"></div>
+                      <td><div class="progress progress-xs mb-0 ">
+                        <div class="progress-bar progress-bar-success" style="width: {{100}}%"></div>
                         </div>
                       </td>
                       <td>
                         <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
                       </td>
                       <td>
-                        <span class="label label-primary">{{$project->status}}</span>
+                        @if ($project->status == "Próximo")
+                          <span class="label label-info">{{$project->status}}</span>
+                        @elseif ($project->status == "Pendiente")
+                          <span class="label label-danger">{{$project->status}}</span>
+                        @elseif ($project->status == "Entregado")
+                          <span class="label label-primary">{{$project->status}}</span>
+                        @elseif ($project->status == "Completo")
+                          <span class="label label-success">{{$project->status}}</span>
+                        @elseif ($project->status == "En Proceso")
+                          <span class="label label-warning">{{$project->status}}</span>
+                        @endif
+
                       </td>
                       <td>{{ \Carbon\Carbon::parse($project->final_date)->format('M d, Y')}}</td>
                       <td>
-                        <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
+                          <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
                       </td>
                     </tr>
-                    @include('proyectos.componentes.project_register_modal')
-                    @include('proyectos.componentes.project_update')
-                    @include('proyectos.componentes.project_delete')
+                      @include('proyectos.componentes.project_update_modal')
+                      @include('proyectos.componentes.project_delete_modal')
                   @endforeach
                 </tbody>
               </table>
@@ -78,3 +89,4 @@
   </div>
 </div>
 
+@include('proyectos.componentes.project_register_modal')

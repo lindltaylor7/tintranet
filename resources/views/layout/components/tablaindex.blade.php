@@ -38,19 +38,30 @@
                             <tbody>
                               @foreach ($projects as $project)
                                 <tr>
-                                  <td>{{$project->name}}</td>
-                                  <td>{{$project->client->name}}</td>
-                                  <td><div class="progress progress-xs mb-0 ">
-                                          <div class="progress-bar progress-bar-success" style="width: {{100}}%"></div>
+                                    <td>{{$project->name}}</td>
+                                    <td>{{$project->client->name}}</td>
+                                    <td><div class="progress progress-xs mb-0 ">
+                                      <div class="progress-bar progress-bar-success" style="width: {{100}}%"></div>
                                       </div>
-                                  </td>
-                                  <td>
+                                    </td>
+                                    <td>
                                       <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
-                                  </td>
-                                  <td>
-                                      <span class="label label-primary">{{$project->status}}</span>
-                                  </td>
-                                  <td>{{ \Carbon\Carbon::parse($project->final_date)->format('M d, Y')}}</td>
+                                    </td>
+                                    <td>
+                                      @if ($project->status == "Próximo")
+                                        <span class="label label-info">{{$project->status}}</span>
+                                      @elseif ($project->status == "Pendiente")
+                                        <span class="label label-danger">{{$project->status}}</span>
+                                      @elseif ($project->status == "Entregado")
+                                        <span class="label label-primary">{{$project->status}}</span>
+                                      @elseif ($project->status == "Completo")
+                                        <span class="label label-success">{{$project->status}}</span>
+                                      @elseif ($project->status == "En Proceso")
+                                        <span class="label label-warning">{{$project->status}}</span>
+                                      @endif
+              
+                                    </td>
+                                    <td>{{ \Carbon\Carbon::parse($project->final_date)->format('M d, Y')}}</td>
                                   
                                 </tr>
                               @endforeach

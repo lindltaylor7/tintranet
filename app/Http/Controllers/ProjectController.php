@@ -19,8 +19,9 @@ class ProjectController extends Controller
     {
         $users = User::find(Auth::id());
         $projects = Project::all();
+        $clients = Client::all();
         
-        return view ('proyectos.index', compact('projects','users'));
+        return view ('proyectos.index', compact('projects','users','clients'));
     }
 
     /**
@@ -41,7 +42,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'final_date' => 'required',
+            'client_id' => 'required'
+        ]);
 
+        $request->merge([
+            'status' => 'Próximo'
+        ]);
+
+        $project = Project::create($request->all()); 
+
+        return redirect()->route('proyectos', $project);
     }
 
     /**
@@ -52,7 +67,11 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-
+        $users = User::find(Auth::id());
+        $projects = Project::all();
+        $project = Project::where('id',$id)->first();
+        
+        return view ('proyectos.index', compact('projects','users','project'));
     }
 
     /**
@@ -75,7 +94,17 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'final_date' => 'required',
+            'client_id' => 'required'
+        ]);
+
+        $project = Project::where('id',$id)->first();
+        $project->update($request->all());
+
+        return redirect()->route('proyectos', $project)->with('actualizar_proyecto','Actualización correcta');
     }
 
     /**
@@ -86,6 +115,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::where('id',$id)->first();
+        $project->delete();
+
+        return redirect()->back()->with('borrar_proyecto','Eliminación exitosa');
     }
 }

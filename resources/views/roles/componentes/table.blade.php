@@ -50,7 +50,6 @@
                             <button type="button"  data-toggle="modal" data-target="#Role_update{{$role->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Role-remove{{$role->id}}"></button>
                         </td>
                       </tr>
-                        @include('roles.componentes.rol_register_modal')
                         @include('roles.componentes.rol_update_modal')
                         @include('roles.componentes.rol_delete_modal')
                     @endforeach
@@ -64,3 +63,4 @@
     </div>
   </div>
   
+@include('roles.componentes.rol_register_modal')
