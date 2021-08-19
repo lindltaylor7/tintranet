@@ -46,8 +46,8 @@
                 </thead>
 
                 <tbody>
-                  
-                  @foreach ($projects as $project) 
+
+                  @foreach ($projects as $project)
                     <tr>
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
@@ -77,18 +77,19 @@
                           <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
                       </td>
                       <td>
-                        <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> 
+                        <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
                       </td>
                     </tr>
                       @include('proyectos.componentes.project_update_modal')
                       @include('proyectos.componentes.project_delete_modal')
-                      @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
+
                   @endforeach
                 </tbody>
               </table>
             </div>
-          </div>	
-        </div>	
+          </div>
+        </div>
       </div>
     </div>
   </div>
