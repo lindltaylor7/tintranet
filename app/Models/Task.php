@@ -18,4 +18,9 @@ class Task extends Model
      public function files(){
         return $this->morphMany('App\Models\File','fileable');
     }
+     //Relacion uno a muchos Tareas-Usuarios
+     public function project()
+     {
+         return $this->belongsTo('App\Models\Project');
+     }
 }

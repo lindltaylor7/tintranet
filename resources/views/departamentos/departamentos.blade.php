@@ -1,6 +1,6 @@
 @extends('layout.template')
 
-@section('title', 'Inicio')
+@section('title', 'Departamentos')
 
 @section('content')
   @include('departamentos.components.index') 
