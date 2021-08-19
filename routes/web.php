@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\clientController;
 use App\Http\Controllers\areaController;
 use App\Http\Controllers\departmentController;
 use App\Http\Controllers\Auth\LoginController;
@@ -46,7 +47,7 @@ Route::put('/departamentos/{id}', [departmentController::class, 'update'])->name
 // eliminar
 Route::delete('/departamentos/{id}', [departmentController::class, 'destroy'])->name("departamentos.destroy")->middleware('can:Departamentos');
 
-/*============ AREAS =================*/
+// AREAS
 Route::get('/area', [areaController::class, 'index'])->name('area')->middleware('can:Areas');
 Route::get('/area/create',[areaController::class, 'create'])->name('area.create')->middleware('can:Areas');
 Route::post('/area/store',[areaController::class, 'store'])->name('area.store')->middleware('can:Areas');
@@ -80,3 +81,11 @@ Route::get('/tareas',[TaskController::class, 'index'])->name("tareas")->middlewa
 Route::post('/tarea/register',[TaskController::class, 'store'])->name("tarea.register")->middleware('auth')->middleware('can:Tareas');
 Route::put('/tarea/{id}/update',[TaskController::class, 'update'])->name("tarea.update")->middleware('auth')->middleware('can:Tareas');
 Route::delete('/tarea/{id}/delete',[TaskController::class, 'destroy'])->name("tarea.delete")->middleware('auth')->middleware('can:Tareas');
+
+// CLIENTES 
+Route::get('/clientes', [clientController::class, 'index'])->name('clientes');
+Route::get('/clientes/register', [clientController::class, 'create'])->name('clientes.register');
+Route::post('/clientes/store', [clientController::class, 'store'])->name('clientes.store');
+Route::get('/clientes/{id}/edit', [clientController::class, 'edit'])->name('clientes.edit');
+Route::put('/clientes/{id}', [clientController::class, 'update'])->name('clientes.update');
+Route::delete('/clientes/{id}}', [clientController::class, 'destroy'])->name('clientes.destroy');
