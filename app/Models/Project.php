@@ -36,5 +36,11 @@ class Project extends Model
      public function files(){
         return $this->morphMany('App\Models\File','fileable');
     }
+    //Relacion inversa muchos a muchos Area-Proyectos
+
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
 
 }

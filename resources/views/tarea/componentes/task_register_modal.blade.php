@@ -8,29 +8,50 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('proyecto.register')}}" id="signup-form" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <label class="control-label mb-10" for="exampleInputuname_1">Nombre</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="icon-book"></i></div>
-                        <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="Rol">
-                        @error('name')
-                            <small class="text-danger">
-                                {{$message}}
-                            </small>
-                        @enderror
-                    </div>
-                    <div class="input-group">
-                        <h2 class="h3">Lista de Permisos</h2>
-                        @foreach ($permissions as $permission)
-                            <div>
-                                <input class="mr-2" type="checkbox" id="{{$permission->id}}" name="permissions[]" value="{{$permission->id}}">
-                                <label>{{$permission->name}}</label>     
-                            </div>
-                        @endforeach
-                    </div>
-
-
+                <form action="{{route('tarea.register')}}" id="signup-form" method="post" enctype="multipart/form-data">
+                    @csrf                  
+                    <div class="form-group">
+                        <label class="control-label mb-10" for="exampleInputuname_1">Nombre de Tarea</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="icon-user"></i></div>
+                            <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="Nombre de la tarea">
+                        </div>
+                    </div>                         
+                    <div class="form-group">
+                        <label class="control-label mb-10" for="exampleInputuname_1">Proyecto</label>
+                        <div class="input-group">
+                        <div class="input-group-addon"><i class="icon-user"></i></div>
+                        <select name="project_id" id="status_tarea" class="form-control">   
+                            @foreach ($projects as $project)
+                            <option value="{{$project->id}}">{{$project->name}}</option>
+                            @endforeach 
+                                                                            
+                        </select>
+                        </div>
+                    </div><!-- ends: .form-group -->    
+                    <div class="form-group">
+                        <label class="control-label mb-10" for="exampleInputuname_1">Encargado de tarea</label>
+                        <div class="input-group">
+                        <div class="input-group-addon"><i class="icon-user"></i></div>
+                        <select name="user_id" id="status_tarea" class="form-control">    
+                            @foreach ($users as $user)
+                            <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach                                                 
+                        </select>
+                        </div>
+                    </div><!-- ends: .form-group -->    
+                    <div class="form-group">
+                        <label class="control-label mb-10" for="exampleInputuname_1">Status de tarea</label>
+                        <div class="input-group">
+                        <div class="input-group-addon"><i class="icon-user"></i></div>
+                        <select name="status" id="status_tarea" class="form-control">
+                            <option value="Inicializado">Inicializado</option>
+                            <option value="En ejecucion">En ejecucion</option>
+                            <option value="Completado">Completado</option>
+                            <option value="Estancado">Estancado</option>                            >
+                        </select>
+                        </div>
+                    </div>                                    
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Registrar</button>
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>

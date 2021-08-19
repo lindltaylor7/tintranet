@@ -6,7 +6,7 @@
         </div>
         <div class="panel-heading">
           <div class="pull-left">
-            <h6 class="panel-title txt-dark">Lista de Tareas</h6>
+            <h6 class="panel-title txt-dark">Lista de Tareasdel Proyecto...</h6>
           </div>
           <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Task_register">Nuevo</a>
@@ -36,6 +36,7 @@
                         <tr>
                             <th>Tarea</th>
                             <th>Proyecto</th>
+                            <th>Encargado</th>
                             <th>Estado</th>
                             <th>Editar / Eliminar</th>
                         </tr>
@@ -45,16 +46,16 @@
                             <tr>
                                 <td>{{$task->name}}</td>
                                 <td>{{$task->project->name}}</td>
+                                <td>{{$task->user->name}}</td>
                                 <td>
                                     <span class="label label-primary">{{$task->status}}</span>
                                 </td>
                                 <td>
                                     <button type="button"  data-toggle="modal" data-target="#Task_update{{$task->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Task-remove{{$task->id}}"></button>
                                 </td>
-                            </tr>
-                            @include('tarea.componentes.task_register_modal')
+                            </tr>     
                             @include('tarea.componentes.task_update_modal')
-                            @include('tarea.componentes.task_delete_modal')
+                             @include('tarea.componentes.task_delete_modal')       
                         @endforeach
                     </tbody>
                 </table>
@@ -65,4 +66,5 @@
       </div>
     </div>
   </div>
+  @include('tarea.componentes.task_register_modal')
   

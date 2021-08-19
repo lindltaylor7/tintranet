@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,10 +18,12 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $users = User::find(Auth::id());
+        $users = User::all();
         $tasks = Task::all();
+        $clients = Client::all();
+        $projects = Project::all();
         
-        return view ('tarea.index', compact('tasks','users'));
+        return view ('tarea.index', compact('tasks','users','clients','projects'));
     }
 
     /**
@@ -40,7 +44,15 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+   
+        $request->validate([
+            'name' => 'required',
+            'status' => 'required',
+            'project_id' => 'required',
+            'user_id' => 'required'
+        ]);  
+        $tasks = Task::create($request->all());  
+        return redirect()->back();
     }
 
     /**
@@ -74,7 +86,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tasks= Task::where('id',$id)->first();
+        $tasks->update($request->except(['_token','_method','fileTaskUpdate']));
+        return redirect()->back();
     }
 
     /**
@@ -85,6 +99,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categoria = Task::where('id',$id)->first();
+        $categoria ->files()->delete();
+        $categoria->delete();
+        return redirect()->back()->with('EliminarC','Tarea');
     }
 }
