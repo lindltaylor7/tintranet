@@ -11,7 +11,7 @@ class Project extends Model
 
     protected $fillable = ['name','amount','start_date','final_date','delivery_date','status','client_id'];
 
-    
+
   //Relaciion de muchos a muchos Proyecto-Usuarios
     //1 a muchos inversa
     public function client()
@@ -42,7 +42,6 @@ class Project extends Model
     {
         return $this->hasMany('App\Models\Task');
     }
-
      //Relacion uno a uno Proceso-Subproceso
      public function statu() 
      {

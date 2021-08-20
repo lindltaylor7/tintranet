@@ -6,10 +6,10 @@
       </div>
       <div class="panel-heading">
         <div class="pull-left">
-          <h6 class="panel-title txt-dark">Lista de Tareas</h6>
+          <h6 class="panel-title txt-dark">Lista de Clientes</h6>
         </div>
         <div class="pull-right">
-          <a href="{{route('clientes.register')}}" class="pull-left btn btn-primary btn-xs mr-15">Nuevo</a>
+          <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Cliente_register">Nuevo</a>
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay"></i>
           </a>
@@ -49,24 +49,12 @@
                               <td>{{$client->email}}</td>
                               <td>{{$client->status}}</td>
                               <td>
-                                <div class="datable_row">
-                                  <span class="input-group-btn">
-                                    <a href="{{route('clientes.edit', $client->id)}}" class="btn btn-success btn-anim">
-                                      <i class="icon-rocket"></i><span class="btn-text">Editar</span>
-                                    </a>
-                                  </span> 
-          
-                                  <form action="{{route('clientes.destroy', $client->id)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-anim btn-delete">
-                                      <i class="fas fa-trash"></i>
-                                      <span class="btn-text">Eliminar</span>
-                                    </button>
-                                  </form>
-                                </div>
+                                <button type="button"  data-toggle="modal" data-target="#Cliente_update{{$client->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
+                                <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Cliente-remove{{$client->id}}"></button>
                               </td>
                           </tr>
+                          @include('clientes.componentes.clientes_update_modal')
+                          @include('clientes.componentes.clientes_delete_modal')
                       @endforeach
                   </tbody>
               </table>
@@ -77,3 +65,4 @@
     </div>
   </div>
 </div>
+@include('clientes.componentes.clientes_register_modal')
