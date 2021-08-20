@@ -1,4 +1,4 @@
-<div class="modal fade bs-example-modal-lg" id="Tareas{{$project->id}}"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade bs-example-modal-lg" id="Tareas{{$project->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -15,6 +15,7 @@
                   <th>Nombre</th>
                   <th>Estado</th>
                   <th>Encargado</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -23,6 +24,11 @@
                     <td>{{$task->name}}</td>
                     <td>{{$task->status}}</td>
                     <td>{{$task->user->name}}</td>
+                    <td>
+                        <form action="" class="form form-inline">
+                            <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" data-toggle="popover" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
+                        </form>
+                    </td>
                   </tr>
                   @endforeach
               </tbody>

@@ -51,8 +51,9 @@
                     <tr>
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
-                      <td><div class="progress progress-xs mb-0 ">
-                        <div class="progress-bar progress-bar-success" style="width: {{100}}%"></div>
+                      <td>
+                          <div class="progress progress-xs mb-0 ">
+                        <div class="progress-bar progress-bar-success" style="width: {{$project->tasks->where('status','Completado')->count()*100/$project->tasks->count()}}%"></div>
                         </div>
                       </td>
                       <td>
