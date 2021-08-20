@@ -13,27 +13,12 @@ class areaController extends Controller
         $areas = Area::all();
         $users = User::all();
         $departments = Department::all();
-        return view('area.area', compact('areas', 'users'));
-    }
-
-    public function create() {
-        $department = Department::all();
-        return view('area.create', compact('department'));
+        return view('area.index', compact('areas', 'users', 'departments'));
     }
 
     public function store(Request $request) {
-        // $department = new Area;
-        // $department->name = $request->name;
-        // $department->status = $request->status;
-        // $department->department_id = $request->department;
-        // $department->save();
         $department = Area::create($request->all());
         return redirect()->route('area'); 
-    }
-
-    public function edit(Area $id, Department $idDepartment) {
-        $department = Department::all(); 
-        return view ('area.edit', compact ('id','department','idDepartment'));
     }
 
     public function update(Request $request, Area $id) {

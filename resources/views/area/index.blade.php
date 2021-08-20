@@ -3,5 +3,5 @@
 @section('title', 'Áreas')
 
 @section('content')
-  @include('area.components.index') 
+  @include('area.componentes.content') 
 @endsection

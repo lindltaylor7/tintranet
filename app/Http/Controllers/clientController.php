@@ -11,10 +11,6 @@ class clientController extends Controller
         $clients = Client::all();
         return view('clientes.index', compact('clients'));  
     }
-
-    public function create () {
-        return view('clientes.register'); 
-    }
     
     public function store (Request $request) {
         $clientes = Client::create($request->all());
@@ -24,10 +20,6 @@ class clientController extends Controller
     public function destroy (Client $id) {
         $id->delete();
         return redirect()->route('clientes');
-    }
-
-    public function edit (Client $id) {
-        return view('clientes.update', compact('id'));
     }
 
     public function update (Request $request, Client $id) {
