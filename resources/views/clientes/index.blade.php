@@ -3,5 +3,5 @@
 @section('title', 'Clientes')
 
 @section('content')
-    @include('clientes.componentes.contenido')
+    @include('clientes.componentes.content')
 @endsection

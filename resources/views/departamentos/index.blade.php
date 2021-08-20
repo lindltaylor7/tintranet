@@ -3,7 +3,7 @@
 @section('title', 'Departamentos')
 
 @section('content')
-  @include('departamentos.components.index') 
+  @include('departamentos.componentes.content') 
 @endsection
 
 
