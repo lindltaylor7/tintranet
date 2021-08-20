@@ -53,7 +53,15 @@
                       <td>{{$project->client->name}}</td>
                       <td>
                           <div class="progress progress-xs mb-0 ">
-                        <div class="progress-bar progress-bar-success" style="width: {{$project->tasks->where('status','Completado')->count()*100/$project->tasks->count()}}%"></div>
+
+                              @if ($project->tasks->count() == 0)
+                              <div class="progress-bar progress-bar-success" style="width: 0%"></div>
+
+                              @else
+                              <div class="progress-bar progress-bar-success" style="width: {{$project->tasks->where('status','Completado')->count()*100/$project->tasks->count()}}%"></div>
+                              @endif
+
+
                         </div>
                       </td>
                       <td>
