@@ -12,25 +12,12 @@ class departmentController extends Controller
     public function index() {
         $users = User::find(Auth::id());
         $departments = Department::all(); 
-        // return $departments;
-        return view ('departamentos.departamentos', compact('departments','users'));
+        return view ('departamentos.index', compact('departments','users'));
     }
-
-    public function create() {
-        $departments = Department::all(); 
-        return view ('departamentos.create', compact('departments'));
-    }   
 
     public function store(Request $request) {
-        $departments = new Department;
-        $departments->name = $request->name;
-        $departments->status = $request->status;
-        $departments->save();
+        $departments = Department::create($request->all());
         return redirect()->route('departamentos');
-    }
-
-    public function edit(Department $id) {
-        return view ('departamentos.editar',compact ('id'));
     }
 
     public function update(Request $request, Department $id) {

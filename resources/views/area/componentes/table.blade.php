@@ -6,10 +6,10 @@
       </div>
       <div class="panel-heading">
         <div class="pull-left">
-          <h6 class="panel-title txt-dark">Áreas</h6>
+          <h6 class="panel-title txt-dark">Lista de Áreas</h6>
         </div>
-        <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
-          <a href="{{route('area.create')}}" class="pull-left btn btn-primary btn-xs mr-15">Nuevo</a>
+        <div class="pull-right">
+          <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Area_register">Nuevo</a>
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay"></i>
           </a>
@@ -50,31 +50,12 @@
                     <td>{{$area->status}}</td>
                     <td>{{$area->department->name}}</td>
                     <td>
-                        <div class="datable_row">
-                          <span class="input-group-btn">
-                            <a href="{{route('area.editar', [$area->id,$area->department_id])}}" class="btn btn-success btn-anim">
-                              <i class="icon-rocket"></i><span class="btn-text">Editar</span>
-                            </a>
-                          </span> 
-
-                            <form action="{{route('area.destroy', $area->id)}}" method="POST">
-                              @csrf
-                              @method('delete')
-                              @if ($area->users->isEmpty())
-                                <button type="submit" class="btn btn-danger btn-anim btn-delete">
-                                  <i class="fas fa-trash"></i>
-                                  <span class="btn-text">Eliminar</span>
-                                </button> 
-                                @else 
-                                <button type="submit" class="btn btn-danger btn-anim btn-delete-user" data-name="área" data-lastname="usuarios">
-                                  <i class="fas fa-trash"></i>
-                                  <span class="btn-text">Eliminar</span>
-                                </button>
-                              @endif
-                          </form>
-                        </div>
-                      </td>
-                    </tr>
+                      <button type="button"  data-toggle="modal" data-target="#Area_update{{$area->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
+                      <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Area-remove{{$area->id}}"></button>
+                    </td>
+                  </tr>
+                  @include('area.componentes.area_update_modal')
+                  @include('area.componentes.area_delete_modal')
                   @endforeach
                 </tbody>
               </table>
@@ -85,3 +66,4 @@
     </div>
   </div>
 </div>
+@include('area.componentes.area_register_modal')

@@ -46,13 +46,22 @@
                 </thead>
 
                 <tbody>
-                  
-                  @foreach ($projects as $project) 
+
+                  @foreach ($projects as $project)
                     <tr>
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
-                      <td><div class="progress progress-xs mb-0 ">
-                        <div class="progress-bar progress-bar-success" style="width: {{100}}%"></div>
+                      <td>
+                          <div class="progress progress-xs mb-0 ">
+
+                              @if ($project->tasks->count() == 0)
+                              <div class="progress-bar progress-bar-success" style="width: 0%"></div>
+
+                              @else
+                              <div class="progress-bar progress-bar-success" style="width: {{$project->tasks->where('status','Completado')->count()*100/$project->tasks->count()}}%"></div>
+                              @endif
+
+
                         </div>
                       </td>
                       <td>
@@ -77,18 +86,19 @@
                           <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
                       </td>
                       <td>
-                        <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> 
+                        <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
                       </td>
                     </tr>
                       @include('proyectos.componentes.project_update_modal')
                       @include('proyectos.componentes.project_delete_modal')
-                      @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
+
                   @endforeach
                 </tbody>
               </table>
             </div>
-          </div>	
-        </div>	
+          </div>
+        </div>
       </div>
     </div>
   </div>

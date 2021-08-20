@@ -22,8 +22,9 @@ class ProjectController extends Controller
         $projects = Project::all();
         $clients = Client::all();
         $tasks = Task::all();
-        
-        return view ('proyectos.index', compact('projects','users','clients','tasks'));
+        $completed = Task::completed(1)->get();
+
+        return view ('proyectos.index', compact('projects','users','clients','tasks','completed'));
     }
 
     /**
@@ -44,7 +45,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'name' => 'required',
             'start_date' => 'required',
@@ -56,7 +57,7 @@ class ProjectController extends Controller
             'status' => 'Próximo'
         ]);
 
-        $project = Project::create($request->all()); 
+        $project = Project::create($request->all());
 
         return redirect()->route('proyectos', $project);
     }
@@ -72,7 +73,7 @@ class ProjectController extends Controller
         $users = User::find(Auth::id());
         $projects = Project::all();
         $project = Project::where('id',$id)->first();
-        
+
         return view ('proyectos.index', compact('projects','users','project'));
     }
 
