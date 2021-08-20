@@ -14,5 +14,10 @@ class Subtask extends Model
     public function files(){
      return $this->morphMany('App\Models\File','fileable');
     }
+     //Relacion uno a uno Proceso-Subproceso
+     public function statu() 
+     {
+         return $this->hasOne("App\Models\Statu"); 
+     }
 
 }

@@ -43,4 +43,9 @@ class Project extends Model
         return $this->hasMany('App\Models\Task');
     }
 
+     //Relacion uno a uno Proceso-Subproceso
+     public function statu() 
+     {
+         return $this->hasOne("App\Models\Statu"); 
+     }
 }

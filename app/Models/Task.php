@@ -23,4 +23,9 @@ class Task extends Model
      {
          return $this->belongsTo('App\Models\Project');
      }
+      //Relacion uno a uno Proceso-Subproceso
+      public function statu() 
+      {
+          return $this->hasOne("App\Models\Statu"); 
+      }
 }
