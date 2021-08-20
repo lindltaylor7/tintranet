@@ -20,11 +20,11 @@
                 <a class="{{ request()->routeIs('departamentos') ? 'active' : '' }}" href="{{route('departamentos')}}"><div class="pull-left"><i class="fas fa-building mr-20"></i><span class="right-nav-text">Departamentos</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
             </li>
         @endcan
-        {{-- @can('Areas') --}}
+        @can('Areas')
             <li>
                 <a class="{{ request()->routeIs('area') ? 'active' : '' }}" href="{{route('area')}}"><div class="pull-left"><i class="fas fa-layer-group mr-20"></i></i><span class="right-nav-text">Áreas</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
             </li>
-        {{-- @endcan --}}
+        @endcan
             <li><hr class="light-grey-hr mb-10"/></li>
         @can('Proyectos')
             <li>

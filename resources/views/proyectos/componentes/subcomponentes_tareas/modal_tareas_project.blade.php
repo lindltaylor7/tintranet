@@ -26,7 +26,7 @@
                     <td>{{$task->user->name}}</td>
                     <td>
                         <form action="" class="form form-inline">
-                            <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" data-toggle="popover" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
+                            <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
                         </form>
                     </td>
                   </tr>
