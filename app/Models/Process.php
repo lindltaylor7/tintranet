@@ -18,5 +18,10 @@ class Process extends Model
     public function areas() 
     {
         return $this->belongsToMany("App\Models\Area"); 
+    }
+    //Relacion inversa de uno a muchos Proceso-Subproceso
+    public function macroprocess() 
+    {
+        return $this->belongsTo("App\Models\Macroprocess"); 
     }    
 }
