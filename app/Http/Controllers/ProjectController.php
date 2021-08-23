@@ -22,9 +22,9 @@ class ProjectController extends Controller
         $projects = Project::all();
         $clients = Client::all();
         $tasks = Task::all();
-        $completed = Task::completed(1)->get();
+        //$completed = Task::completed(1)->get();
 
-        return view ('proyectos.index', compact('projects','users','clients','tasks','completed'));
+        return view ('proyectos.index', compact('projects','users','clients','tasks'));
     }
 
     /**

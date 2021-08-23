@@ -58,28 +58,15 @@
                               <div class="progress-bar progress-bar-success" style="width: 0%"></div>
 
                               @else
-                              <div class="progress-bar progress-bar-success" style="width: {{$project->tasks->where('status','Completado')->count()*100/$project->tasks->count()}}%"></div>
+                              <div class="progress-bar progress-bar-success" style="width: {{$project->tasks->where('status_id',8)->count()*100/$project->tasks->count()}}%"></div>
                               @endif
-
-
                         </div>
                       </td>
                       <td>
                         <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
                       </td>
                       <td>
-                        @if ($project->status == "Próximo")
-                          <span class="label label-info">{{$project->status}}</span>
-                        @elseif ($project->status == "Pendiente")
-                          <span class="label label-danger">{{$project->status}}</span>
-                        @elseif ($project->status == "Entregado")
-                          <span class="label label-primary">{{$project->status}}</span>
-                        @elseif ($project->status == "Completo")
-                          <span class="label label-success">{{$project->status}}</span>
-                        @elseif ($project->status == "En Proceso")
-                          <span class="label label-warning">{{$project->status}}</span>
-                        @endif
-
+                        <span class="label label-{{$project->status->color}}">{{$project->status->name}}</span>
                       </td>
                       <td>{{ \Carbon\Carbon::parse($project->final_date)->format('M d, Y')}}</td>
                       <td>

@@ -23,17 +23,15 @@ class Task extends Model
      {
          return $this->belongsTo('App\Models\Project');
      }
-<<<<<<< HEAD
 
      //QueryScopes
     public function scopeCompleted($query,$project_id){
         return $query->where('status','Completado')->where('project_id',$project_id);
     }
-=======
+
       //Relacion uno a uno Proceso-Subproceso
-      public function statu() 
+      public function status() 
       {
           return $this->belongsTo("App\Models\Statu"); 
       }
->>>>>>> 8cdec295813b8c3c5bd59995092adc2d26a14f0e
 }
