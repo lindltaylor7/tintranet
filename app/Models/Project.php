@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','amount','start_date','final_date','delivery_date','status','client_id'];
+    protected $fillable = ['name','amount','start_date','final_date','delivery_date','status_id','url_product','client_id'];
 
     
   //Relaciion de muchos a muchos Proyecto-Usuarios

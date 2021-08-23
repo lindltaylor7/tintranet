@@ -59,9 +59,19 @@
                             <option value="Estancado">Estancado</option>   
                         </select>
                         </div>
-                    </div>                                    
+                    </div>        
+                    <label class="control-label mb-10" for="exampleInputuname_4">Fecha Inicial:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fas fa-signature"></i></div>
+                        <input type="date" class="form-control" id="exampleInputuname_4" name="start_date" value="{{$task->start_date}}" required>
+                    </div>
+                    <label class="control-label mb-10" for="exampleInputuname_5">Fecha Final:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fas fa-signature"></i></div>
+                        <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" value="{{$task->final_date}}"required>
+                    </div>                            
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success waves-effect">Registrar</button>
+                        <button type="submit" class="btn btn-success waves-effect">Guardar Cambios</button>
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
                     </div>
                 </form>
