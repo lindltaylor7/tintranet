@@ -54,7 +54,7 @@ class ProjectController extends Controller
         ]);
 
         $request->merge([
-            'status' => 'Próximo'
+            'status_id' => '1'
         ]);
 
         $project = Project::create($request->all());
@@ -101,6 +101,7 @@ class ProjectController extends Controller
             'name' => 'required',
             'start_date' => 'required',
             'final_date' => 'required',
+            'status_id' => 'required',
             'client_id' => 'required'
         ]);
 

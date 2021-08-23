@@ -16,7 +16,6 @@ class CreateSubtasksTable extends Migration
         Schema::create('subtasks', function (Blueprint $table) {
             $table->id();
             $table->string('name',100);
-            $table->string('status',25);
             $table->unsignedBigInteger('task_id');
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
             $table->unsignedBigInteger('status_id');

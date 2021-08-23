@@ -24,8 +24,7 @@
                         <select name="project_id" id="status_tarea" class="form-control">   
                             @foreach ($projects as $project)
                             <option value="{{$project->id}}">{{$project->name}}</option>
-                            @endforeach 
-                                                                            
+                            @endforeach                                                                             
                         </select>
                         </div>
                     </div><!-- ends: .form-group -->    
@@ -40,18 +39,16 @@
                         </select>
                         </div>
                     </div><!-- ends: .form-group -->    
-                    <div class="form-group">
-                        <label class="control-label mb-10" for="exampleInputuname_1">Status de tarea</label>
-                        <div class="input-group">
-                        <div class="input-group-addon"><i class="icon-user"></i></div>
-                        <select name="status" id="status_tarea" class="form-control">
-                            <option value="Inicializado">Inicializado</option>
-                            <option value="En ejecucion">En ejecucion</option>
-                            <option value="Completado">Completado</option>
-                            <option value="Estancado">Estancado</option>                            >
-                        </select>
-                        </div>
-                    </div>                                    
+                    <label class="control-label mb-10" for="exampleInputuname_4">Fecha Inicial:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fas fa-signature"></i></div>
+                        <input type="date" class="form-control" id="exampleInputuname_4" name="start_date" value="<?php echo date("Y-m-d");?>" required>
+                    </div>
+                    <label class="control-label mb-10" for="exampleInputuname_5">Fecha Final:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fas fa-signature"></i></div>
+                        <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" required>
+                    </div>                                   
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Registrar</button>
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>

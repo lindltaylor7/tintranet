@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','status','project_id','user_id'];
+    protected $fillable = ['name','start_date','final_date','project_id','user_id','status_id'];
     //Relacion uno a muchos Tareas-Usuarios
     public function user()
     {
@@ -33,7 +33,7 @@ class Task extends Model
       //Relacion uno a uno Proceso-Subproceso
       public function statu() 
       {
-          return $this->hasOne("App\Models\Statu"); 
+          return $this->belongsTo("App\Models\Statu"); 
       }
 >>>>>>> 8cdec295813b8c3c5bd59995092adc2d26a14f0e
 }

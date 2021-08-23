@@ -47,10 +47,13 @@ class TaskController extends Controller
    
         $request->validate([
             'name' => 'required',
-            'status' => 'required',
+            'start_date' => 'required',
             'project_id' => 'required',
             'user_id' => 'required'
         ]);  
+        $request->merge([
+            'status_id' => '6'
+        ]);
         $tasks = Task::create($request->all());  
         return redirect()->back();
     }

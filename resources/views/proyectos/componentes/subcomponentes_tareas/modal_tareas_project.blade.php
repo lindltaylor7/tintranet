@@ -22,7 +22,7 @@
                   @foreach($project->tasks as $task)
                   <tr>
                     <td>{{$task->name}}</td>
-                    <td>{{$task->status}}</td>
+                    <td></td>
                     <td>{{$task->user->name}}</td>
                     <td>
                         <form action="" class="form form-inline">
