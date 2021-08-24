@@ -50,7 +50,12 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
+                                    @if ($projects->count() == 0)
+                                    <span class="txt-dark block counter"><span class="counter-anim">0</span>%</span>  
+                                    @else
                                     <span class="txt-dark block counter"><span class="counter-anim">{{round($projects->where('status_id',5)->count()*100/$projects->count(),2)}}</span>%</span>
+                                    @endif
+
                                     <span class="weight-500 uppercase-font block">Entregados</span>
                                 </div>
                                 <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
@@ -71,7 +76,11 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
-                                    <span class="txt-dark block counter"><span class="counter-anim">{{round($projects->where('status_id','!=',5)->count()*100/$projects->count(),2)}}</span>%</span>
+                                    @if ($projects->count() == 0)
+                                    <span class="txt-dark block counter"><span class="counter-anim">0</span>%</span>  
+                                    @else
+                                    <span class="txt-dark block counter"><span class="counter-anim">{{round($projects->where('status_id','!=',5)->count()*100/$projects->count(),2)}}</span>%</span>  
+                                    @endif                                 
                                     <span class="weight-500 uppercase-font block">Pendientes</span>
                                 </div>
                                 <div class="col-xs-6 text-center  pl-0 pr-0 pt-25  data-wrap-right">
