@@ -44,8 +44,16 @@ class Project extends Model
     }
 
      //Relacion uno a uno Proceso-Subproceso
-     public function status() 
+     public function status()
      {
-         return $this->belongsTo("App\Models\Statu"); 
+         return $this->belongsTo("App\Models\Statu");
      }
+
+      //Relacion inversa muchos a muchos Depatments-Proyectos
+
+        public function departments()
+        {
+            return $this->belongsToMany('App\Models\Department');
+        }
+
 }

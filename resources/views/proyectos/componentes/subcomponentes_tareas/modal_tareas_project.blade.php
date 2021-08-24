@@ -14,22 +14,34 @@
                 <tr>
                   <th>Nombre</th>
                   <th>Estado</th>
+                  <th>Fecha Inicio</th>
+                  <th>Fecha Final</th>
                   <th>Encargado</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                  @foreach($project->tasks as $task)
+                  @foreach($tasks as $task)
+                  @if ($task->project->name == $project->name)
                   <tr>
                     <td>{{$task->name}}</td>
                     <td><span class="label label-{{$task->status->color}}">{{$task->status->name}}</span></td>
+                    <td>{{$task->start_date}}</td>
+                    <td>{{$task->final_date}}</td>
                     <td>{{$task->user->name}}</td>
-                    <td>
-                        <form action="" class="form form-inline">
-                            <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
-                        </form>
-                    </td>
+                        @if ($task->user_id == Auth::id())
+                            <td>
+                                <form action="" class="form form-inline">
+                                    <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
+                                </form>
+                            </td>
+                            @else
+                            <td>
+                                <button class="btn btn-danger"disabled>Restringido</button>
+                            </td>
+                        @endif
                   </tr>
+                  @endif
                   @endforeach
               </tbody>
             </table>

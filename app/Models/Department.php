@@ -11,11 +11,16 @@ class Department extends Model
 
     protected $fillable = [
         'name',
-        'status',        
+        'status',
     ];
     //Relación de uno a muchos Department-Area
     public function areas () {
         return $this->hasMany("App\Models\Area");
+    }
+    //Relacion muchos a muchos Department-Proyectos
+    public function projects()
+    {
+        return $this->belongsToMany('App\Models\Project');
     }
 
 }

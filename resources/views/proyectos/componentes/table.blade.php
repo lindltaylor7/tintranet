@@ -9,7 +9,9 @@
           <h6 class="panel-title txt-dark">Lista de Proyectos</h6>
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
-          <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo</a>
+            @can('CRUD_Proyecto')
+            <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo</a>
+            @endcan
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay"></i>
           </a>
@@ -36,11 +38,14 @@
                   <tr>
                     <th>Proyecto</th>
                     <th>Cliente</th>
+                    <th>Area</th>
                     <th>Progreso</th>
                     <th>Presupuesto</th>
                     <th>Estado</th>
                     <th>Límite</th>
+                    @can('CRUD_Proyecto')
                     <th>Editar / Eliminar</th>
+                    @endcan
                     <th>Tareas</th>
                   </tr>
                 </thead>
@@ -51,6 +56,7 @@
                     <tr>
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
+                      <td>{{$project->areas->first()->name}}</td>
                       <td>
                           <div class="progress progress-xs mb-0 ">
 
@@ -69,13 +75,18 @@
                         <span class="label label-{{$project->status->color}}">{{$project->status->name}}</span>
                       </td>
                       <td>{{ \Carbon\Carbon::parse($project->final_date)->format('M d, Y')}}</td>
+                      @can('CRUD_Proyecto')
                       <td>
                           <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
                       </td>
+                      @endcan
                       <td>
                         <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
                         @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
-                      </td>
+                        @can('CRUD_Proyecto')
+                        <a href="{{route('proyectos.show',$project->id)}}" class="btn btn-xs btn-info icon-note"></a>
+                        @endcan
+                    </td>
                     </tr>
                       @include('proyectos.componentes.project_update_modal')
                       @include('proyectos.componentes.project_delete_modal')

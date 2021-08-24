@@ -23,7 +23,7 @@
             {{Auth::user()->roles->first()->name}}
             {{Auth::user()->area->department->name}}
             {{Auth::user()->area->name}}
-            @include('proyectos.componentes.table')
+            @include('proyectos.componentes.subcomponentes_tareas.table_task_show')
             <!-- /Row -->
 
             <!-- Row -->

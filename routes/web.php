@@ -67,6 +67,7 @@ Route::delete('/rol/{id}/delete',[RoleController::class, 'destroy'])->name("role
 
 // CRUD de Proyectos
 Route::get('/proyectos',[ProjectController::class, 'index'])->name("proyectos")->middleware('auth')->middleware('can:Proyectos');
+Route::get('/proyectos/{id}',[ProjectController::class, 'show'])->name("proyectos.show")->middleware('auth')->middleware('can:Proyectos');
 Route::post('/proyecto/register',[ProjectController::class, 'store'])->name("proyecto.register")->middleware('auth')->middleware('can:Proyectos');
 Route::put('/proyecto/{id}/update',[ProjectController::class, 'update'])->name("proyecto.update")->middleware('auth')->middleware('can:Proyectos');
 Route::delete('/proyecto/{id}/delete',[ProjectController::class, 'destroy'])->name("proyecto.delete")->middleware('auth')->middleware('can:Proyectos');
@@ -77,7 +78,7 @@ Route::post('/tarea/register',[TaskController::class, 'store'])->name("tarea.reg
 Route::put('/tarea/{id}/update',[TaskController::class, 'update'])->name("tarea.update")->middleware('auth')->middleware('can:Tareas');
 Route::delete('/tarea/{id}/delete',[TaskController::class, 'destroy'])->name("tarea.delete")->middleware('auth')->middleware('can:Tareas');
 
-// CLIENTES 
+// CLIENTES
 Route::get('/clientes', [clientController::class, 'index'])->name('clientes');
 Route::post('/clientes/store', [clientController::class, 'store'])->name('clientes.store');
 Route::put('/clientes/{id}/update', [clientController::class, 'update'])->name('clientes.update');

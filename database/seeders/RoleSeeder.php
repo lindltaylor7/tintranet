@@ -20,21 +20,25 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'Jefe Departamento']);
         $role3 = Role::create(['name'=> 'Jefe Area']);
         $role4 = Role::create(['name' => 'Jefe Proyecto']);
-        $role5 = Role::create(['name' => 'Practicante']);
+        $role5 = Role::create(['name' => 'Colaborador']);
+        $role6 = Role::create(['name' => 'Practicante']);
 
-        Permission::create(['name' => 'Inicio'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
-        Permission::create(['name' => 'Perfil'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
-        
+        Permission::create(['name' => 'Inicio'])->syncRoles([$role1, $role2, $role3, $role4, $role5,$role6]);
+        Permission::create(['name' => 'Perfil'])->syncRoles([$role1, $role2, $role3, $role4, $role5,$role6]);
+
         Permission::create(['name' => 'Usuarios'])->assignRole($role1);
 
         Permission::create(['name' => 'Departamentos'])->assignRole($role1);
-        Permission::create(['name' => 'Areas'])->assignRole($role1);
+        Permission::create(['name' => 'Areas'])->syncRoles($role1,$role2);
 
-        Permission::create(['name' => 'Proyectos'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
-        Permission::create(['name' => 'Tareas'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
+        Permission::create(['name' => 'Proyectos'])->syncRoles([$role1, $role2, $role3, $role4, $role5,$role6]);
+
+        Permission::create(['name' => 'CRUD_Proyecto'])->syncRoles([$role1,$role2,$role3,$role4]);
+
+        Permission::create(['name' => 'Tareas'])->syncRoles([$role1, $role2, $role3, $role4, $role5,$role6]);
 
         Permission::create(['name' => 'Roles'])->assignRole($role1);
-        
-        Permission::create(['name' => 'Clientes'])->syncRoles([$role1, $role2, $role3, $role4, $role5]);
+
+        Permission::create(['name' => 'Clientes'])->assignRole($role1);
     }
 }

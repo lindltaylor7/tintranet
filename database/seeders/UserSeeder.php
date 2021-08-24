@@ -15,8 +15,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Lind Taylor',
-            'email' => 'llt@gmail.com',
+            'name' => 'Valentina Meza',
+            'email' => 'vmeza@gmail.com',
             'phone' => '987654321',
             'password' => bcrypt('123456'),
             'status' => 1,
@@ -24,8 +24,35 @@ class UserSeeder extends Seeder
         ])->assignRole('Administrador');
 
         User::create([
+            'name' => 'Ivon Sinche',
+            'email' => 'isinche@gmail.com',
+            'phone' => '987654321',
+            'password' => bcrypt('123456'),
+            'status' => 1,
+            'area_id' => 1
+        ])->assignRole('Jefe Departamento');
+
+        User::create([
+            'name' => 'Lind Taylor',
+            'email' => 'riuyagami@gmail.com',
+            'phone' => '987654321',
+            'password' => bcrypt('123456'),
+            'status' => 1,
+            'area_id' => 1
+        ])->assignRole('Jefe Area');
+
+        User::create([
             'name' => 'Bryan Darien',
             'email' => 'barias@gmail.com',
+            'phone' => '987654321',
+            'password' => bcrypt('123456'),
+            'status' => 1,
+            'area_id' => 1
+        ])->assignRole('Jefe Proyecto');
+
+        User::create([
+            'name' => 'Johan Meza',
+            'email' => 'jmeza@gmail.com',
             'phone' => '987654321',
             'password' => bcrypt('123456'),
             'status' => 1,
