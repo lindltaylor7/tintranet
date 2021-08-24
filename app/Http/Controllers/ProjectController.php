@@ -109,7 +109,14 @@ class ProjectController extends Controller
         $user = User::find(Auth::id());
         $projects = Project::all();
         $project = Project::where('id', $id)->first();
+        if (Auth::user()->roles->first()->name == 'Jefe Departamento'){
+        $tasks = Task::where('project_id', $id)->get();
+        }else if (Auth::user()->roles->first()->name == 'Jefe Area'){
+        $tasks = Task::where('project_id', $id)->get();
+        }
+        else{
         $tasks = Task::where('project_id', $id)->where('user_id',Auth::id())->get();
+        }
         $users = $project->users;
         return view('proyectos.show', compact('projects', 'user', 'project','tasks','users'));
     }
