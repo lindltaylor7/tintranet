@@ -47,7 +47,12 @@
                               <td>{{$client->name}}</td>
                               <td>{{$client->phone}}</td>
                               <td>{{$client->email}}</td>
-                              <td>{{$client->status}}</td>
+                              <td>@if ($client->status == 1)
+                                    <span class="label label-success">ACTIVO</span>
+                                  @else
+                                    <span class="label label-danger">INACTIVO</span>
+                                  @endif
+                              </td>
                               <td>
                                 <button type="button"  data-toggle="modal" data-target="#Cliente_update{{$client->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
                                 <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Cliente-remove{{$client->id}}"></button>

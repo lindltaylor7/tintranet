@@ -6,7 +6,7 @@
         </div>
         <div class="panel-heading">
           <div class="pull-left">
-            <h6 class="panel-title txt-dark">Lista de Tareas del Proyecto {{$project->name}}</h6>
+            <h6 class="panel-title txt-dark">Tareas del Proyecto {{$project->name}}</h6>
           </div>
           <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Task_register">Nuevo</a>

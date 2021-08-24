@@ -38,11 +38,11 @@
                                                 <td>{{$usuario->phone}}</td>
                                                 <td>@if ($usuario->status == '1')
                                                     <div class="atbd_listing_meta">
-                                                        <button class="atbd_meta atbd_listing_rating" type="button" data-toggle="modal" data-target="#Inactive_usuario{{$usuario->id}}" href="#">Activo</button>
+                                                        <button class="label label-success" type="button" data-toggle="modal" data-target="#Inactive_usuario{{$usuario->id}}" href="#">Activo</button>
                                                     </div>
                                                     @else
                                                     <div class="atbd_listing_meta">
-                                                        <button class="atbd_meta atbd_badge_close" type="button" data-toggle="modal" data-target="#Active_usuario{{$usuario->id}}" href="#">Inactivo</button>
+                                                        <button class="label label-danger" type="button" data-toggle="modal" data-target="#Active_usuario{{$usuario->id}}" href="#">Inactivo</button>
                                                     </div>
                                                     @endif
                                                 </td>

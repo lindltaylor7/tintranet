@@ -13,6 +13,9 @@ class clientController extends Controller
     }
     
     public function store (Request $request) {
+        $request->merge([
+            'status' => 1
+        ]);
         $clientes = Client::create($request->all());
         return redirect()->route('clientes');  
     }
@@ -26,7 +29,6 @@ class clientController extends Controller
         $id->name = $request->name;
         $id->phone = $request->phone;
         $id->email = $request->email;
-        $id->status = $request->status;
         $id->save();
         return redirect()->route('clientes');
     }

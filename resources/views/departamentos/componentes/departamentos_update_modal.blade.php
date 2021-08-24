@@ -18,13 +18,6 @@
                           <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="Nombre del Departamento" value="{{$department->name}}" required>
                       </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10" for="exampleInputuname_2">Clientes:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                            <input type="number" class="form-control" id="exampleInputuname_1" name="status" placeholder="Nombre del Departamento" value="{{$department->status}}" required>
-                        </div>
-                    </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Actualizar Datos</button>
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>

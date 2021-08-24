@@ -47,7 +47,12 @@
                   <tr>
                     <td>{{$area->id}}</td>
                     <td>{{$area->name}}</td>
-                    <td>{{$area->status}}</td>
+                    <td>@if ($area->status == 1)
+                          <span class="label label-success">ACTIVO</span>
+                        @else
+                          <span class="label label-danger">INACTIVO</span>
+                        @endif
+                    </td>
                     <td>{{$area->department->name}}</td>
                     <td>
                       <button type="button"  data-toggle="modal" data-target="#Area_update{{$area->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
