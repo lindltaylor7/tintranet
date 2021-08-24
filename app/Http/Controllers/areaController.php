@@ -17,13 +17,15 @@ class areaController extends Controller
     }
 
     public function store(Request $request) {
+        $request->merge([
+            'status' => 1
+        ]);
         $department = Area::create($request->all());
         return redirect()->route('area'); 
     }
 
     public function update(Request $request, Area $id) {
         $id->name = $request->name;
-        $id->status = $request->status;
         $id->department_id = $request->department;
         $id->save();
         return redirect()->route('area'); 

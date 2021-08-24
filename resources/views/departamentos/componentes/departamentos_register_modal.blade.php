@@ -18,13 +18,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label mb-10" for="exampleInputuname_2">Estado:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                            <input type="text" class="form-control" id="exampleInputuname_1" name="status" placeholder="Estado del Departamento" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success waves-effect">Registrar</button>
                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
