@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\GoalController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Models\Goal;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
@@ -64,6 +66,9 @@ Route::get('/roles',[RoleController::class, 'index'])->name("roles")->middleware
 Route::post('/rol/register',[RoleController::class, 'store'])->name("role.register")->middleware('auth')->middleware('can:Roles');
 Route::put('/rol/{id}/update',[RoleController::class, 'update'])->name("role.update")->middleware('auth')->middleware('can:Roles');
 Route::delete('/rol/{id}/delete',[RoleController::class, 'destroy'])->name("role.delete")->middleware('auth')->middleware('can:Roles');
+
+//METAS/GOALS
+Route::resource('goals', GoalController::class);
 
 // CRUD de Proyectos
 Route::get('/proyectos',[ProjectController::class, 'index'])->name("proyectos")->middleware('auth')->middleware('can:Proyectos');
