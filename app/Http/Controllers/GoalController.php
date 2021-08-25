@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\Goal;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,9 @@ class GoalController extends Controller
     public function index()
     {
         $goals = Goal::paginate();
+        $areas = Area::pluck('name','id');
 
-        return view('goal.index', compact('goals'))
+        return view('goal.index', compact('goals','areas'))
             ->with('i', (request()->input('page', 1) - 1) * $goals->perPage());
     }
 
@@ -43,9 +45,15 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
+    
+        $request->merge([
+            'partial_quantity' => '0'
+        ]); 
         request()->validate(Goal::$rules);
-
+      
+            
         $goal = Goal::create($request->all());
+
 
         return redirect()->route('goals.index')
             ->with('success', 'Goal created successfully.');
