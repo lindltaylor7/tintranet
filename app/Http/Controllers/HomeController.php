@@ -25,7 +25,7 @@ class HomeController extends Controller
         $users = User::find(Auth::id());
         $projects = Project::all();
         $areas = Area::all();
-        $goals = Goal::all();
+        $goals = Goal::orderBy('id','desc')->get();
         $clients = Client::all();
         if (Auth::user()->roles->first()->name == 'Administrador') {
             $projects = Project::all();
