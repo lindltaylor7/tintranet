@@ -40,5 +40,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'Roles'])->assignRole($role1);
 
         Permission::create(['name' => 'Clientes'])->assignRole($role1);
+        
+        Permission::create(['name' => 'Metas'])->assignRole($role1);
     }
 }
