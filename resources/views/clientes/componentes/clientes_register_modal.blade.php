@@ -31,13 +31,6 @@
                           <input type="email" class="form-control" placeholder="Email del Cliente" name="email" required>
                       </div>
                   </div>
-                  <div class="form-group">
-                      <label class="control-label mb-10" for="exampleInputuname_3">Estado:</label>
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                          <input type="number" class="form-control" placeholder="Estado del Cliente" name="status" required>
-                      </div>
-                  </div>
                   <div class="modal-footer">
                       <button type="submit" class="btn btn-success waves-effect">Registrar</button>
                       <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
