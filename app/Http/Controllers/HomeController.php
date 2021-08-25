@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\Client;
 use App\Models\Department;
+use App\Models\Goal;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
@@ -22,6 +24,8 @@ class HomeController extends Controller
         $departments = Department::all();
         $users = User::find(Auth::id());
         $projects = Project::all();
+        $areas = Area::all();
+        $goals = Goal::all();
         $clients = Client::all();
         if (Auth::user()->roles->first()->name == 'Administrador') {
             $projects = Project::all();
@@ -48,7 +52,7 @@ class HomeController extends Controller
         $tasks = Task::all();
         $colabs = User::where('area_id',Auth::user()->area->id)->get();
         $total_user = User::all();
-        return view('welcome', compact('users','departments','projects','clients','tasks','colabs','total_user'));
+        return view('welcome', compact('areas','goals','users','departments','projects','clients','tasks','colabs','total_user'));
     }
 
     /**
