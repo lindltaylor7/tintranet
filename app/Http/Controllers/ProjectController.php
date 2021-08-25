@@ -152,7 +152,7 @@ class ProjectController extends Controller
         $project = Project::where('id', $id)->first();
         $project->update($request->all());
 
-        return redirect()->route('proyectos', $project)->with('actualizar_proyecto', 'Actualización correcta');
+        return redirect()->back();
     }
 
     /**
