@@ -45,14 +45,16 @@
                     </thead>
                     <tbody>
                         @foreach ($tasks as $task)
-                          @if ($task->final_date > $task->delivery_date)
-                            <tr class="success">
-                          @elseif ($task->final_date < $task->delivery_date)
-                            <tr class="danger">
-                          @elseif ($task->final_date == $task->delivery_date)
-                            <tr class="warning">
+                          @if ($task->delivery_date)
+                            @if ($task->final_date > $task->delivery_date)
+                              <tr class="success">
+                            @elseif ($task->final_date < $task->delivery_date)
+                              <tr class="danger">
+                            @elseif ($task->final_date == $task->delivery_date)
+                              <tr class="warning">
+                            @endif
                           @else
-                            <tr>
+                            <tr class="active">
                           @endif
                                 <td>{{$task->name}}</td>
                                 <td>{{$task->user->name}}</td>
