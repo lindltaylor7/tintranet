@@ -16,14 +16,19 @@
                         <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="Nombre del Proyecto" required>
                     </div>
                     <label class="control-label mb-10" for="exampleInputuname_2">Clientes:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                        <select class="form-control" name="client_id" id="client_id">
-                            @foreach ($clients as $client)
-                            <option value="{{$client->id}}">{{$client->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <div class="row">
+                        <form>
+                            <div class="form-group mb-0">
+                                <select class="form-control select2" name="client_id" id="client_id" data-placeholder="Clientes">
+                                    <optgroup label="Clientes">
+                                        @foreach ($clients as $client)
+                                        <option value="{{$client->id}}">{{$client->name}}</option>
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </form>	
+					</div>
                     <label class="control-label mb-10" for="exampleInputuname_3">Monto del Contrato:</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
@@ -39,12 +44,10 @@
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
                         <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" value="<?php echo date("Y-m-d");?>"  required>
                     </div>
-                    <label class="control-label mb-10" for="exampleInputuname_5">Colaboradores: </label>
-                    @foreach ($colabs as $colab)
-                        @if ($colab->id != Auth::id())
-                        <br>
-                        <input type="checkbox" name="colabs[]" id="" value="{{$colab->id}}"> {{$colab->name}}
-                        @endif
+                    <label class="control-label mb-10" for="exampleInputuname_5">Areas: </label>
+                    @foreach ($areas as $area)
+                         <br>
+                        <input type="checkbox" name="areas[]" id="" value="{{$area->id}}"> {{$area->name}}
                     @endforeach
 
                     <div class="modal-footer">

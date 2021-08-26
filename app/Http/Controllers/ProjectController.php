@@ -20,6 +20,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $areas = Area::all();
         $users = User::find(Auth::id());
         if (Auth::user()->roles->first()->name == 'Administrador') {
             $projects = Project::all();
@@ -41,13 +42,14 @@ class ProjectController extends Controller
                 $q->where('area_id', '=', Auth::user()->area->id);
             })->get();
         }
+        
 
         $clients = Client::all();
         $tasks = Task::all();
         //$completed = Task::completed(1)->get();
         $colabs = User::where('area_id',Auth::user()->area->id)->get();
 
-        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs'));
+        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs','areas'));
     }
 
     /**
@@ -86,11 +88,7 @@ class ProjectController extends Controller
             'user_id' => Auth::id()
         ]);
 
-        $project->users()->attach($request->colabs);
-
-        $project->areas()->attach([
-            'area_id' => Auth::user()->area->id
-        ]);
+        $project->areas()->attach($request->areas);
 
         $project->departments()->attach([
             'department_id' => Auth::user()->area->department->id
@@ -112,9 +110,11 @@ class ProjectController extends Controller
         $project = Project::where('id', $id)->first();
         if (Auth::user()->roles->first()->name == 'Jefe Departamento'){
         $tasks = Task::where('project_id', $id)->get();
-        }else if (Auth::user()->roles->first()->name == 'Jefe Area'){
+        }else if (Auth::user()->roles->first()->name == 'Administrador'){
         $tasks = Task::where('project_id', $id)->get();
-        }
+        }else if (Auth::user()->roles->first()->name == 'Jefe Area'){
+            $tasks = Task::where('project_id', $id)->get();
+            }
         else{
         $tasks = Task::where('project_id', $id)->where('user_id',Auth::id())->get();
         }
