@@ -23,7 +23,15 @@
               <tbody>
                   @foreach($tasks as $task)
                   @if ($task->project->name == $project->name)
-                  <tr>
+                    @if ($task->final_date > $task->delivery_date)
+                      <tr class="success">
+                    @elseif ($task->final_date < $task->delivery_date)
+                      <tr class="danger">
+                    @elseif ($task->final_date == $task->delivery_date)
+                      <tr class="warning">
+                    @else
+                      <tr>
+                    @endif
                     <td>{{$task->name}}</td>
                     <td><span class="label label-{{$task->status->color}}">{{$task->status->name}}</span></td>
                     <td>{{$task->start_date}}</td>
