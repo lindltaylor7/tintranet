@@ -53,7 +53,15 @@
                 <tbody>
 
                   @foreach ($projects as $project)
-                    <tr>
+                    @if ($project->final_date > $project->delivery_date)
+                      <tr class="success">
+                    @elseif ($project->final_date < $project->delivery_date)
+                      <tr class="danger">
+                    @elseif ($project->final_date == $project->delivery_date)
+                      <tr class="warning">
+                    @else
+                      <tr>
+                    @endif
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
                       <td>{{$project->areas->first()->name}}</td>
@@ -91,6 +99,7 @@
                         @endcan
                       </td>
                     </tr>
+
                       @include('proyectos.componentes.project_update_modal')
                       @include('proyectos.componentes.project_delete_modal')
                       @include('proyectos.componentes.subcomponentes_tareas.task_register_modal')
