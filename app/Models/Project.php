@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','amount','start_date','final_date','delivery_date','status','client_id'];
+    protected $fillable = ['name','amount','start_date','final_date','delivery_date','status_id','url_product','client_id'];
 
 
   //Relaciion de muchos a muchos Proyecto-Usuarios
@@ -43,8 +43,14 @@ class Project extends Model
         return $this->hasMany('App\Models\Task');
     }
      //Relacion uno a uno Proceso-Subproceso
-     public function statu() 
+     public function status()
      {
-         return $this->hasOne("App\Models\Statu"); 
+         return $this->belongsTo("App\Models\Statu");
      }
+      //Relacion inversa muchos a muchos Depatments-Proyectos
+
+        public function departments()
+        {
+            return $this->belongsToMany('App\Models\Department');
+        }
 }

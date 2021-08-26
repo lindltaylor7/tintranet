@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','status','project_id','user_id'];
+    protected $fillable = ['name','start_date','final_date','project_id','user_id','status_id'];
     //Relacion uno a muchos Tareas-Usuarios
     public function user()
     {
@@ -25,13 +25,12 @@ class Task extends Model
      }
 
       //Relacion uno a uno Proceso-Subproceso
-      public function statu() 
+      public function status() 
       {
-          return $this->hasOne("App\Models\Statu"); 
+          return $this->belongsTo("App\Models\Statu"); 
       }
      //QueryScopes
     public function scopeCompleted($query,$project_id){
         return $query->where('status','Completado')->where('project_id',$project_id);
     }
-
 }

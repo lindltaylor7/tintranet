@@ -16,13 +16,15 @@ class departmentController extends Controller
     }
 
     public function store(Request $request) {
+        $request->merge([
+            'status' => 1
+        ]);        
         $departments = Department::create($request->all());
         return redirect()->route('departamentos');
     }
 
     public function update(Request $request, Department $id) {
         $id->name = $request->name;
-        $id->status = $request->status;
         $id->save();
         return redirect()->route('departamentos');
     }

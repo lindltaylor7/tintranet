@@ -15,12 +15,12 @@
                     <div class="input-group">
                         <div class="input-group-addon"><i class="icon-user"></i></div>
                         <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="willard bryant" value="{{$usuario->name}}">
-                    </div> 
+                    </div>
                     <label class="control-label mb-10" for="exampleInputuname_1">Email</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="icon-user"></i></div>
                         <input type="text" class="form-control" id="exampleInputuname_1" name="email" placeholder="example@gmail.com" value="{{$usuario->email}}">
-                    </div>                                   
+                    </div>
                     <label class="control-label mb-10" for="exampleInputuname_1">Telefono</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="icon-user"></i></div>

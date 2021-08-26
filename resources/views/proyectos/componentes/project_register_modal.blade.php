@@ -37,8 +37,15 @@
                     <label class="control-label mb-10" for="exampleInputuname_5">Fecha Final:</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                        <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" required>
+                        <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" value="<?php echo date("Y-m-d");?>"  required>
                     </div>
+                    <label class="control-label mb-10" for="exampleInputuname_5">Colaboradores: </label>
+                    @foreach ($colabs as $colab)
+                        @if ($colab->id != Auth::id())
+                        <br>
+                        <input type="checkbox" name="colabs[]" id="" value="{{$colab->id}}"> {{$colab->name}}
+                        @endif
+                    @endforeach
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Registrar</button>

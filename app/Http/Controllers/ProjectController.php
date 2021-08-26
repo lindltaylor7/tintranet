@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\Task;
@@ -19,12 +20,33 @@ class ProjectController extends Controller
     public function index()
     {
         $users = User::find(Auth::id());
-        $projects = Project::all();
+        if (Auth::user()->roles->first()->name == 'Administrador') {
+            $projects = Project::all();
+        } else if (Auth::user()->roles->first()->name == 'Jefe Departamento') {
+            $projects = Project::whereHas('departments', function ($q) {
+                $q->where('department_id', '=', Auth::user()->area->department->id);
+            })->get();
+
+        } else if (Auth::user()->roles->first()->name == 'Jefe Area') {
+            $projects = Project::whereHas('areas', function ($q) {
+                $q->where('area_id', '=', Auth::user()->area->id);
+            })->get();
+        } else if (Auth::user()->roles->first()->name == 'Jefe Proyecto'){
+            $projects = Project::whereHas('users', function ($q) {
+                $q->where('user_id', '=', Auth::id());
+            })->get();
+        } else if (Auth::user()->roles->first()->name == 'Practicante'){
+            $projects = Project::whereHas('areas', function ($q) {
+                $q->where('area_id', '=', Auth::user()->area->id);
+            })->get();
+        }
+
         $clients = Client::all();
         $tasks = Task::all();
-        $completed = Task::completed(1)->get();
+        //$completed = Task::completed(1)->get();
+        $colabs = User::where('area_id',Auth::user()->area->id)->get();
 
-        return view ('proyectos.index', compact('projects','users','clients','tasks','completed'));
+        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs'));
     }
 
     /**
@@ -54,10 +76,24 @@ class ProjectController extends Controller
         ]);
 
         $request->merge([
-            'status' => 'Próximo'
+            'status_id' => '1'
         ]);
 
         $project = Project::create($request->all());
+
+        $project->users()->attach([
+            'user_id' => Auth::id()
+        ]);
+
+        $project->users()->attach($request->colabs);
+
+        $project->areas()->attach([
+            'area_id' => Auth::user()->area->id
+        ]);
+
+        $project->departments()->attach([
+            'department_id' => Auth::user()->area->department->id
+        ]);
 
         return redirect()->route('proyectos', $project);
     }
@@ -70,11 +106,19 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $users = User::find(Auth::id());
+        $user = User::find(Auth::id());
         $projects = Project::all();
-        $project = Project::where('id',$id)->first();
-
-        return view ('proyectos.index', compact('projects','users','project'));
+        $project = Project::where('id', $id)->first();
+        if (Auth::user()->roles->first()->name == 'Jefe Departamento'){
+        $tasks = Task::where('project_id', $id)->get();
+        }else if (Auth::user()->roles->first()->name == 'Jefe Area'){
+        $tasks = Task::where('project_id', $id)->get();
+        }
+        else{
+        $tasks = Task::where('project_id', $id)->where('user_id',Auth::id())->get();
+        }
+        $users = $project->users;
+        return view('proyectos.show', compact('projects', 'user', 'project','tasks','users'));
     }
 
     /**
@@ -101,13 +145,14 @@ class ProjectController extends Controller
             'name' => 'required',
             'start_date' => 'required',
             'final_date' => 'required',
+            'status_id' => 'required',
             'client_id' => 'required'
         ]);
 
-        $project = Project::where('id',$id)->first();
+        $project = Project::where('id', $id)->first();
         $project->update($request->all());
 
-        return redirect()->route('proyectos', $project)->with('actualizar_proyecto','Actualización correcta');
+        return redirect()->back();
     }
 
     /**
@@ -118,9 +163,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        $project = Project::where('id',$id)->first();
+        $project = Project::where('id', $id)->first();
         $project->delete();
 
-        return redirect()->back()->with('borrar_proyecto','Eliminación exitosa');
+        return redirect()->back()->with('borrar_proyecto', 'Eliminación exitosa');
     }
 }

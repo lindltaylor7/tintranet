@@ -35,4 +35,10 @@ class Area extends Model
         return $this->belongsToMany("App\Models\Process"); 
 
     }
+    //Relacion de uno a muchos Area-Usuarios
+    public function goal() 
+    {
+        return $this->belongsTo("App\Models\Goal"); 
+
+    }
 }

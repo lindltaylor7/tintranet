@@ -19,13 +19,6 @@
                       </div>
                   </div>
                   <div class="form-group">
-                      <label class="control-label mb-10" for="exampleInputuname_2">Estado:</label>
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                          <input type="number" class="form-control" name="status" placeholder="Estado de la Área" value="{{$area->status}}" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
                       <label class="control-label mb-10" for="exampleInputuname_3">Departamento:</label>
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fas fa-signature"></i></div>

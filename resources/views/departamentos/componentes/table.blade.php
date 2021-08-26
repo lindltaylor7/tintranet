@@ -45,7 +45,13 @@
                     <tr>
                       <td>{{$department->id}}</td>
                       <td>{{$department->name}}</td>
-                      <td>{{$department->status}}</td>
+                      <td>
+                        @if ($department->status == 1)
+                          <span class="label label-success">ACTIVO</span>
+                        @else
+                          <span class="label label-danger">INACTIVO</span>
+                        @endif
+                      </td>
                       <td>
                         <button type="button"  data-toggle="modal" data-target="#Department_update{{$department->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
                         <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Department-remove{{$department->id}}"></button>

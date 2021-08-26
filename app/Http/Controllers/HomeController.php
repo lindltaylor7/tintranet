@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use App\Models\Client;
 use App\Models\Department;
+use App\Models\Goal;
 use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +24,35 @@ class HomeController extends Controller
         $departments = Department::all();
         $users = User::find(Auth::id());
         $projects = Project::all();
+        $areas = Area::all();
+        $goals = Goal::orderBy('id','desc')->get();
         $clients = Client::all();
+        if (Auth::user()->roles->first()->name == 'Administrador') {
+            $projects = Project::all();
+        } else if (Auth::user()->roles->first()->name == 'Jefe Departamento') {
+            $projects = Project::whereHas('departments', function ($q) {
+                $q->where('department_id', '=', Auth::user()->area->department->id);
+            })->get();
 
-        return view('welcome', compact('users','departments','projects','clients'));
+        } else if (Auth::user()->roles->first()->name == 'Jefe Area') {
+            $projects = Project::whereHas('areas', function ($q) {
+                $q->where('area_id', '=', Auth::user()->area->id);
+            })->get();
+        } else if (Auth::user()->roles->first()->name == 'Jefe Proyecto'){
+            $projects = Project::whereHas('users', function ($q) {
+                $q->where('user_id', '=', Auth::id());
+            })->get();
+        } else if (Auth::user()->roles->first()->name == 'Practicante'){
+            $projects = Project::whereHas('areas', function ($q) {
+                $q->where('area_id', '=', Auth::user()->area->id);
+            })->get();
+        }
+
+        $clients = Client::all();
+        $tasks = Task::all();
+        $colabs = User::where('area_id',Auth::user()->area->id)->get();
+        $total_user = User::all();
+        return view('welcome', compact('areas','goals','users','departments','projects','clients','tasks','colabs','total_user'));
     }
 
     /**

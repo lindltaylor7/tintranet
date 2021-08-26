@@ -40,7 +40,19 @@
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
                         <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" value="{{$project->final_date}}" required>
                     </div>
-
+                    <div class="form-group">
+                        <label class="control-label mb-10" for="exampleInputuname_1">Status de tarea</label>
+                        <div class="input-group">
+                        <div class="input-group-addon"><i class="icon-user"></i></div>
+                        <select name="status_id" id="status_tarea" class="form-control">
+                            <option value="1">Nuevo</option>
+                            <option value="2">Pendiente</option>
+                            <option value="3">En ejecución</option>
+                            <option value="4">Culminado</option>
+                            <option value="5">Entregado</option>
+                        </select>
+                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Actualizar Datos</button>
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>

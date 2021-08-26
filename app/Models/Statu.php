@@ -12,12 +12,12 @@ class Statu extends Model
     //Relacion uno a uno Proceso-Subproceso
     public function project() 
     {
-        return $this->belongsTo("App\Models\Project"); 
+        return $this->hasOne("App\Models\Project"); 
     }
      //Relacion uno a uno Proceso-Subproceso
      public function task() 
      {
-         return $this->belongsTo("App\Models\Task"); 
+         return $this->hasOne("App\Models\Task"); 
      }
       //Relacion uno a uno Proceso-Subproceso
     public function subtask() 

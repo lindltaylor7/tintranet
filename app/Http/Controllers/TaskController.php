@@ -22,7 +22,7 @@ class TaskController extends Controller
         $tasks = Task::all();
         $clients = Client::all();
         $projects = Project::all();
-        
+
         return view ('tarea.index', compact('tasks','users','clients','projects'));
     }
 
@@ -44,14 +44,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-   
+
         $request->validate([
             'name' => 'required',
-            'status' => 'required',
+            'start_date' => 'required',
             'project_id' => 'required',
             'user_id' => 'required'
-        ]);  
-        $tasks = Task::create($request->all());  
+        ]);
+        $request->merge([
+            'status_id' => '6'
+        ]);
+        $tasks = Task::create($request->all());
         return redirect()->back();
     }
 
@@ -88,6 +91,7 @@ class TaskController extends Controller
     {
         $tasks= Task::where('id',$id)->first();
         $tasks->update($request->except(['_token','_method','fileTaskUpdate']));
+
         return redirect()->back();
     }
 

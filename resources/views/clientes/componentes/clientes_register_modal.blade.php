@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="signup_modal_label"><i class="la la-lock"></i>Nuevo Proyecto</h5>
+              <h5 class="modal-title" id="signup_modal_label"><i class="la la-lock"></i>Nuevo Cliente</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -29,13 +29,6 @@
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fas fa-signature"></i></div>
                           <input type="email" class="form-control" placeholder="Email del Cliente" name="email" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label mb-10" for="exampleInputuname_3">Estado:</label>
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                          <input type="number" class="form-control" placeholder="Estado del Cliente" name="status" required>
                       </div>
                   </div>
                   <div class="modal-footer">

@@ -14,7 +14,7 @@
             <li>
                 <a class="{{ request()->routeIs('perfil') ? 'active' : '' }}" href="{{route('perfil',Auth::id())}}"><div class="pull-left"><i class="fa fa-user mr-20"></i><span class="right-nav-text">Perfil</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
             </li>
-        @endcan
+        @endcan       
         @can('Departamentos')
             <li>
                 <a class="{{ request()->routeIs('departamentos') ? 'active' : '' }}" href="{{route('departamentos')}}"><div class="pull-left"><i class="fas fa-building mr-20"></i><span class="right-nav-text">Departamentos</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
@@ -26,16 +26,21 @@
             </li>
         @endcan
             <li><hr class="light-grey-hr mb-10"/></li>
+        @can('Metas')
+            <li>
+                <a class="{{ request()->routeIs('goals.index') ? 'active' : '' }}" href="{{route('goals.index')}}"><div class="pull-left"><i class="icon-diamond mr-20"></i><span class="right-nav-text">Metas</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+            </li>
+        @endcan
         @can('Proyectos')
             <li>
                 <a class="{{ request()->routeIs('proyectos') ? 'active' : '' }}" href="{{route('proyectos')}}"><div class="pull-left"><i class="fas fa-clipboard-list mr-20"></i></i><span class="right-nav-text">Proyectos</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
             </li>
         @endcan
-        @can('Tareas')
+       {{--  @can('Tareas')
             <li>
                 <a class="{{ request()->routeIs('tareas') ? 'active' : '' }}" href="{{route('tareas')}}"><div class="pull-left"><i class="fas fa-tasks mr-20"></i></i><span class="right-nav-text">Tareas</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
             </li>
-        @endcan
+        @endcan --}}
             <li><hr class="light-grey-hr mb-10"/></li>
         @can('Roles')
             <li>

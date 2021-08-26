@@ -48,7 +48,7 @@
                                 <td>{{$task->project->name}}</td>
                                 <td>{{$task->user->name}}</td>
                                 <td>
-                                    <span class="label label-primary">{{$task->status}}</span>
+                                  <span class="label label-{{$task->status->color}}">{{$task->status->name}}</span>
                                 </td>
                                 <td>
                                     <button type="button"  data-toggle="modal" data-target="#Task_update{{$task->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Task-remove{{$task->id}}"></button>

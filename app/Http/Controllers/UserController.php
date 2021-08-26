@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
+use App\Models\Department;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +23,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+
+
     }
 
     /**
@@ -45,22 +48,18 @@ class UserController extends Controller
         if ($request->get('password') === $request->get('confirm_password')){
             $request->validate([
                 'name' => 'required',
-                'email' => 'required',
-                'password' => 'required',
+                'email' => 'required|unique:users'
             ]);
 
             $request->merge([
                 'status' => 1,
-                'area_id' => 1,
-                'password' => bcrypt($request->get('password'))
+                'password' => bcrypt('password')
             ]);
 
             $users = User::create($request->all());
             $users->assignRole('Practicante');
 
-            $credenciales = $users->only('email','password');
-            Auth::login($users);
-            return redirect()->route('home',['id'=> Auth::id()]);
+            return redirect()->back();
         }
 
         throw ValidationException::withMessages([
@@ -78,11 +77,13 @@ class UserController extends Controller
     {
         $usuarios = User::all();
         $users = User::find($id);
+        $departments =  Department::all();
+        $areas = Area::all();
 
         $this->authorize('profile', $users);
 
         $roles = Role::all();
-        return view('usuario_perfil.usuario_perfil', compact('users','usuarios','roles'));
+        return view('usuario_perfil.usuario_perfil', compact('users','usuarios','roles','departments','areas'));
 
     }
 

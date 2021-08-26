@@ -20,12 +20,14 @@
     <div class="page-wrapper">
         <div class="container-fluid pt-25">
             <!-- Row -->
-            
+            {{Auth::user()->roles->first()->name}}
+            {{Auth::user()->area->department->name}}
+            {{Auth::user()->area->name}}
             @include('proyectos.componentes.table')
             <!-- /Row -->
 
             <!-- Row -->
-            
+
         </div>
 
         <!-- Footer -->

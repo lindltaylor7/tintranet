@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="signup_modal_label"><i class="la la-lock"></i>Nuevo Proyecto</h5>
+                <h5 class="modal-title" id="signup_modal_label"><i class="la la-lock"></i>Nuevo Departamento</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,13 +15,6 @@
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fas fa-signature"></i></div>
                             <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="Nombre del Departamento" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10" for="exampleInputuname_2">Estado:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fas fa-signature"></i></div>
-                            <input type="text" class="form-control" id="exampleInputuname_1" name="status" placeholder="Estado del Departamento" required>
                         </div>
                     </div>
                     <div class="form-group">
