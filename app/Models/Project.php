@@ -42,18 +42,15 @@ class Project extends Model
     {
         return $this->hasMany('App\Models\Task');
     }
-
      //Relacion uno a uno Proceso-Subproceso
      public function status()
      {
          return $this->belongsTo("App\Models\Statu");
      }
-
       //Relacion inversa muchos a muchos Depatments-Proyectos
 
         public function departments()
         {
             return $this->belongsToMany('App\Models\Department');
         }
-
 }
