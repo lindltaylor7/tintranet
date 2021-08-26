@@ -53,14 +53,16 @@
                 <tbody>
 
                   @foreach ($projects as $project)
-                    @if ($project->final_date > $project->delivery_date)
-                      <tr class="success">
-                    @elseif ($project->final_date < $project->delivery_date)
-                      <tr class="danger">
-                    @elseif ($project->final_date == $project->delivery_date)
-                      <tr class="warning">
+                    @if ($project->delivery_date)
+                      @if ($project->final_date > $project->delivery_date)
+                        <tr class="success">
+                      @elseif ($project->final_date < $project->delivery_date)
+                        <tr class="danger">
+                      @elseif ($project->final_date == $project->delivery_date)
+                        <tr class="warning">
+                      @endif
                     @else
-                      <tr>
+                      <tr class="active">
                     @endif
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
