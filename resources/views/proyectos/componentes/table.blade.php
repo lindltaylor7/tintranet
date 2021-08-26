@@ -10,7 +10,7 @@
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             @can('CRUD_Proyecto')
-            <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo</a>
+            <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
             @endcan
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay"></i>
@@ -46,14 +46,22 @@
                     @can('CRUD_Proyecto')
                     <th>Editar / Eliminar</th>
                     @endcan
-                    <th>Tareas</th>
+                    <th>Administrar tareas</th>
                   </tr>
                 </thead>
 
                 <tbody>
 
                   @foreach ($projects as $project)
-                    <tr>
+                    @if ($project->final_date > $project->delivery_date)
+                      <tr class="success">
+                    @elseif ($project->final_date < $project->delivery_date)
+                      <tr class="danger">
+                    @elseif ($project->final_date == $project->delivery_date)
+                      <tr class="warning">
+                    @else
+                      <tr>
+                    @endif
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
                       <td>{{$project->areas->first()->name}}</td>
@@ -81,15 +89,20 @@
                       </td>
                       @endcan
                       <td>
-                        <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button>
+                        <button type="button"  data-toggle="modal" data-target="#Tareas{{$project->id}}" class="btn btn-xs btn-primary fa fa-eye"></button>
                         @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
                         @can('CRUD_Proyecto')
                         <a href="{{route('proyectos.show',$project->id)}}" class="btn btn-xs btn-info icon-note"></a>
                         @endcan
-                    </td>
+                        @can('CRUD_Proyecto')
+                        <button type="button"  data-toggle="modal" data-target="#TareasRegister{{$project->id}}" class="btn btn-xs btn-success fa fa-plus-square"></button>
+                        @endcan
+                      </td>
                     </tr>
+
                       @include('proyectos.componentes.project_update_modal')
                       @include('proyectos.componentes.project_delete_modal')
+                      @include('proyectos.componentes.subcomponentes_tareas.task_register_modal')
 
                   @endforeach
                 </tbody>
