@@ -8,6 +8,10 @@
         <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Elmer Admin, Elmeradmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
         <meta name="author" content="hencework"/>
         
+        <!-- select2 CSS -->
+		{{-- <link href="{{asset('vendors/bower_components/select2/dist/css/select2.css')}}" rel="stylesheet" type="text/css"/> --}}
+		<link href="{{asset('vendors/bower_components/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css"/>
+        
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -34,9 +38,6 @@
 
         <!-- Custom CSS -->
         <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
-
-        <!-- Style table -->
-        {{-- <link href="{{asset('style.css')}}" rel="stylesheet" type="text/css"/> --}}
     </head>
 
     <body>
@@ -116,8 +117,17 @@
 	    <script src="{{asset('vendors/bower_components/fullcalendar/dist/fullcalendar.min.js')}}"></script>
     	<script src="{{asset('js/fullcalendar-data.js')}}"></script>
 
-        
-      <!-- Sweet-Alert  -->
+
+        <!-- Input Select -->
+		<script src="vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+		<script src="vendors/bower_components/multiselect/js/jquery.multi-select.js"></script>
+		<script src="vendors/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+        <script src="vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+		<script src="vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+        <script src="{{asset('js/form-advance-data.js')}}"></script>
+
+
+        <!-- Sweet-Alert  -->
         <script src="{{asset('vendors/bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
 		<script src="{{asset('js/sweetalert-data.js')}}"></script>
 
