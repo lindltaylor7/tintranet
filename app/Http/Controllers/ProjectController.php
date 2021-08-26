@@ -19,6 +19,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $areas = Area::all();
         $users = User::find(Auth::id());
         if (Auth::user()->roles->first()->name == 'Administrador') {
             $projects = Project::all();
@@ -46,7 +47,7 @@ class ProjectController extends Controller
         //$completed = Task::completed(1)->get();
         $colabs = User::where('area_id',Auth::user()->area->id)->get();
 
-        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs'));
+        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs','areas'));
     }
 
     /**
@@ -85,11 +86,7 @@ class ProjectController extends Controller
             'user_id' => Auth::id()
         ]);
 
-        $project->users()->attach($request->colabs);
-
-        $project->areas()->attach([
-            'area_id' => Auth::user()->area->id
-        ]);
+        $project->areas()->attach($request->areas);
 
         $project->departments()->attach([
             'department_id' => Auth::user()->area->department->id
