@@ -6,7 +6,7 @@
         </div>
         <div class="panel-heading">
           <div class="pull-left">
-            <h6 class="panel-title txt-dark">Tareas del Proyecto {{$project->name}}</h6>
+            <h6 class="panel-title txt-dark">Mis tareas del Proyecto {{$project->name}}</h6>
           </div>
           <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Task_register">Nuevo</a>
@@ -35,9 +35,11 @@
                     <thead>
                         <tr>
                             <th>Tarea</th>
-                            <th>Proyecto</th>
                             <th>Encargado</th>
+                            <th>Fecha_inicial</th>
+                            <th>Fecha_final</th>
                             <th>Estado</th>
+                            <th>Cambiar estado</th>
                             <th>Editar / Eliminar</th>
                         </tr>
                     </thead>
@@ -45,11 +47,25 @@
                         @foreach ($tasks as $task)
                             <tr>
                                 <td>{{$task->name}}</td>
-                                <td>{{$task->project->name}}</td>
                                 <td>{{$task->user->name}}</td>
+                                <td>{{$task->start_date}}</td>
+                                <td>{{$task->final_date}}</td>
                                 <td>
                                   <span class="label label-{{$task->status->color}}">{{$task->status->name}}</span>
                                 </td>
+                             
+                                    @if ($task->user_id == Auth::id())
+                                          <td>
+                                             <form action="" class="form form-inline">
+                                            <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
+                                             </form>
+                                          </td>
+                                    @else
+                                           <td>
+                                              <button class="btn btn-danger"disabled>Restringido</button>
+                                          </td>
+                                    @endif
+
                                 <td>
                                     <button type="button"  data-toggle="modal" data-target="#Task_update{{$task->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Task-remove{{$task->id}}"></button>
                                 </td>
