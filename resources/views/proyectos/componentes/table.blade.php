@@ -1,25 +1,25 @@
 <div class="row">
   <div class="col-lg-8 col-md-6 col-xs-12">
-    <div class="panel panel-default card-view panel-refresh">
+    <div class="panel panel-primary card-view panel-refresh">
       <div class="refresh-container">
         <div class="la-anim-1"></div>
       </div>
       <div class="panel-heading">
         <div class="pull-left">
-          <h6 class="panel-title txt-dark">Lista de Proyectos</h6>
+          <h6 class="panel-title txt-light">Lista de Proyectos</h6>
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             @can('CRUD_Proyecto')
-            <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
+            <a class="pull-left btn btn-success btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
             @endcan
           <a href="#" class="pull-left inline-block refresh mr-15">
-            <i class="zmdi zmdi-replay"></i>
+            <i class="zmdi zmdi-replay txt-light"></i>
           </a>
           <a href="#" class="pull-left inline-block full-screen mr-15">
-            <i class="zmdi zmdi-fullscreen"></i>
+            <i class="zmdi zmdi-fullscreen txt-light"></i>
           </a>
           <div class="pull-left inline-block dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert"></i></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert txt-light"></i></a>
             <ul class="dropdown-menu bullet dropdown-menu-right"  role="menu">
               <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-reply" aria-hidden="true"></i>option 1</a></li>
               <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i>option 2</a></li>

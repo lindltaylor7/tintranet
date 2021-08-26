@@ -24,9 +24,12 @@
                 @include('layout.components.estado_cards_porcentaje')
                 @include('proyectos.componentes.table')
                 @include('layout.components.estado_usuarios_acciones')
-                @include('layout.components.estado_tareas')
+                <div class="row">
+                    @include('layout.components.estado_tareas')
 				@include('layout.components.item_pendientes')
                 @include('layout.components.mis_estadisticas')
+                </div>
+
 
 
 
