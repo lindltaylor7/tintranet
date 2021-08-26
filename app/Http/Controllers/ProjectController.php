@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -118,6 +119,7 @@ class ProjectController extends Controller
         $tasks = Task::where('project_id', $id)->where('user_id',Auth::id())->get();
         }
         $users = $project->users;
+        
         return view('proyectos.show', compact('projects', 'user', 'project','tasks','users'));
     }
 
