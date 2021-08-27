@@ -8,8 +8,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('proyecto.register')}}" id="signup-form" method="post" enctype="multipart/form-data">
+                <form action="{{route('proyecto.update',$project->id)}}" id="signup-form" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <label class="control-label mb-10" for="exampleInputuname_1">Nombre:</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>

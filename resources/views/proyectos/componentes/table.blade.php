@@ -41,6 +41,7 @@
                     <th>Area</th>
                     <th>Progreso</th>
                     <th>Presupuesto</th>
+                    <th>Colaboradores</th>
                     <th>Estado</th>
                     <th>Límite</th>
                     @can('CRUD_Proyecto')
@@ -86,6 +87,12 @@
                       </td>
                       <td>
                         <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
+                      </td>
+                      <td>
+                        <button type="button"  data-toggle="modal" data-target="#Asignar_Users{{$project->id}}" class="btn btn-xs btn-success fa fa-user"></button>
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_asignar_users_project')
+                        <button type="button"  data-toggle="modal" data-target="#Users{{$project->id}}" class="btn btn-xs btn-primary fa fa-user"></button>
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_users_project')       
                       </td>
                       <td>
                         <span class="label label-{{$project->status->color}}">{{$project->status->name}}</span>
