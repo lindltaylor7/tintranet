@@ -66,7 +66,13 @@
                     @endif
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
-                      <td>{{$project->areas->first()->name}}</td>
+                      <td>
+                          <ul class="uo-list">
+                          @foreach ($project->areas as $area)
+                           <li>{{$area->name}}</li>
+                          @endforeach
+                          </ul>
+                      </td>
                       <td>
                           <div class="progress progress-xs mb-0 ">
 
