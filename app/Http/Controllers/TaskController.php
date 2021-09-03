@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Project;
+use App\Models\Statu;
 use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
@@ -23,8 +24,10 @@ class TaskController extends Controller
         $tasks = Task::all();
         $clients = Client::all();
         $projects = Project::all();
+        $status=Statu::all()->where('type',2);
+        $status1=Statu::all()->where('type',1);
 
-        return view ('tarea.index', compact('tasks','users','clients','projects'));
+        return view ('tarea.index', compact('tasks','users','clients','projects','status','status1'));
     }
 
     /**
@@ -67,7 +70,8 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $status=Statu::all()->where('type',2);
+        compact('status');
     }
 
     /**
@@ -91,6 +95,14 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         $tasks= Task::where('id',$id)->first();
+        $date = Carbon::now()->format("Y-m-d");
+
+        if ($request->status_id == 8)
+        {
+            $request->merge(['delivery_date' => $date]);
+        }
+
+        
         $tasks->update($request->except(['_token','_method','fileTaskUpdate']));
 
         return redirect()->back();

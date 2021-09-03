@@ -41,15 +41,14 @@
                         <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" value="{{$project->final_date}}" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label mb-10" for="exampleInputuname_1">Status de tarea</label>
+                        <label class="control-label mb-10" for="exampleInputuname_1">Actual estado del Proyecto</label>
                         <div class="input-group">
                         <div class="input-group-addon"><i class="icon-user"></i></div>
-                        <select name="status_id" id="status_tarea" class="form-control">
-                            <option value="1">Nuevo</option>
-                            <option value="2">Pendiente</option>
-                            <option value="3">En ejecución</option>
-                            <option value="4">Culminado</option>
-                            <option value="5">Entregado</option>
+                        <select name="status_id" id="status_proyecto" class="form-control">
+                            <option value="1">Cambiar estado</option>
+                          @foreach ($status1 as $s)
+                            <option value="{{$s->id}}" class="btn btn-{{$s->color}}" @if($project->status->id == $s->id) selected @endif>{{$s->name}}</option>
+                          @endforeach
                         </select>
                         </div>
                     </div>
