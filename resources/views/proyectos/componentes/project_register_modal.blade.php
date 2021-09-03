@@ -1,4 +1,4 @@
-<div class="modal fade" id="Project_register" tabindex="-1" role="dialog" aria-labelledby="signup_modal_label" aria-hidden="true">
+<div class="modal fade" id="Project_register" role="dialog" aria-labelledby="signup_modal_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,27 +8,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('proyecto.register')}}" id="signup-form" method="post" enctype="multipart/form-data">
+                <form action="{{route('proyecto.update',$project->id)}}" id="signup-form" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <label class="control-label mb-10" for="exampleInputuname_1">Nombre:</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
                         <input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="Nombre del Proyecto" required>
                     </div>
                     <label class="control-label mb-10" for="exampleInputuname_2">Clientes:</label>
-                    <div class="row">
-                        <form>
-                            <div class="form-group mb-0">
-                                <select class="form-control select2" name="client_id" id="client_id" data-placeholder="Clientes">
-                                    <optgroup label="Clientes">
-                                        @foreach ($clients as $client)
-                                        <option value="{{$client->id}}">{{$client->name}}</option>
-                                        @endforeach
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </form>	
-					</div>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fas fa-signature"></i></div>
+                            <select class="form-control select2" name="client_id" id="client_id">
+                                <option>Elegir cliente</option>
+                                @foreach ($clients as $client)
+                                <option value="{{$client->id}}">{{$client->name}}</option>
+                                @endforeach
+                            </select>
+                    </div>
                     <label class="control-label mb-10" for="exampleInputuname_3">Monto del Contrato:</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>

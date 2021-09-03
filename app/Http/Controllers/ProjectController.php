@@ -43,8 +43,6 @@ class ProjectController extends Controller
                 $q->where('area_id', '=', Auth::user()->area->id);
             })->get();
         }
-        
-
         $clients = Client::all();
         $tasks = Task::all();
         //$completed = Task::completed(1)->get();
@@ -87,15 +85,7 @@ class ProjectController extends Controller
 
         $project = Project::create($request->all());
 
-        $project->users()->attach([
-            'user_id' => Auth::id()
-        ]);
-
         $project->areas()->attach($request->areas);
-
-        $project->departments()->attach([
-            'department_id' => Auth::user()->area->department->id
-        ]);
 
         return redirect()->route('proyectos', $project);
     }
@@ -148,6 +138,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $project = Project::where('id', $id)->first();
+        $project->users()->attach($request->users);
         $request->validate([
             'name' => 'required',
             'start_date' => 'required',
@@ -156,7 +148,6 @@ class ProjectController extends Controller
             'client_id' => 'required'
         ]);
 
-        $project = Project::where('id', $id)->first();
         $date = Carbon::now()->format("Y-m-d");
 
         if ($request->status_id == 5)
@@ -165,7 +156,8 @@ class ProjectController extends Controller
         }
 
         $project->update($request->all());
-
+        //asignar usuarios
+        
         return redirect()->back();
     }
 

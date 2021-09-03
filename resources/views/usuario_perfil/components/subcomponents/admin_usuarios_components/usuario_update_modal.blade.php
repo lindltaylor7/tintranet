@@ -26,6 +26,22 @@
                         <div class="input-group-addon"><i class="icon-user"></i></div>
                         <input type="text" class="form-control" id="exampleInputuname_1" name="phone" placeholder="963852741" value="{{$usuario->phone}}">
                     </div>
+                    <div class="form-group">
+                        <label class="control-label mb-10" for="exampleInputuname_3">Departamento:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fas fa-signature"></i></div>
+                            <select name="area_id" class="form-control" required>
+                              @foreach ($areas as $area)
+                              @if ($area->id === $usuario->area->id) 
+                              <option value="{{$usuario->area->id}}" selected>{{$usuario->area->name}}</option>
+                              @else
+                              <option value="{{$area->id}}">{{$area->name}}</option>
+                              @endif
+                              @endforeach
+                            </select> 
+                        </div>
+                    </div>
+                    
                     <div></div>
                     <div class="input-group">
                         <h6> Rol Asignado: </h6>

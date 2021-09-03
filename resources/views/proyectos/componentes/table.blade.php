@@ -1,25 +1,25 @@
 <div class="row">
   <div class="col-lg-8 col-md-6 col-xs-12">
-    <div class="panel panel-default card-view panel-refresh">
+    <div class="panel panel-primary card-view panel-refresh">
       <div class="refresh-container">
         <div class="la-anim-1"></div>
       </div>
       <div class="panel-heading">
         <div class="pull-left">
-          <h6 class="panel-title txt-dark">Lista de Proyectos</h6>
+          <h6 class="panel-title txt-light">Lista de Proyectos</h6>
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             @can('CRUD_Proyecto')
-            <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
+            <a class="pull-left btn btn-success btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
             @endcan
           <a href="#" class="pull-left inline-block refresh mr-15">
-            <i class="zmdi zmdi-replay"></i>
+            <i class="zmdi zmdi-replay txt-light"></i>
           </a>
           <a href="#" class="pull-left inline-block full-screen mr-15">
-            <i class="zmdi zmdi-fullscreen"></i>
+            <i class="zmdi zmdi-fullscreen txt-light"></i>
           </a>
           <div class="pull-left inline-block dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert"></i></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="zmdi zmdi-more-vert txt-light"></i></a>
             <ul class="dropdown-menu bullet dropdown-menu-right"  role="menu">
               <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-reply" aria-hidden="true"></i>option 1</a></li>
               <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i>option 2</a></li>
@@ -41,6 +41,7 @@
                     <th>Area</th>
                     <th>Progreso</th>
                     <th>Presupuesto</th>
+                    <th>Colaboradores</th>
                     <th>Estado</th>
                     <th>Límite</th>
                     @can('CRUD_Proyecto')
@@ -66,7 +67,13 @@
                     @endif
                       <td>{{$project->name}}</td>
                       <td>{{$project->client->name}}</td>
-                      <td>{{$project->areas->first()->name}}</td>
+                      <td>
+                          <ul class="uo-list">
+                          @foreach ($project->areas as $area)
+                           <li>{{$area->name}}</li>
+                          @endforeach
+                          </ul>
+                      </td>
                       <td>
                           <div class="progress progress-xs mb-0 ">
 
@@ -80,6 +87,12 @@
                       </td>
                       <td>
                         <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
+                      </td>
+                      <td>
+                        <button type="button"  data-toggle="modal" data-target="#Asignar_Users{{$project->id}}" class="btn btn-xs btn-success fa fa-user"></button>
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_asignar_users_project')
+                        <button type="button"  data-toggle="modal" data-target="#Users{{$project->id}}" class="btn btn-xs btn-primary fa fa-user"></button>
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_users_project')       
                       </td>
                       <td>
                         <span class="label label-{{$project->status->color}}">{{$project->status->name}}</span>
