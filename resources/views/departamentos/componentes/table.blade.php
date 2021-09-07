@@ -31,7 +31,7 @@
         <div class="panel-body row pa-0">
           <div class="table-wrap">
             <div class="table-responsive">
-              <table id="datable_1" class="table  display table-hover border-none">
+              <table id="table_1" class="table  display table-hover border-none">
                 <thead>
                   <tr>
                     <th>Id</th>
@@ -41,7 +41,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($departments as $department) 
+                  @foreach ($departments as $department)
                     <tr>
                       <td>{{$department->id}}</td>
                       <td>{{$department->name}}</td>
@@ -63,8 +63,8 @@
                 </tbody>
               </table>
             </div>
-          </div>	
-        </div>	
+          </div>
+        </div>
       </div>
     </div>
   </div>

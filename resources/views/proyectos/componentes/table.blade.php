@@ -92,7 +92,7 @@
                         <button type="button"  data-toggle="modal" data-target="#Asignar_Users{{$project->id}}" class="btn btn-xs btn-success fa fa-user"></button>
                         @include('proyectos.componentes.subcomponentes_tareas.modal_asignar_users_project')
                         <button type="button"  data-toggle="modal" data-target="#Users{{$project->id}}" class="btn btn-xs btn-primary fa fa-user"></button>
-                        @include('proyectos.componentes.subcomponentes_tareas.modal_users_project')       
+                        @include('proyectos.componentes.subcomponentes_tareas.modal_users_project')
                       </td>
                       <td>
                         <span class="label label-{{$project->status->color}}">{{$project->status->name}}</span>
@@ -131,3 +131,4 @@
 </div>
 
 @include('proyectos.componentes.project_register_modal')
+
