@@ -9,7 +9,7 @@
             <h6 class="panel-title txt-dark">Lista de Metas</h6>
           </div>
           <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
-              @can('CRUD_Proyecto')
+              @can('Metas')
               <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Goal_register">Nuevo</a>
               @endcan
             <a href="#" class="pull-left inline-block refresh mr-15">
