@@ -11,6 +11,7 @@
                 <form action="{{route('proyecto.update',$project->id)}}" id="signup-form" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
+                    @can('EditarProyecto')
                     <label class="control-label mb-10" for="exampleInputuname_1">Nombre:</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
@@ -40,18 +41,21 @@
                         <div class="input-group-addon"><i class="fas fa-signature"></i></div>
                         <input type="date" class="form-control" id="exampleInputuname_5" name="final_date" value="{{$project->final_date}}" required>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label mb-10" for="exampleInputuname_1">Actual estado del Proyecto</label>
-                        <div class="input-group">
-                        <div class="input-group-addon"><i class="icon-user"></i></div>
-                        <select name="status_id" id="status_proyecto" class="form-control">
-                            <option value="1">Cambiar estado</option>
-                          @foreach ($status1 as $s)
-                            <option value="{{$s->id}}" class="btn btn-{{$s->color}}" @if($project->status->id == $s->id) selected @endif>{{$s->name}}</option>
-                          @endforeach
-                        </select>
+                    @endcan
+                    @can('EstadoProyecto')
+                        <div class="form-group">
+                            <label class="control-label mb-10" for="exampleInputuname_1">Actual estado del Proyecto</label>
+                            <div class="input-group">
+                            <div class="input-group-addon"><i class="icon-user"></i></div>
+                            <select name="status_id" id="status_proyecto" class="form-control">
+                                <option value="1">Cambiar estado</option>
+                            @foreach ($status1 as $s)
+                                <option value="{{$s->id}}" class="btn btn-{{$s->color}}" @if($project->status->id == $s->id) selected @endif>{{$s->name}}</option>
+                            @endforeach
+                            </select>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success waves-effect">Actualizar Datos</button>
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
