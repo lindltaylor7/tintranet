@@ -20,5 +20,10 @@ class AreaSeeder extends Seeder
             'status' => 1,
             'department_id' => 1
         ]);
+        Area::create([
+            'name' => 'Finanzas',
+            'status' => 1,
+            'department_id' => 1
+        ]);
     }
 }

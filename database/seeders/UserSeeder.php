@@ -59,5 +59,14 @@ class UserSeeder extends Seeder
             'area_id' => 1
         ])->assignRole('Practicante');
 
+        User::create([
+            'name' => 'Natalia',
+            'email' => 'nn@gmail.com',
+            'phone' => '985474521',
+            'password' => bcrypt('123456'),
+            'status' => 1,
+            'area_id' => 2
+        ])->assignRole('Finanzas');
+
     }
 }

@@ -40,7 +40,9 @@
                     <th>Cliente</th>
                     <th>Area</th>
                     <th>Progreso</th>
+                    @can('PresupuestoProyecto')
                     <th>Presupuesto</th>
+                    @endcan
                     <th>Colaboradores</th>
                     <th>Estado</th>
                     <th>Límite</th>
@@ -85,9 +87,11 @@
                               @endif
                         </div>
                       </td>
-                      <td>
-                        <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
-                      </td>
+                      @can('PresupuestoProyecto')
+                        <td>
+                          <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
+                        </td>
+                      @endcan
                       <td>
                         @can('UsuarioProyecto')
                           <button type="button"  data-toggle="modal" data-target="#Asignar_Users{{$project->id}}" class="btn btn-xs btn-success fa fa-user"></button>
