@@ -126,6 +126,8 @@
 		<script src="{{asset('vendors/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
         <script src="{{asset('js/form-advance-data.js')}}"></script>
 
+        <!-- Dropdown -->
+        <script src="dist/js/dropdown-bootstrap-extended.js"></script>
 
         <!-- Sweet-Alert  -->
         <script src="{{asset('vendors/bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
