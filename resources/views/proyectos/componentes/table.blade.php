@@ -10,7 +10,7 @@
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
             @can('CRUD_Proyecto')
-            <a class="pull-left btn btn-success btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
+            <a class="pull-left btn btn-success btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo</a>
             @endcan
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay txt-light"></i>
@@ -76,7 +76,6 @@
                       </td>
                       <td>
                           <div class="progress progress-xs mb-0 ">
-
                               @if ($project->tasks->count() == 0)
                               <div class="progress-bar progress-bar-success" style="width: 0%"></div>
 

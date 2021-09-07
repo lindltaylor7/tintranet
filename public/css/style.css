@@ -107,6 +107,33 @@ Project:	Elmer
   width: 100%;
 }
 
+/**************************/
+/** MODAL DE ELIMINAR **/
+/**************************/
+.modal__title--red {
+  background: #dc3545;
+  padding: 12px 10px;
+  text-align: left;
+  color: #Fff;
+}
+.modal__paragraph {
+  padding: 15px 10px;
+  text-align: left;
+}
+.modal--btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+}
+.modal__btn--margin {
+  margin-left: 10px;
+}
+.modal--padding {
+  padding: 0;
+}
+.modal__btn--red {
+  background: #dc3545 !important;
+}
 
 
 

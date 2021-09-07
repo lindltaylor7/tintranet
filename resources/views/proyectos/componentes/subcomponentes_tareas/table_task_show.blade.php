@@ -63,19 +63,17 @@
                                 <td>
                                   <span class="label label-{{$task->status->color}}">{{$task->status->name}}</span>
                                 </td>
-                             
                                     @if ($task->user_id == Auth::id())
-                                          <td>
-                                             <form action="" class="form form-inline">
-                                            <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
-                                             </form>
-                                          </td>
+                                    <td>
+                                      <form action="" class="form form-inline">
+                                        <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
+                                      </form>
+                                    </td>
                                     @else
-                                           <td>
-                                              <button class="btn btn-danger"disabled>Restringido</button>
-                                          </td>
+                                    <td>
+                                      <button class="btn btn-danger"disabled>Restringido</button>
+                                    </td>
                                     @endif
-
                                 <td>
                                     <button type="button"  data-toggle="modal" data-target="#Task_update{{$task->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Task-remove{{$task->id}}"></button>
                                 </td>
