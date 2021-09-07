@@ -40,9 +40,20 @@
                     <td>{{$task->user->name}}</td>
                         @if ($task->user_id == Auth::id())
                             <td>
-                                <form action="" class="form form-inline">
-                                    <button type="button" class="btn btn-primary btn-outline" data-container="body" title="" tabindex="0" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom" data-content="<button class='btn btn-success btn-sm btn-block'>Iniciado</button><button class='btn btn-danger btn-sm btn-block'>Cancelado</button>" data-original-title="Estados"> Cambiar estado </button>
-                                </form>
+                              <form action="{{route('tarea.update',$task->id)}}" id="signup-form" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                  <select name="status_id" id="status_tarea" class="form-control">
+                                      <option value="6">Cambiar estado</option>
+                                    @foreach ($status as $s)
+                                      <option value="{{$s->id}}" class="btn btn-{{$s->color}}" @if($task->status->id == $s->id) selected @endif>
+                                        {{$s->name}}
+                                      </option>
+                                    @endforeach
+                                  </select>
+                                  
+                                  <button type="submit" class="btn btn-xs btn-primary fa fa-spinner"></button>   
+                              </form>                               
                             </td>
                             @else
                             <td>
@@ -50,6 +61,7 @@
                             </td>
                         @endif
                   </tr>
+
                   @endforeach
               </tbody>
             </table>
@@ -58,7 +70,6 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger text-left" data-dismiss="modal">Close</button>
       </div>
-
     </div>
     <!-- /.modal-content -->
   </div>

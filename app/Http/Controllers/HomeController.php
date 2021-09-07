@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Department;
 use App\Models\Goal;
 use App\Models\Project;
+use App\Models\Statu;
 use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
@@ -53,7 +54,9 @@ class HomeController extends Controller
         $tasks = Task::all();
         $colabs = User::where('area_id',Auth::user()->area->id)->get();
         $total_user = User::all();
-        return view('welcome', compact('areas','goals','users','departments','projects','clients','tasks','colabs','total_user'));
+        $status=Statu::all()->where('type',2);
+        $status1=Statu::all()->where('type',1);
+        return view('welcome', compact('areas','goals','users','departments','projects','clients','tasks','colabs','total_user','status','status1'));
     }
 
     /**

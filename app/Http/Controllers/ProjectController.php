@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Area;
 use App\Models\Client;
 use App\Models\Project;
+use App\Models\Statu;
 use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
@@ -46,8 +47,10 @@ class ProjectController extends Controller
         $tasks = Task::all();
         //$completed = Task::completed(1)->get();
         $colabs = User::where('area_id',Auth::user()->area->id)->get();
+        $status=Statu::all()->where('type',2);
+        $status1=Statu::all()->where('type',1);
 
-        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs','areas'));
+        return view('proyectos.index', compact('projects', 'users', 'clients', 'tasks','colabs','areas','status','status1'));
     }
 
     /**
@@ -109,8 +112,10 @@ class ProjectController extends Controller
         $tasks = Task::where('project_id', $id)->where('user_id',Auth::id())->get();
         }
         $users = $project->users;
+        $status=Statu::all()->where('type',2);
+        $status1=Statu::all()->where('type',1);
         
-        return view('proyectos.show', compact('projects', 'user', 'project','tasks','users'));
+        return view('proyectos.show', compact('projects', 'user', 'project','tasks','users','status','status1'));
     }
 
     /**
@@ -140,12 +145,18 @@ class ProjectController extends Controller
             'start_date' => 'required',
             'final_date' => 'required',
             'status_id' => 'required',
-            'client_id' => 'required',
-            
-        ]);      
+            'client_id' => 'required'
+        ]);
+
+        $date = Carbon::now()->format("Y-m-d");
+
+        if ($request->status_id == 5)
+        {
+            $request->merge(['delivery_date' => $date]);
+        }
+
         $project->update($request->all());
         //asignar usuarios
-          
         
         return redirect()->back();
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','start_date','final_date','project_id','user_id','status_id'];
+    protected $fillable = ['name','start_date','final_date','delivery_date','project_id','user_id','status_id'];
     //Relacion uno a muchos Tareas-Usuarios
     public function user()
     {
