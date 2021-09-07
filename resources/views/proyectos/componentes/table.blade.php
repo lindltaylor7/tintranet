@@ -9,8 +9,8 @@
           <h6 class="panel-title txt-light">Lista de Proyectos</h6>
         </div>
         <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
-            @can('CRUD_Proyecto')
-            <a class="pull-left btn btn-success btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
+            @can('CrearProyecto')
+              <a class="pull-left btn btn-success btn-xs mr-15" data-toggle="modal" data-target="#Project_register">Nuevo Proyecto</a>
             @endcan
           <a href="#" class="pull-left inline-block refresh mr-15">
             <i class="zmdi zmdi-replay txt-light"></i>
@@ -44,7 +44,7 @@
                     <th>Colaboradores</th>
                     <th>Estado</th>
                     <th>Límite</th>
-                    @can('CRUD_Proyecto')
+                    @can('OpcionesProyecto')
                     <th>Editar / Eliminar</th>
                     @endcan
                     <th>Administrar tareas</th>
@@ -89,8 +89,10 @@
                         <span class="txt-dark weight-500">S/. {{$project->amount}}</span>
                       </td>
                       <td>
-                        <button type="button"  data-toggle="modal" data-target="#Asignar_Users{{$project->id}}" class="btn btn-xs btn-success fa fa-user"></button>
-                        @include('proyectos.componentes.subcomponentes_tareas.modal_asignar_users_project')
+                        @can('UsuarioProyecto')
+                          <button type="button"  data-toggle="modal" data-target="#Asignar_Users{{$project->id}}" class="btn btn-xs btn-success fa fa-user"></button>
+                          @include('proyectos.componentes.subcomponentes_tareas.modal_asignar_users_project')
+                        @endcan
                         <button type="button"  data-toggle="modal" data-target="#Users{{$project->id}}" class="btn btn-xs btn-primary fa fa-user"></button>
                         @include('proyectos.componentes.subcomponentes_tareas.modal_users_project')       
                       </td>
@@ -98,7 +100,7 @@
                         <span class="label label-{{$project->status->color}}">{{$project->status->name}}</span>
                       </td>
                       <td>{{ \Carbon\Carbon::parse($project->final_date)->format('M d, Y')}}</td>
-                      @can('CRUD_Proyecto')
+                      @can('OpcionesProyecto')
                       <td>
                           <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
                       </td>
@@ -108,30 +110,28 @@
                           <div class="dropdown">
                             <button aria-expanded="false" data-toggle="dropdown" class="btn btn-success btn-outline dropdown-toggle " type="button"> dropdown <span class="caret"></span></button>
                             <ul role="menu" data-dropdown-in="flipInY" data-dropdown-out="flipOutY" class="dropdown-menu">
+                              @can('ListarTarea')
                               <li>
                                 <a data-toggle="modal" data-target="#Tareas{{$project->id}}"><i class="fa fa-eye"></i><span>Tareas</span></a>
                               </li> 
-                              @can('CRUD_Proyecto')
+                              @endcan
+                              @can('CrearTarea')
                               <li>
                                 <a data-toggle="modal" data-target="#TareasRegister{{$project->id}}"><i class="fa fa-plus-square"></i><span>Nueva tarea</span></a>
                               </li> 
                               @endcan
-                              <li class="divider"></li>
-                              @can('CRUD_Proyecto')                            
+                              <li class="divider"></li>        
+                              @can('ListarProyecto')                   
                               <li>
                                 <a href="{{route('proyectos.show',$project->id)}}"><i class="icon-note"></i><span>Proyecto</span></a>
                               </li>
-                                 @endcan
-                              
-                            
-                              
+                                 @endcan                             
                             </ul>
                             @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
                           </div>
                         </div>
                      </td>
                     </tr>
-
                       @include('proyectos.componentes.project_update_modal')
                       @include('proyectos.componentes.project_delete_modal')
                       @include('proyectos.componentes.subcomponentes_tareas.task_register_modal')

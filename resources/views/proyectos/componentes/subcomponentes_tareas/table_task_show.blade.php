@@ -9,7 +9,9 @@
             <h6 class="panel-title txt-dark">Mis tareas del Proyecto {{$project->name}}</h6>
           </div>
           <div class="pull-right"> {{-- RUTA DEL ARCHIVO--}}
-            <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Task_register">Nuevo</a>
+            @can('CrearTarea')
+              <a class="pull-left btn btn-primary btn-xs mr-15" data-toggle="modal" data-target="#Task_register">Nuevo</a>
+            @endcan
             <a href="#" class="pull-left inline-block refresh mr-15">
               <i class="zmdi zmdi-replay"></i>
             </a>
@@ -39,8 +41,12 @@
                             <th>Fecha_inicial</th>
                             <th>Fecha_final</th>
                             <th>Estado</th>
-                            <th>Cambiar estado</th>
-                            <th>Editar / Eliminar</th>
+                            @can('EstadoTarea')
+                              <th>Cambiar estado</th>
+                            @endcan
+                            @can('EditarTarea')
+                              <th>Editar / Eliminar</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -62,7 +68,8 @@
                                 <td>{{$task->final_date}}</td>
                                 <td>
                                   <span class="label label-{{$task->status->color}}">{{$task->status->name}}</span>
-                                </td>                            
+                                </td>    
+                                   @can('EstadoTarea')                        
                                       @if ($task->user_id == Auth::id())
                                         <td>
                                           <form action="{{route('tarea.update',$task->id)}}" id="signup-form" method="post" enctype="multipart/form-data">
@@ -85,9 +92,12 @@
                                             <button class="btn btn-danger"disabled>Restringido</button>
                                         </td>
                                       @endif
+                               @endcan
+                               @can('EditarTarea')
                                 <td>
                                     <button type="button"  data-toggle="modal" data-target="#Task_update{{$task->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Task-remove{{$task->id}}"></button>
                                 </td>
+                                @endcan
                             </tr>
                             @include('tarea.componentes.task_update_modal')
                              @include('tarea.componentes.task_delete_modal')
