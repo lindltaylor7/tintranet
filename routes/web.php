@@ -57,9 +57,9 @@ Route::post('/user/foto/register', [UserController::class,'store'])->name("usuar
 Route::put('/user/{id}/update', [UserController::class,'update'])->name("usuario.update")->middleware('auth')->middleware('can:Perfil');
 
 // ADMINISTRAR USUARIO
-Route::put('/usuario/inactive/{id}', [UserController::class,'inactive'])->name("usuario.inactive")->middleware('can:Perfil');
-Route::put('/usuario/active/{id}', [UserController::class,'active'])->name("usuario.active")->middleware('can:Perfil');
-Route::delete('/usuario/{id}/delete', [UserController::class,'destroy'])->name("usuario.delete")->middleware('can:Perfil');
+Route::put('/usuario/inactive/{id}', [UserController::class,'inactive'])->name("usuario.inactive")->middleware('can:Usuarios');
+Route::put('/usuario/active/{id}', [UserController::class,'active'])->name("usuario.active")->middleware('can:Usuarios');
+Route::delete('/usuario/{id}/delete', [UserController::class,'destroy'])->name("usuario.delete")->middleware('can:Usuarios');
 
 // CRUD Roles
 Route::get('/roles',[RoleController::class, 'index'])->name("roles")->middleware('auth')->middleware('can:Roles');
@@ -68,23 +68,23 @@ Route::put('/rol/{id}/update',[RoleController::class, 'update'])->name("role.upd
 Route::delete('/rol/{id}/delete',[RoleController::class, 'destroy'])->name("role.delete")->middleware('auth')->middleware('can:Roles');
 
 //METAS/GOALS
-Route::resource('goals', GoalController::class);
+Route::resource('goals', GoalController::class)->middleware('can:Metas');
 
 // CRUD de Proyectos
 Route::get('/proyectos',[ProjectController::class, 'index'])->name("proyectos")->middleware('auth')->middleware('can:Proyectos');
-Route::get('/proyectos/{id}',[ProjectController::class, 'show'])->name("proyectos.show")->middleware('auth')->middleware('can:Proyectos');
-Route::post('/proyecto/register',[ProjectController::class, 'store'])->name("proyecto.register")->middleware('auth')->middleware('can:Proyectos');
+Route::get('/proyectos/{id}',[ProjectController::class, 'show'])->name("proyectos.show")->middleware('auth')->middleware('can:ListarProyecto');
+Route::post('/proyecto/register',[ProjectController::class, 'store'])->name("proyecto.register")->middleware('auth')->middleware('can:CrearProyecto');
 Route::put('/proyecto/{id}/update',[ProjectController::class, 'update'])->name("proyecto.update")->middleware('auth')->middleware('can:Proyectos');
-Route::delete('/proyecto/{id}/delete',[ProjectController::class, 'destroy'])->name("proyecto.delete")->middleware('auth')->middleware('can:Proyectos');
+Route::delete('/proyecto/{id}/delete',[ProjectController::class, 'destroy'])->name("proyecto.delete")->middleware('auth')->middleware('can:EliminarProyecto');
 
 // CRUD de Tareas
-Route::get('/tareas',[TaskController::class, 'index'])->name("tareas")->middleware('auth')->middleware('can:Tareas');
-Route::post('/tarea/register',[TaskController::class, 'store'])->name("tarea.register")->middleware('auth')->middleware('can:Tareas');
+Route::get('/tareas',[TaskController::class, 'index'])->name("tareas")->middleware('auth')->middleware('can:ListarTarea');
+Route::post('/tarea/register',[TaskController::class, 'store'])->name("tarea.register")->middleware('auth')->middleware('can:CrearTarea');
 Route::put('/tarea/{id}/update',[TaskController::class, 'update'])->name("tarea.update")->middleware('auth')->middleware('can:Tareas');
-Route::delete('/tarea/{id}/delete',[TaskController::class, 'destroy'])->name("tarea.delete")->middleware('auth')->middleware('can:Tareas');
+Route::delete('/tarea/{id}/delete',[TaskController::class, 'destroy'])->name("tarea.delete")->middleware('auth')->middleware('can:EliminarTarea');
 
 // CLIENTES
-Route::get('/clientes', [clientController::class, 'index'])->name('clientes');
-Route::post('/clientes/store', [clientController::class, 'store'])->name('clientes.store');
-Route::put('/clientes/{id}/update', [clientController::class, 'update'])->name('clientes.update');
-Route::delete('/clientes/{id}/delete', [clientController::class, 'destroy'])->name('clientes.delete');
+Route::get('/clientes', [clientController::class, 'index'])->name('clientes')->middleware('can:Clientes');
+Route::post('/clientes/store', [clientController::class, 'store'])->name('clientes.store')->middleware('can:Clientes');
+Route::put('/clientes/{id}/update', [clientController::class, 'update'])->name('clientes.update')->middleware('can:Clientes');
+Route::delete('/clientes/{id}/delete', [clientController::class, 'destroy'])->name('clientes.delete')->middleware('can:Clientes');
