@@ -78,7 +78,6 @@
                       </td>
                       <td>
                           <div class="progress progress-xs mb-0 ">
-
                               @if ($project->tasks->count() == 0)
                               <div class="progress-bar progress-bar-success" style="width: 0%"></div>
 

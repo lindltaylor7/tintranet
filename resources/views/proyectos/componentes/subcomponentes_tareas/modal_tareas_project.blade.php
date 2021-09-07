@@ -21,7 +21,7 @@
                 </tr>
               </thead>
               <tbody>
-                  @foreach($tasks as $task)
+                  @foreach($project->tasks as $task)
                     @if ($task->delivery_date)
                       @if ($task->final_date > $task->delivery_date)
                         <tr class="success">
@@ -51,9 +51,9 @@
                                       </option>
                                     @endforeach
                                   </select>
-                                  
-                                  <button type="submit" class="btn btn-xs btn-primary fa fa-spinner"></button>   
-                              </form>                               
+
+                                  <button type="submit" class="btn btn-xs btn-primary fa fa-spinner"></button>
+                              </form>
                             </td>
                             @else
                             <td>

@@ -36,7 +36,7 @@
                     <table class="table table-striped table-hover">
                         <thead class="thead">
                             <tr>
-                                <th>No</th>
+                                <th>N°</th>
                                 
                                 <th>Description</th>
                                 <th>Start Date</th>

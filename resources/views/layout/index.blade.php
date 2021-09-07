@@ -20,23 +20,17 @@
     <div class="page-wrapper">
         <div class="container-fluid pt-25">
             <!-- Row -->
-
                 @include('layout.components.estado_cards_porcentaje')
                 @include('proyectos.componentes.table')
                 @include('layout.components.estado_usuarios_acciones')
                 <div class="row">
-                    @include('layout.components.estado_tareas')
+                @include('layout.components.estado_tareas')
 				@include('layout.components.item_pendientes')
                 @include('layout.components.mis_estadisticas')
                 </div>
-
-
-
-
             <!-- /Row -->
 
             <!-- Row -->
-
         </div>
 
         <!-- Footer -->
