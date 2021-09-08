@@ -111,8 +111,13 @@
                      <td>
                           <div class="btn-group">
                           <div class="dropdown">
+<<<<<<< HEAD
                             <button aria-expanded="false" data-toggle="dropdown" data-boundary="window"  class="btn btn-success btn-outline dropdown-toggle " type="button"> dropdown <span class="caret"></span></button>
                             <ul role="menu" data-dropdown-in="flipInY"  data-dropdown-out="flipOutY" class="dropdown-menu">
+=======
+                            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-success btn-outline dropdown-toggle " type="button">Tareas<span class="caret"></span></button>
+                            <ul role="menu" data-dropdown-in="flipInY" data-dropdown-out="flipOutY" class="dropdown-menu">
+>>>>>>> 30d1c8b38093c11f8d768af2beb028b1b592ae22
                               @can('ListarTarea')
                               <li>
                                 <a data-toggle="modal" data-target="#Tareas{{$project->id}}"><i class="fa fa-eye"></i><span>Tareas</span></a>

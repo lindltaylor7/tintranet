@@ -141,7 +141,7 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $project = Project::where('id', $id)->first();
-        $project->users()->attach($request->users);
+        $project->users()->sync($request->users);
         $request->validate([
             'name' => 'required',
             'start_date' => 'required',
