@@ -111,7 +111,7 @@
                      <td>
                           <div class="btn-group">
                           <div class="dropdown">
-                            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-success btn-outline dropdown-toggle " type="button"> dropdown <span class="caret"></span></button>
+                            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-success btn-outline dropdown-toggle " type="button">Tareas<span class="caret"></span></button>
                             <ul role="menu" data-dropdown-in="flipInY" data-dropdown-out="flipOutY" class="dropdown-menu">
                               @can('ListarTarea')
                               <li>

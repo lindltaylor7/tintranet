@@ -8,7 +8,9 @@
                             <span class="btn-text">editar</span>
                             <input class="upload" type="file">
                         </div>
-                        <div class="profile-image-overlay"></div>
+                        <div  class="profile-image-overlay">
+                            <img class="inline-block mb-10" id="Foto" src="https://www.expoknews.com/wp-content/uploads/2020/09/Lanzan-1er-fondo-de-inversi%C3%B3n-a-gran-escala-para-conservaci%C3%B3n-y-restauraci%C3%B3n-de-la-naturaleza-1024x683.jpg" style="width: 100%; height: 100%;object-fit: cover;" alt="user"/>
+                        </div>
                     </div>
                     <div class="profile-info text-center">
 
@@ -33,7 +35,7 @@
 
 
                         <h5 class="block mt-10 mb-5 weight-500 capitalize-font txt-primary" >{{$users->name}}</h5>
-                        <h6 class="block capitalize-font pb-20">Developer Geek</h6>
+                        <h6 class="block capitalize-font pb-20">{{Auth::user()->roles->first()->name}}</h6>
                     </div>
                     <div class="social-info">
                         <div class="row">

@@ -42,6 +42,8 @@ class ProjectController extends Controller
             $projects = Project::whereHas('areas', function ($q) {
                 $q->where('area_id', '=', Auth::user()->area->id);
             })->get();
+        }else if (Auth::user()->roles->first()->name == 'Finanzas'){
+            $projects = Project::all();
         }
         $clients = Client::all();
         $tasks = Task::all();
@@ -114,7 +116,7 @@ class ProjectController extends Controller
         $users = $project->users;
         $status=Statu::all()->where('type',2);
         $status1=Statu::all()->where('type',1);
-        
+
         return view('proyectos.show', compact('projects', 'user', 'project','tasks','users','status','status1'));
     }
 
@@ -139,7 +141,7 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $project = Project::where('id', $id)->first();
-        $project->users()->attach($request->users);
+        $project->users()->sync($request->users);
         $request->validate([
             'name' => 'required',
             'start_date' => 'required',
@@ -157,7 +159,7 @@ class ProjectController extends Controller
 
         $project->update($request->all());
         //asignar usuarios
-        
+
         return redirect()->back();
     }
 
