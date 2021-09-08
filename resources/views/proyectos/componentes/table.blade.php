@@ -107,28 +107,28 @@
                       <td>
                           <button type="button"  data-toggle="modal" data-target="#Project_update{{$project->id}}" class="btn btn-xs btn-warning icon-pencil"></button> <button type="button" class="btn btn-xs btn-danger icon-trash" data-toggle="modal" data-target="#Project-remove{{$project->id}}"></button>
                       </td>
-                      @endcan                      
+                      @endcan
                      <td>
                           <div class="btn-group">
                           <div class="dropdown">
-                            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-success btn-outline dropdown-toggle " type="button"> dropdown <span class="caret"></span></button>
-                            <ul role="menu" data-dropdown-in="flipInY" data-dropdown-out="flipOutY" class="dropdown-menu">
+                            <button aria-expanded="false" data-toggle="dropdown" data-boundary="window"  class="btn btn-success btn-outline dropdown-toggle " type="button"> dropdown <span class="caret"></span></button>
+                            <ul role="menu" data-dropdown-in="flipInY"  data-dropdown-out="flipOutY" class="dropdown-menu">
                               @can('ListarTarea')
                               <li>
                                 <a data-toggle="modal" data-target="#Tareas{{$project->id}}"><i class="fa fa-eye"></i><span>Tareas</span></a>
-                              </li> 
+                              </li>
                               @endcan
                               @can('CrearTarea')
                               <li>
                                 <a data-toggle="modal" data-target="#TareasRegister{{$project->id}}"><i class="fa fa-plus-square"></i><span>Nueva tarea</span></a>
-                              </li> 
+                              </li>
                               @endcan
-                              <li class="divider"></li>        
-                              @can('ListarProyecto')                   
+                              <li class="divider"></li>
+                              @can('ListarProyecto')
                               <li>
                                 <a href="{{route('proyectos.show',$project->id)}}"><i class="icon-note"></i><span>Proyecto</span></a>
                               </li>
-                                 @endcan                             
+                                 @endcan
                             </ul>
                             @include('proyectos.componentes.subcomponentes_tareas.modal_tareas_project')
                           </div>
