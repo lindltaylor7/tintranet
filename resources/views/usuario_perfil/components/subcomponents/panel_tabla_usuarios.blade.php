@@ -16,7 +16,7 @@
                                     @if ($usuarios->isEmpty())
                                     <div>No hay registro de Usuarios</div>
                                     @else
-                                    <table class="table">
+                                    <table id="datatable_1" class="table">
                                         <thead  class="text-center">
                                             <tr>
                                                 <th>Usuario</th>

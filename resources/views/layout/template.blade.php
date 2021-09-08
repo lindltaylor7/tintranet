@@ -149,9 +149,12 @@
         <script>
             $(document).ready(function() {
             $('#datable_1').DataTable({
-                dom: 'Bfrtip',
+                dom:"<'row'<'col-sm-12 mb-3 text-center'B>><'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
                 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
             });
+            $('#datable_1_wrapper').removeClass('form-inline');
             });
         </script>
     </body>
