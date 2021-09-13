@@ -1,4 +1,4 @@
-<div  id="settings_8" class="tab-pane fade" role="tabpanel">
+<div  id="settings_8" class="tab-pane fade active in" role="tabpanel">
     <!-- Row -->
     <div class="row">
         <div class="col-lg-12">

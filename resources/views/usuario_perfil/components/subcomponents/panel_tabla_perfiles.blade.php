@@ -1,4 +1,4 @@
-<div  id="profile_8" class="tab-pane fade active in" role="tabpanel">
+<div  id="profile_8" class="tab-pane fade " role="tabpanel">
     <div class="col-md-12">
         <div class="pt-20">
             <div class="streamline user-activity">

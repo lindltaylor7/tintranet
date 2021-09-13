@@ -4,12 +4,8 @@
             <div class="panel-body  pa-0">
                 <div class="profile-box">
                     <div class="profile-cover-pic">
-                        <div class="fileupload btn btn-default">
-                            <span class="btn-text">editar</span>
-                            <input class="upload" type="file">
-                        </div>
-                        <div  class="profile-image-overlay">
-                            <img class="inline-block mb-10" id="Foto" src="https://www.expoknews.com/wp-content/uploads/2020/09/Lanzan-1er-fondo-de-inversi%C3%B3n-a-gran-escala-para-conservaci%C3%B3n-y-restauraci%C3%B3n-de-la-naturaleza-1024x683.jpg" style="width: 100%; height: 100%;object-fit: cover;" alt="user"/>
+                            <div  class="profile-image-overlay">
+                            <img class="inline-block mb-10" id="Foto" src="https://s1.1zoom.me/big0/100/273360-alexfas01.jpg" style="width: 100%; height: 100%;object-fit: cover;" alt="user"/>
                         </div>
                     </div>
                     <div class="profile-info text-center">

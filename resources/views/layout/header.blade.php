@@ -3,8 +3,8 @@
         <div class="nav-header pull-left">
             <div class="logo-wrap">
                 <a href="{{route('home')}}">
-                    <img class="brand-img" src="{{asset('img/logo.png')}}" alt="brand"/>
-                    <span class="brand-text">TRIAD</span>
+                    <img class="brand-img" src="{{asset('img/logosoftware.jpg')}}" alt="brand"/>
+                    <span class="brand-text">Demo Proyectos</span>
 
                 </a>
             </div>

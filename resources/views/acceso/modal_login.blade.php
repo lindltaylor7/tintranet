@@ -8,8 +8,8 @@
 			<header class="sp-header">
 				<div class="sp-logo-wrap pull-left">
 					<a href="{{route('home')}}">
-						<img class="brand-img mr-10" src="{{asset('img/logo.png')}}" alt="brand"/>
-						<span class="brand-text">TRIAD</span>
+						<img class="brand-img mr-10" src="{{asset('img/logosoftware.jpg')}}" alt="brand"/>
+						<span class="brand-text">DEMO PROYECTOS</span>
 					</a>
 				</div>
 				<div class="form-group mb-0 pull-right">
@@ -26,7 +26,7 @@
 							<div class="auth-form  ml-auto mr-auto no-float">
 								<div class="row">
 									<div class="col-sm-12 col-xs-12">
-										<img class="brand-img mr-10" width="100%" src="{{asset('img/login_registro.jpg')}}" alt="brand"/>
+										<img class="brand-img mr-10" width="100%" src="{{asset('img/Img_proyectos.jpg')}}" alt="brand"/>
 									</div>
 								</div>
 							</div>
@@ -42,7 +42,7 @@
 								<div class="row">
 									<div class="col-sm-12 col-xs-12">
 										<div class="mb-30">
-											<h3 class="text-center txt-dark mb-10">LOGIN TRIAD</h3>
+											<h3 class="text-center txt-dark mb-10">LOGIN PROYECTOS</h3>
 											<h6 class="text-center nonecase-font txt-grey">Ingrese los datos que se le soliciten</h6>
 										</div>
 										<div class="form-wrap">
